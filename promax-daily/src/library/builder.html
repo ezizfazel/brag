@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js';
+import { MODELS, buildPhone, setFold, setDetail } from '/src/library/phone3d.js';
+const W = 900, H = 1200;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(W, H); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const pm = new THREE.PMREMGenerator(renderer);
+scene.environment = pm.fromScene(new RoomEnvironment(), 0.03).texture;
+const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(2, 3, 4); scene.add(key);
+const rim = new THREE.DirectionalLight(0x6fb6ff, 1.4); rim.position.set(-3, 1, -3); scene.add(rim);
+const cam = new THREE.PerspectiveCamera(22, W / H, 0.1, 50);
+window.MODELS = MODELS.map((m) => ({ id: m.id, name: m.name, brand: m.brand, series: m.series, arch: m.arch, dims: m.dims, colors: m.colors }));
+let current = null;
+window.show = (id, color, yawDeg, pitchDeg = 6, fold = 150) => {
+  if (current) { scene.remove(current); current.traverse((o) => { o.geometry?.dispose?.(); }); }
+  const spec = MODELS.find((m) => m.id === id); current = buildPhone(spec, color); setFold(current, fold); scene.add(current);
+  const box = new THREE.Box3().setFromObject(current); const size = box.getSize(new THREE.Vector3());
+  const dist = (Math.max(size.y, size.x * H / W) / 2) / Math.tan((cam.fov * Math.PI) / 360) * 1.12;
+  const yaw = (yawDeg * Math.PI) / 180, pitch = (pitchDeg * Math.PI) / 180;
+  cam.position.set(Math.sin(yaw) * Math.cos(pitch) * dist, Math.sin(pitch) * dist, Math.cos(yaw) * Math.cos(pitch) * dist);
+  cam.lookAt(0, 0, 0); renderer.render(scene, cam);
+  return true;
+};
+window.exportGLB = (id, color) => new Promise((res, rej) => {
+  setDetail('export'); const spec = MODELS.find((m) => m.id === id); const obj = buildPhone(spec, color); setDetail('high'); setFold(obj, 150);
+  new GLTFExporter().parse(obj, (buf) => { const b = new Uint8Array(buf); let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); res(btoa(s)); }, rej, { binary: true, maxTextureSize: 512 });
+});
+window.READY = true;
+</script></body></html>

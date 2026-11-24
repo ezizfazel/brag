@@ -1,0 +1,292 @@
+[
+ {
+  "page": "apple_iphone_16-13317.php",
+  "name": "Apple iPhone 16",
+  "colors": [
+   "Black",
+   "White",
+   "Pink",
+   "Teal",
+   "Ultramarine"
+  ],
+  "dimensions": "147.6 x 71.6 x 7.8 mm (5.81 x 2.82 x 0.31 in)",
+  "weight": "170 g (6.00 oz)",
+  "build": "Glass front (Ceramic Shield), glass back, aluminum frame",
+  "status": "Available. Released 2024, September 20",
+  "display": "6.1 inches, 91.7 cm2 (~86.8% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg",
+  "pictures": "apple_iphone_16-pictures-13317.php"
+ },
+ {
+  "page": "apple_iphone_16_plus-13316.php",
+  "name": "Apple iPhone 16 Plus",
+  "colors": [
+   "Black",
+   "White",
+   "Pink",
+   "Teal",
+   "Ultramarine"
+  ],
+  "dimensions": "160.9 x 77.8 x 7.8 mm (6.33 x 3.06 x 0.31 in)",
+  "weight": "199 g (7.02 oz)",
+  "build": "Glass front (Ceramic Shield), glass back, aluminum frame",
+  "status": "Available. Released 2024, September 20",
+  "display": "6.7 inches, 110.2 cm2 (~88.0% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-plus.jpg",
+  "pictures": "apple_iphone_16_plus-pictures-13316.php"
+ },
+ {
+  "page": "apple_iphone_16_pro-13315.php",
+  "name": "Apple iPhone 16 Pro",
+  "colors": [
+   "Black Titanium",
+   "White Titanium",
+   "Natural Titanium",
+   "Desert Titanium"
+  ],
+  "dimensions": "149.6 x 71.5 x 8.3 mm (5.89 x 2.81 x 0.33 in)",
+  "weight": "199 g (7.02 oz)",
+  "build": "Glass front (Ceramic Shield), glass back, titanium frame (grade 5)",
+  "status": "Available. Released 2024, September 20",
+  "display": "6.3 inches, 96.4 cm2 (~90.1% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro.jpg",
+  "pictures": "apple_iphone_16_pro-pictures-13315.php"
+ },
+ {
+  "page": "apple_iphone_16_pro_max-13123.php",
+  "name": "Apple iPhone 16 Pro Max",
+  "colors": [
+   "Black Titanium",
+   "White Titanium",
+   "Natural Titanium",
+   "Desert Titanium"
+  ],
+  "dimensions": "163 x 77.6 x 8.3 mm (6.42 x 3.06 x 0.33 in)",
+  "weight": "227 g (8.01 oz)",
+  "build": "Glass front (Ceramic Shield), glass back, titanium frame (grade 5)",
+  "status": "Available. Released 2024, September 20",
+  "display": "6.9 inches, 115.6 cm2 (~91.4% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg",
+  "pictures": "apple_iphone_16_pro_max-pictures-13123.php"
+ },
+ {
+  "page": "apple_iphone_16e-13395.php",
+  "name": "Apple iPhone 16e",
+  "colors": [
+   "Black",
+   "White"
+  ],
+  "dimensions": "146.7 x 71.5 x 7.8 mm (5.78 x 2.81 x 0.31 in)",
+  "weight": "167 g (5.89 oz)",
+  "build": "Glass front (Ceramic Shield), glass back, aluminum frame",
+  "status": "Available. Released 2025, February 28",
+  "display": "6.1 inches, 90.2 cm2 (~86.0% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16e.jpg",
+  "pictures": "apple_iphone_16e-pictures-13395.php"
+ },
+ {
+  "page": "apple_iphone_17-14050.php",
+  "name": "Apple iPhone 17",
+  "colors": [
+   "Black",
+   "White",
+   "Mist Blue",
+   "Sage",
+   "Lavender"
+  ],
+  "dimensions": "149.6 x 71.5 x 8 mm (5.89 x 2.81 x 0.31 in)",
+  "weight": "177 g (6.24 oz)",
+  "build": "Glass front (Ceramic Shield 2), aluminum frame, glass back",
+  "status": "Available. Released 2025, September 19",
+  "display": "6.3 inches, 96.4 cm2 (~90.1% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17.jpg",
+  "pictures": "apple_iphone_17-pictures-14050.php"
+ },
+ {
+  "page": "apple_iphone_17_air-13502.php",
+  "name": "Apple iPhone Air",
+  "colors": [
+   "Space Black",
+   "Cloud White",
+   "Light Gold",
+   "Sky Blue"
+  ],
+  "dimensions": "156.2 x 74.7 x 5.6 mm (6.15 x 2.94 x 0.22 in)",
+  "weight": "165 g (5.82 oz)",
+  "build": "Glass front (Ceramic Shield 2), titanium frame (grade 5), glass back (Ceramic Shield)",
+  "status": "Available. Released 2025, September 19",
+  "display": "6.5 inches, 104.9 cm2 (~89.9% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-air.jpg",
+  "pictures": "apple_iphone_17_air-pictures-13502.php"
+ },
+ {
+  "page": "apple_iphone_17_pro-14049.php",
+  "name": "Apple iPhone 17 Pro",
+  "colors": [
+   "Silver",
+   "Cosmic Orange",
+   "Deep Blue"
+  ],
+  "dimensions": "150 x 71.9 x 8.8 mm (5.91 x 2.83 x 0.35 in)",
+  "weight": "206 g (7.27 oz)",
+  "build": "Glass front (Ceramic Shield 2), aluminum frame, aluminum back/ glass back (Ceramic Shield)",
+  "status": "Available. Released 2025, September 19",
+  "display": "6.3 inches, 96.4 cm2 (~89.4% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17-pro.jpg",
+  "pictures": "apple_iphone_17_pro-pictures-14049.php"
+ },
+ {
+  "page": "apple_iphone_17_pro_max-13964.php",
+  "name": "Apple iPhone 17 Pro Max",
+  "colors": [
+   "Silver",
+   "Cosmic Orange",
+   "Deep Blue"
+  ],
+  "dimensions": "163.4 x 78 x 8.8 mm (6.43 x 3.07 x 0.35 in)",
+  "weight": "233 g (8.22 oz)",
+  "build": "Glass front (Ceramic Shield 2), aluminum frame, aluminum back/ glass back (Ceramic Shield)",
+  "status": "Available. Released 2025, September 19",
+  "display": "6.9 inches, 115.6 cm2 (~90.7% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17-pro-max.jpg",
+  "pictures": "apple_iphone_17_pro_max-pictures-13964.php"
+ },
+ {
+  "page": "apple_iphone_17e-14487.php",
+  "name": "Apple iPhone 17e",
+  "colors": [
+   "Black",
+   "White",
+   "Soft Pink"
+  ],
+  "dimensions": "146.7 x 71.5 x 7.8 mm (5.78 x 2.81 x 0.31 in)",
+  "weight": "169 g (5.96 oz)",
+  "build": "Glass front (Ceramic Shield 2), glass back, aluminum frame",
+  "status": "Available. Released 2026, March 11",
+  "display": "6.1 inches, 90.2 cm2 (~86.0% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-17e.jpg",
+  "pictures": "apple_iphone_17e-pictures-14487.php"
+ },
+ {
+  "page": "apple_iphone_18_pro-14934.php",
+  "name": "Apple iPhone 18 Pro",
+  "colors": [
+   "Black",
+   "Silver",
+   "Glacier",
+   "Burgundy"
+  ],
+  "dimensions": "150 x 71.9 x 8.8 mm (5.91 x 2.83 x 0.35 in)",
+  "weight": "211 g (7.44 oz)",
+  "build": "Glass front (Ceramic Shield 2), aluminum frame, aluminum back/ glass back (Ceramic Shield)",
+  "status": "Available. Released 2026, September 18",
+  "display": "6.3 inches, 96.4 cm2 (~89.4% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone18-pro.jpg",
+  "pictures": "apple_iphone_18_pro-pictures-14934.php"
+ },
+ {
+  "page": "apple_iphone_18_pro_max-14716.php",
+  "name": "Apple iPhone 18 Pro Max",
+  "colors": [
+   "Black",
+   "Silver",
+   "Glacier",
+   "Burgundy"
+  ],
+  "dimensions": "163.4 x 78 x 8.8 mm (6.43 x 3.07 x 0.35 in)",
+  "weight": "249 g (8.78 oz)",
+  "build": "Glass front (Ceramic Shield 2), aluminum frame, aluminum back/ glass back (Ceramic Shield)",
+  "status": "Available. Released 2026, September 18",
+  "display": "6.9 inches, 115.6 cm2 (~90.7% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone18-pro-max.jpg",
+  "pictures": "apple_iphone_18_pro_max-pictures-14716.php"
+ },
+ {
+  "page": "apple_iphone_duo_fold-13804.php",
+  "name": "Apple iPhone Duo",
+  "colors": [
+   "Night Sky",
+   "Star White"
+  ],
+  "dimensions": "Unfolded: 117.8 x 164.6 x 5.2 mmFolded: 117.8 x 84.1 x 11.3 mm",
+  "weight": "254 g (8.96 oz)",
+  "build": "Glass front (Ceramic Shield 2) (folded), titanium frame & hindge (grade 5), glass back (Ceramic Shield)",
+  "status": "Available. Released 2026, October 23",
+  "display": "7.6 inches, 175.4 cm2 (~90.4% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-duo-fold.jpg",
+  "pictures": "apple_iphone_duo_fold-pictures-13804.php"
+ },
+ {
+  "page": "samsung_galaxy_s26_5g-14456.php",
+  "name": "Samsung Galaxy S26",
+  "colors": [
+   "Cobalt Violet",
+   "Sky Blue",
+   "Black",
+   "White",
+   "Silver Shadow",
+   "Pink Gold"
+  ],
+  "dimensions": "149.6 x 71.7 x 7.2 mm (5.89 x 2.82 x 0.28 in)",
+  "weight": "167 g (5.89 oz)",
+  "build": "Glass front (Gorilla Glass Victus 2), glass back (Gorilla Glass Victus 2), aluminum frame",
+  "status": "Available. Released 2026, March 06",
+  "display": "6.3 inches, 96.5 cm2 (~90.0% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26.jpg",
+  "pictures": "samsung_galaxy_s26_5g-pictures-14456.php"
+ },
+ {
+  "page": "samsung_galaxy_s26_fe_5g-14870.php",
+  "name": "Samsung Galaxy S26 FE",
+  "colors": [
+   "Blueberry",
+   "Graphite",
+   "Pistachio"
+  ],
+  "dimensions": "161.6 x 76.9 x 7.4 mm (6.36 x 3.03 x 0.29 in)",
+  "weight": "193 g (6.81 oz)",
+  "build": "Glass front (Gorilla Glass Victus+), glass back (Gorilla Glass Victus+), aluminum frame",
+  "status": "Available. Released 2026, September 04",
+  "display": "6.7 inches, 110.2 cm2 (~88.7% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/samsung-samsung-galaxy-s26-fe.jpg",
+  "pictures": "samsung_galaxy_s26_fe_5g-pictures-14870.php"
+ },
+ {
+  "page": "samsung_galaxy_s26_ultra_5g-14320.php",
+  "name": "Samsung Galaxy S26 Ultra",
+  "colors": [
+   "Cobalt Violet",
+   "Sky Blue",
+   "Black",
+   "White",
+   "Silver Shadow",
+   "Pink Gold"
+  ],
+  "dimensions": "163.6 x 78.1 x 7.9 mm (6.44 x 3.07 x 0.31 in)",
+  "weight": "214 g (7.55 oz)",
+  "build": "Glass front (Corning Gorilla Armor 2), glass back (Gorilla Glass Victus 2), aluminum frame",
+  "status": "Available. Released 2026, March 06",
+  "display": "6.9 inches, 115.9 cm2 (~90.7% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-ultra-new.jpg",
+  "pictures": "samsung_galaxy_s26_ultra_5g-pictures-14320.php"
+ },
+ {
+  "page": "samsung_galaxy_s26+_5g-14457.php",
+  "name": "Samsung Galaxy S26+",
+  "colors": [
+   "Cobalt Violet",
+   "Sky Blue",
+   "Black",
+   "White",
+   "Silver Shadow",
+   "Pink Gold"
+  ],
+  "dimensions": "158.4 x 75.8 x 7.3 mm (6.24 x 2.98 x 0.29 in)",
+  "weight": "190 g (6.70 oz)",
+  "build": "Glass front (Gorilla Glass Victus 2), glass back (Gorilla Glass Victus 2), aluminum frame",
+  "status": "Available. Released 2026, March 06",
+  "display": "6.7 inches, 108.9 cm2 (~90.7% screen-to-body ratio)",
+  "big": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s26-plus.jpg",
+  "pictures": "samsung_galaxy_s26+_5g-pictures-14457.php"
+ }
+]

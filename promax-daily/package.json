@@ -11,6 +11,7 @@
     "generate": "tsx src/cli/generate.ts",
     "export": "tsx src/cli/export.ts",
     "template": "python3 python/promax_excel.py template",
+    "library": "node src/library/build-library.cjs",
     "studio": "remotion studio src/remotion/index.ts",
     "typecheck": "tsc --noEmit"
   },

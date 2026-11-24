@@ -1,0 +1,865 @@
+{
+ "generated_at": "2026-11-24T19:38:36.631Z",
+ "source": "colours/dimensions: gsmarena.com spec pages; geometry: original procedural models (src/library/phone3d.js)",
+ "models": [
+  {
+   "id": "iphone-16",
+   "name": "iPhone 16",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "arch": "pill2",
+   "dims": [
+    147.6,
+    71.6,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#3B3D42",
+     "slug": "black",
+     "glb": "library/models/iphone-16__black.glb",
+     "preview_back": "library/previews/iphone-16__black__back.webp",
+     "preview_front": "library/previews/iphone-16__black__front.webp",
+     "glb_bytes": 1182088
+    },
+    {
+     "name": "White",
+     "hex": "#F3F2EE",
+     "slug": "white",
+     "glb": "library/models/iphone-16__white.glb",
+     "preview_back": "library/previews/iphone-16__white__back.webp",
+     "preview_front": "library/previews/iphone-16__white__front.webp",
+     "glb_bytes": 1180216
+    },
+    {
+     "name": "Pink",
+     "hex": "#F2AED6",
+     "slug": "pink",
+     "glb": "library/models/iphone-16__pink.glb",
+     "preview_back": "library/previews/iphone-16__pink__back.webp",
+     "preview_front": "library/previews/iphone-16__pink__front.webp",
+     "glb_bytes": 1183496
+    },
+    {
+     "name": "Teal",
+     "hex": "#A8D3CF",
+     "slug": "teal",
+     "glb": "library/models/iphone-16__teal.glb",
+     "preview_back": "library/previews/iphone-16__teal__back.webp",
+     "preview_front": "library/previews/iphone-16__teal__front.webp",
+     "glb_bytes": 1178948
+    },
+    {
+     "name": "Ultramarine",
+     "hex": "#8FA3F2",
+     "slug": "ultramarine",
+     "glb": "library/models/iphone-16__ultramarine.glb",
+     "preview_back": "library/previews/iphone-16__ultramarine__back.webp",
+     "preview_front": "library/previews/iphone-16__ultramarine__front.webp",
+     "glb_bytes": 1183528
+    }
+   ]
+  },
+  {
+   "id": "iphone-16-plus",
+   "name": "iPhone 16 Plus",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "arch": "pill2",
+   "dims": [
+    160.9,
+    77.8,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#3B3D42",
+     "slug": "black",
+     "glb": "library/models/iphone-16-plus__black.glb",
+     "preview_back": "library/previews/iphone-16-plus__black__back.webp",
+     "preview_front": "library/previews/iphone-16-plus__black__front.webp",
+     "glb_bytes": 1180132
+    },
+    {
+     "name": "White",
+     "hex": "#F3F2EE",
+     "slug": "white",
+     "glb": "library/models/iphone-16-plus__white.glb",
+     "preview_back": "library/previews/iphone-16-plus__white__back.webp",
+     "preview_front": "library/previews/iphone-16-plus__white__front.webp",
+     "glb_bytes": 1178260
+    },
+    {
+     "name": "Pink",
+     "hex": "#F2AED6",
+     "slug": "pink",
+     "glb": "library/models/iphone-16-plus__pink.glb",
+     "preview_back": "library/previews/iphone-16-plus__pink__back.webp",
+     "preview_front": "library/previews/iphone-16-plus__pink__front.webp",
+     "glb_bytes": 1181540
+    },
+    {
+     "name": "Teal",
+     "hex": "#A8D3CF",
+     "slug": "teal",
+     "glb": "library/models/iphone-16-plus__teal.glb",
+     "preview_back": "library/previews/iphone-16-plus__teal__back.webp",
+     "preview_front": "library/previews/iphone-16-plus__teal__front.webp",
+     "glb_bytes": 1176992
+    },
+    {
+     "name": "Ultramarine",
+     "hex": "#8FA3F2",
+     "slug": "ultramarine",
+     "glb": "library/models/iphone-16-plus__ultramarine.glb",
+     "preview_back": "library/previews/iphone-16-plus__ultramarine__back.webp",
+     "preview_front": "library/previews/iphone-16-plus__ultramarine__front.webp",
+     "glb_bytes": 1181572
+    }
+   ]
+  },
+  {
+   "id": "iphone-16-pro",
+   "name": "iPhone 16 Pro",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "arch": "tri",
+   "dims": [
+    149.6,
+    71.5,
+    8.3
+   ],
+   "colors": [
+    {
+     "name": "Black Titanium",
+     "hex": "#3A3A3C",
+     "slug": "black-titanium",
+     "glb": "library/models/iphone-16-pro__black-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro__black-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro__black-titanium__front.webp",
+     "glb_bytes": 1241472
+    },
+    {
+     "name": "White Titanium",
+     "hex": "#EFEEEA",
+     "slug": "white-titanium",
+     "glb": "library/models/iphone-16-pro__white-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro__white-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro__white-titanium__front.webp",
+     "glb_bytes": 1239980
+    },
+    {
+     "name": "Natural Titanium",
+     "hex": "#C3BDB2",
+     "slug": "natural-titanium",
+     "glb": "library/models/iphone-16-pro__natural-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro__natural-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro__natural-titanium__front.webp",
+     "glb_bytes": 1240596
+    },
+    {
+     "name": "Desert Titanium",
+     "hex": "#C2A68F",
+     "slug": "desert-titanium",
+     "glb": "library/models/iphone-16-pro__desert-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro__desert-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro__desert-titanium__front.webp",
+     "glb_bytes": 1242580
+    }
+   ]
+  },
+  {
+   "id": "iphone-16-pro-max",
+   "name": "iPhone 16 Pro Max",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "arch": "tri",
+   "dims": [
+    163,
+    77.6,
+    8.3
+   ],
+   "colors": [
+    {
+     "name": "Black Titanium",
+     "hex": "#3A3A3C",
+     "slug": "black-titanium",
+     "glb": "library/models/iphone-16-pro-max__black-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro-max__black-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro-max__black-titanium__front.webp",
+     "glb_bytes": 1239608
+    },
+    {
+     "name": "White Titanium",
+     "hex": "#EFEEEA",
+     "slug": "white-titanium",
+     "glb": "library/models/iphone-16-pro-max__white-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro-max__white-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro-max__white-titanium__front.webp",
+     "glb_bytes": 1238112
+    },
+    {
+     "name": "Natural Titanium",
+     "hex": "#C3BDB2",
+     "slug": "natural-titanium",
+     "glb": "library/models/iphone-16-pro-max__natural-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro-max__natural-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro-max__natural-titanium__front.webp",
+     "glb_bytes": 1238728
+    },
+    {
+     "name": "Desert Titanium",
+     "hex": "#C2A68F",
+     "slug": "desert-titanium",
+     "glb": "library/models/iphone-16-pro-max__desert-titanium.glb",
+     "preview_back": "library/previews/iphone-16-pro-max__desert-titanium__back.webp",
+     "preview_front": "library/previews/iphone-16-pro-max__desert-titanium__front.webp",
+     "glb_bytes": 1240712
+    }
+   ]
+  },
+  {
+   "id": "iphone-16e",
+   "name": "iPhone 16e",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "arch": "single",
+   "dims": [
+    146.7,
+    71.5,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2E3136",
+     "slug": "black",
+     "glb": "library/models/iphone-16e__black.glb",
+     "preview_back": "library/previews/iphone-16e__black__back.webp",
+     "preview_front": "library/previews/iphone-16e__black__front.webp",
+     "glb_bytes": 784316
+    },
+    {
+     "name": "White",
+     "hex": "#F4F4F2",
+     "slug": "white",
+     "glb": "library/models/iphone-16e__white.glb",
+     "preview_back": "library/previews/iphone-16e__white__back.webp",
+     "preview_front": "library/previews/iphone-16e__white__front.webp",
+     "glb_bytes": 782020
+    }
+   ]
+  },
+  {
+   "id": "iphone-17",
+   "name": "iPhone 17",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "arch": "pill2",
+   "dims": [
+    149.6,
+    71.5,
+    8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2D2E31",
+     "slug": "black",
+     "glb": "library/models/iphone-17__black.glb",
+     "preview_back": "library/previews/iphone-17__black__back.webp",
+     "preview_front": "library/previews/iphone-17__black__front.webp",
+     "glb_bytes": 1181992
+    },
+    {
+     "name": "White",
+     "hex": "#F4F4F0",
+     "slug": "white",
+     "glb": "library/models/iphone-17__white.glb",
+     "preview_back": "library/previews/iphone-17__white__back.webp",
+     "preview_front": "library/previews/iphone-17__white__front.webp",
+     "glb_bytes": 1180668
+    },
+    {
+     "name": "Mist Blue",
+     "hex": "#AFC2DA",
+     "slug": "mist-blue",
+     "glb": "library/models/iphone-17__mist-blue.glb",
+     "preview_back": "library/previews/iphone-17__mist-blue__back.webp",
+     "preview_front": "library/previews/iphone-17__mist-blue__front.webp",
+     "glb_bytes": 1182924
+    },
+    {
+     "name": "Sage",
+     "hex": "#B3C0A6",
+     "slug": "sage",
+     "glb": "library/models/iphone-17__sage.glb",
+     "preview_back": "library/previews/iphone-17__sage__back.webp",
+     "preview_front": "library/previews/iphone-17__sage__front.webp",
+     "glb_bytes": 1182460
+    },
+    {
+     "name": "Lavender",
+     "hex": "#D5C8E8",
+     "slug": "lavender",
+     "glb": "library/models/iphone-17__lavender.glb",
+     "preview_back": "library/previews/iphone-17__lavender__back.webp",
+     "preview_front": "library/previews/iphone-17__lavender__front.webp",
+     "glb_bytes": 1182764
+    }
+   ]
+  },
+  {
+   "id": "iphone-air",
+   "name": "iPhone Air",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "arch": "bar",
+   "dims": [
+    156.2,
+    74.7,
+    5.6
+   ],
+   "colors": [
+    {
+     "name": "Space Black",
+     "hex": "#2A2A2D",
+     "slug": "space-black",
+     "glb": "library/models/iphone-air__space-black.glb",
+     "preview_back": "library/previews/iphone-air__space-black__back.webp",
+     "preview_front": "library/previews/iphone-air__space-black__front.webp",
+     "glb_bytes": 1140840
+    },
+    {
+     "name": "Cloud White",
+     "hex": "#F3F3F1",
+     "slug": "cloud-white",
+     "glb": "library/models/iphone-air__cloud-white.glb",
+     "preview_back": "library/previews/iphone-air__cloud-white__back.webp",
+     "preview_front": "library/previews/iphone-air__cloud-white__front.webp",
+     "glb_bytes": 1139564
+    },
+    {
+     "name": "Light Gold",
+     "hex": "#EEE1C6",
+     "slug": "light-gold",
+     "glb": "library/models/iphone-air__light-gold.glb",
+     "preview_back": "library/previews/iphone-air__light-gold__back.webp",
+     "preview_front": "library/previews/iphone-air__light-gold__front.webp",
+     "glb_bytes": 1140500
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#D2E2F0",
+     "slug": "sky-blue",
+     "glb": "library/models/iphone-air__sky-blue.glb",
+     "preview_back": "library/previews/iphone-air__sky-blue__back.webp",
+     "preview_front": "library/previews/iphone-air__sky-blue__front.webp",
+     "glb_bytes": 1142260
+    }
+   ]
+  },
+  {
+   "id": "iphone-17-pro",
+   "name": "iPhone 17 Pro",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "arch": "plateau",
+   "dims": [
+    150,
+    71.9,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Silver",
+     "hex": "#E2E4E7",
+     "slug": "silver",
+     "glb": "library/models/iphone-17-pro__silver.glb",
+     "preview_back": "library/previews/iphone-17-pro__silver__back.webp",
+     "preview_front": "library/previews/iphone-17-pro__silver__front.webp",
+     "glb_bytes": 1247964
+    },
+    {
+     "name": "Cosmic Orange",
+     "hex": "#E8772E",
+     "slug": "cosmic-orange",
+     "glb": "library/models/iphone-17-pro__cosmic-orange.glb",
+     "preview_back": "library/previews/iphone-17-pro__cosmic-orange__back.webp",
+     "preview_front": "library/previews/iphone-17-pro__cosmic-orange__front.webp",
+     "glb_bytes": 1250604
+    },
+    {
+     "name": "Deep Blue",
+     "hex": "#2F3C58",
+     "slug": "deep-blue",
+     "glb": "library/models/iphone-17-pro__deep-blue.glb",
+     "preview_back": "library/previews/iphone-17-pro__deep-blue__back.webp",
+     "preview_front": "library/previews/iphone-17-pro__deep-blue__front.webp",
+     "glb_bytes": 1248580
+    }
+   ]
+  },
+  {
+   "id": "iphone-17-pro-max",
+   "name": "iPhone 17 Pro Max",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "arch": "plateau",
+   "dims": [
+    163.4,
+    78,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Silver",
+     "hex": "#E2E4E7",
+     "slug": "silver",
+     "glb": "library/models/iphone-17-pro-max__silver.glb",
+     "preview_back": "library/previews/iphone-17-pro-max__silver__back.webp",
+     "preview_front": "library/previews/iphone-17-pro-max__silver__front.webp",
+     "glb_bytes": 1247984
+    },
+    {
+     "name": "Cosmic Orange",
+     "hex": "#E8772E",
+     "slug": "cosmic-orange",
+     "glb": "library/models/iphone-17-pro-max__cosmic-orange.glb",
+     "preview_back": "library/previews/iphone-17-pro-max__cosmic-orange__back.webp",
+     "preview_front": "library/previews/iphone-17-pro-max__cosmic-orange__front.webp",
+     "glb_bytes": 1250624
+    },
+    {
+     "name": "Deep Blue",
+     "hex": "#2F3C58",
+     "slug": "deep-blue",
+     "glb": "library/models/iphone-17-pro-max__deep-blue.glb",
+     "preview_back": "library/previews/iphone-17-pro-max__deep-blue__back.webp",
+     "preview_front": "library/previews/iphone-17-pro-max__deep-blue__front.webp",
+     "glb_bytes": 1248600
+    }
+   ]
+  },
+  {
+   "id": "iphone-17e",
+   "name": "iPhone 17e",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "arch": "single",
+   "dims": [
+    146.7,
+    71.5,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2E3136",
+     "slug": "black",
+     "glb": "library/models/iphone-17e__black.glb",
+     "preview_back": "library/previews/iphone-17e__black__back.webp",
+     "preview_front": "library/previews/iphone-17e__black__front.webp",
+     "glb_bytes": 784316
+    },
+    {
+     "name": "White",
+     "hex": "#F4F4F2",
+     "slug": "white",
+     "glb": "library/models/iphone-17e__white.glb",
+     "preview_back": "library/previews/iphone-17e__white__back.webp",
+     "preview_front": "library/previews/iphone-17e__white__front.webp",
+     "glb_bytes": 782020
+    },
+    {
+     "name": "Soft Pink",
+     "hex": "#F4D5D8",
+     "slug": "soft-pink",
+     "glb": "library/models/iphone-17e__soft-pink.glb",
+     "preview_back": "library/previews/iphone-17e__soft-pink__back.webp",
+     "preview_front": "library/previews/iphone-17e__soft-pink__front.webp",
+     "glb_bytes": 784504
+    }
+   ]
+  },
+  {
+   "id": "iphone-18-pro",
+   "name": "iPhone 18 Pro",
+   "brand": "Apple",
+   "series": "iPhone 18 Series",
+   "arch": "plateau",
+   "dims": [
+    150,
+    71.9,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2B2C30",
+     "slug": "black",
+     "glb": "library/models/iphone-18-pro__black.glb",
+     "preview_back": "library/previews/iphone-18-pro__black__back.webp",
+     "preview_front": "library/previews/iphone-18-pro__black__front.webp",
+     "glb_bytes": 1248220
+    },
+    {
+     "name": "Silver",
+     "hex": "#E3E4E6",
+     "slug": "silver",
+     "glb": "library/models/iphone-18-pro__silver.glb",
+     "preview_back": "library/previews/iphone-18-pro__silver__back.webp",
+     "preview_front": "library/previews/iphone-18-pro__silver__front.webp",
+     "glb_bytes": 1247316
+    },
+    {
+     "name": "Glacier",
+     "hex": "#C6D7E7",
+     "slug": "glacier",
+     "glb": "library/models/iphone-18-pro__glacier.glb",
+     "preview_back": "library/previews/iphone-18-pro__glacier__back.webp",
+     "preview_front": "library/previews/iphone-18-pro__glacier__front.webp",
+     "glb_bytes": 1249192
+    },
+    {
+     "name": "Burgundy",
+     "hex": "#6B2231",
+     "slug": "burgundy",
+     "glb": "library/models/iphone-18-pro__burgundy.glb",
+     "preview_back": "library/previews/iphone-18-pro__burgundy__back.webp",
+     "preview_front": "library/previews/iphone-18-pro__burgundy__front.webp",
+     "glb_bytes": 1249496
+    }
+   ]
+  },
+  {
+   "id": "iphone-18-pro-max",
+   "name": "iPhone 18 Pro Max",
+   "brand": "Apple",
+   "series": "iPhone 18 Series",
+   "arch": "plateau",
+   "dims": [
+    163.4,
+    78,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2B2C30",
+     "slug": "black",
+     "glb": "library/models/iphone-18-pro-max__black.glb",
+     "preview_back": "library/previews/iphone-18-pro-max__black__back.webp",
+     "preview_front": "library/previews/iphone-18-pro-max__black__front.webp",
+     "glb_bytes": 1248236
+    },
+    {
+     "name": "Silver",
+     "hex": "#E3E4E6",
+     "slug": "silver",
+     "glb": "library/models/iphone-18-pro-max__silver.glb",
+     "preview_back": "library/previews/iphone-18-pro-max__silver__back.webp",
+     "preview_front": "library/previews/iphone-18-pro-max__silver__front.webp",
+     "glb_bytes": 1247336
+    },
+    {
+     "name": "Glacier",
+     "hex": "#C6D7E7",
+     "slug": "glacier",
+     "glb": "library/models/iphone-18-pro-max__glacier.glb",
+     "preview_back": "library/previews/iphone-18-pro-max__glacier__back.webp",
+     "preview_front": "library/previews/iphone-18-pro-max__glacier__front.webp",
+     "glb_bytes": 1249212
+    },
+    {
+     "name": "Burgundy",
+     "hex": "#6B2231",
+     "slug": "burgundy",
+     "glb": "library/models/iphone-18-pro-max__burgundy.glb",
+     "preview_back": "library/previews/iphone-18-pro-max__burgundy__back.webp",
+     "preview_front": "library/previews/iphone-18-pro-max__burgundy__front.webp",
+     "glb_bytes": 1249516
+    }
+   ]
+  },
+  {
+   "id": "iphone-duo",
+   "name": "iPhone Duo",
+   "brand": "Apple",
+   "series": "iPhone Duo",
+   "arch": "fold",
+   "dims": [
+    117.8,
+    84.1,
+    5.2
+   ],
+   "colors": [
+    {
+     "name": "Night Sky",
+     "hex": "#2B3447",
+     "slug": "night-sky",
+     "glb": "library/models/iphone-duo__night-sky.glb",
+     "preview_back": "library/previews/iphone-duo__night-sky__back.webp",
+     "preview_front": "library/previews/iphone-duo__night-sky__front.webp",
+     "glb_bytes": 2133568
+    },
+    {
+     "name": "Star White",
+     "hex": "#EDEDEA",
+     "slug": "star-white",
+     "glb": "library/models/iphone-duo__star-white.glb",
+     "preview_back": "library/previews/iphone-duo__star-white__back.webp",
+     "preview_front": "library/previews/iphone-duo__star-white__front.webp",
+     "glb_bytes": 2103212
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26",
+   "name": "Galaxy S26",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "arch": "sam3",
+   "dims": [
+    149.6,
+    71.7,
+    7.2
+   ],
+   "colors": [
+    {
+     "name": "Cobalt Violet",
+     "hex": "#6C6597",
+     "slug": "cobalt-violet",
+     "glb": "library/models/galaxy-s26__cobalt-violet.glb",
+     "preview_back": "library/previews/galaxy-s26__cobalt-violet__back.webp",
+     "preview_front": "library/previews/galaxy-s26__cobalt-violet__front.webp",
+     "glb_bytes": 772772
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#BFD6EA",
+     "slug": "sky-blue",
+     "glb": "library/models/galaxy-s26__sky-blue.glb",
+     "preview_back": "library/previews/galaxy-s26__sky-blue__back.webp",
+     "preview_front": "library/previews/galaxy-s26__sky-blue__front.webp",
+     "glb_bytes": 772120
+    },
+    {
+     "name": "Black",
+     "hex": "#2A2C2F",
+     "slug": "black",
+     "glb": "library/models/galaxy-s26__black.glb",
+     "preview_back": "library/previews/galaxy-s26__black__back.webp",
+     "preview_front": "library/previews/galaxy-s26__black__front.webp",
+     "glb_bytes": 770168
+    },
+    {
+     "name": "White",
+     "hex": "#F2F2F2",
+     "slug": "white",
+     "glb": "library/models/galaxy-s26__white.glb",
+     "preview_back": "library/previews/galaxy-s26__white__back.webp",
+     "preview_front": "library/previews/galaxy-s26__white__front.webp",
+     "glb_bytes": 770440
+    },
+    {
+     "name": "Silver Shadow",
+     "hex": "#C8CACD",
+     "slug": "silver-shadow",
+     "glb": "library/models/galaxy-s26__silver-shadow.glb",
+     "preview_back": "library/previews/galaxy-s26__silver-shadow__back.webp",
+     "preview_front": "library/previews/galaxy-s26__silver-shadow__front.webp",
+     "glb_bytes": 769968
+    },
+    {
+     "name": "Pink Gold",
+     "hex": "#E9CBBB",
+     "slug": "pink-gold",
+     "glb": "library/models/galaxy-s26__pink-gold.glb",
+     "preview_back": "library/previews/galaxy-s26__pink-gold__back.webp",
+     "preview_front": "library/previews/galaxy-s26__pink-gold__front.webp",
+     "glb_bytes": 773000
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26-plus",
+   "name": "Galaxy S26+",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "arch": "sam3",
+   "dims": [
+    158.4,
+    75.8,
+    7.3
+   ],
+   "colors": [
+    {
+     "name": "Cobalt Violet",
+     "hex": "#6C6597",
+     "slug": "cobalt-violet",
+     "glb": "library/models/galaxy-s26-plus__cobalt-violet.glb",
+     "preview_back": "library/previews/galaxy-s26-plus__cobalt-violet__back.webp",
+     "preview_front": "library/previews/galaxy-s26-plus__cobalt-violet__front.webp",
+     "glb_bytes": 766996
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#BFD6EA",
+     "slug": "sky-blue",
+     "glb": "library/models/galaxy-s26-plus__sky-blue.glb",
+     "preview_back": "library/previews/galaxy-s26-plus__sky-blue__back.webp",
+     "preview_front": "library/previews/galaxy-s26-plus__sky-blue__front.webp",
+     "glb_bytes": 766340
+    },
+    {
+     "name": "Black",
+     "hex": "#2A2C2F",
+     "slug": "black",
+     "glb": "library/models/galaxy-s26-plus__black.glb",
+     "preview_back": "library/previews/galaxy-s26-plus__black__back.webp",
+     "preview_front": "library/previews/galaxy-s26-plus__black__front.webp",
+     "glb_bytes": 764388
+    },
+    {
+     "name": "White",
+     "hex": "#F2F2F2",
+     "slug": "white",
+     "glb": "library/models/galaxy-s26-plus__white.glb",
+     "preview_back": "library/previews/galaxy-s26-plus__white__back.webp",
+     "preview_front": "library/previews/galaxy-s26-plus__white__front.webp",
+     "glb_bytes": 764660
+    },
+    {
+     "name": "Silver Shadow",
+     "hex": "#C8CACD",
+     "slug": "silver-shadow",
+     "glb": "library/models/galaxy-s26-plus__silver-shadow.glb",
+     "preview_back": "library/previews/galaxy-s26-plus__silver-shadow__back.webp",
+     "preview_front": "library/previews/galaxy-s26-plus__silver-shadow__front.webp",
+     "glb_bytes": 764188
+    },
+    {
+     "name": "Pink Gold",
+     "hex": "#E9CBBB",
+     "slug": "pink-gold",
+     "glb": "library/models/galaxy-s26-plus__pink-gold.glb",
+     "preview_back": "library/previews/galaxy-s26-plus__pink-gold__back.webp",
+     "preview_front": "library/previews/galaxy-s26-plus__pink-gold__front.webp",
+     "glb_bytes": 767220
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26-ultra",
+   "name": "Galaxy S26 Ultra",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "arch": "ultra",
+   "dims": [
+    163.6,
+    78.1,
+    7.9
+   ],
+   "colors": [
+    {
+     "name": "Cobalt Violet",
+     "hex": "#6C6597",
+     "slug": "cobalt-violet",
+     "glb": "library/models/galaxy-s26-ultra__cobalt-violet.glb",
+     "preview_back": "library/previews/galaxy-s26-ultra__cobalt-violet__back.webp",
+     "preview_front": "library/previews/galaxy-s26-ultra__cobalt-violet__front.webp",
+     "glb_bytes": 875588
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#BFD6EA",
+     "slug": "sky-blue",
+     "glb": "library/models/galaxy-s26-ultra__sky-blue.glb",
+     "preview_back": "library/previews/galaxy-s26-ultra__sky-blue__back.webp",
+     "preview_front": "library/previews/galaxy-s26-ultra__sky-blue__front.webp",
+     "glb_bytes": 874932
+    },
+    {
+     "name": "Black",
+     "hex": "#2A2C2F",
+     "slug": "black",
+     "glb": "library/models/galaxy-s26-ultra__black.glb",
+     "preview_back": "library/previews/galaxy-s26-ultra__black__back.webp",
+     "preview_front": "library/previews/galaxy-s26-ultra__black__front.webp",
+     "glb_bytes": 872980
+    },
+    {
+     "name": "White",
+     "hex": "#F2F2F2",
+     "slug": "white",
+     "glb": "library/models/galaxy-s26-ultra__white.glb",
+     "preview_back": "library/previews/galaxy-s26-ultra__white__back.webp",
+     "preview_front": "library/previews/galaxy-s26-ultra__white__front.webp",
+     "glb_bytes": 873252
+    },
+    {
+     "name": "Silver Shadow",
+     "hex": "#C8CACD",
+     "slug": "silver-shadow",
+     "glb": "library/models/galaxy-s26-ultra__silver-shadow.glb",
+     "preview_back": "library/previews/galaxy-s26-ultra__silver-shadow__back.webp",
+     "preview_front": "library/previews/galaxy-s26-ultra__silver-shadow__front.webp",
+     "glb_bytes": 872780
+    },
+    {
+     "name": "Pink Gold",
+     "hex": "#E9CBBB",
+     "slug": "pink-gold",
+     "glb": "library/models/galaxy-s26-ultra__pink-gold.glb",
+     "preview_back": "library/previews/galaxy-s26-ultra__pink-gold__back.webp",
+     "preview_front": "library/previews/galaxy-s26-ultra__pink-gold__front.webp",
+     "glb_bytes": 875812
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26-fe",
+   "name": "Galaxy S26 FE",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "arch": "sam3",
+   "dims": [
+    161.6,
+    76.9,
+    7.4
+   ],
+   "colors": [
+    {
+     "name": "Blueberry",
+     "hex": "#3F4F7C",
+     "slug": "blueberry",
+     "glb": "library/models/galaxy-s26-fe__blueberry.glb",
+     "preview_back": "library/previews/galaxy-s26-fe__blueberry__back.webp",
+     "preview_front": "library/previews/galaxy-s26-fe__blueberry__front.webp",
+     "glb_bytes": 772592
+    },
+    {
+     "name": "Graphite",
+     "hex": "#4A4C51",
+     "slug": "graphite",
+     "glb": "library/models/galaxy-s26-fe__graphite.glb",
+     "preview_back": "library/previews/galaxy-s26-fe__graphite__back.webp",
+     "preview_front": "library/previews/galaxy-s26-fe__graphite__front.webp",
+     "glb_bytes": 770720
+    },
+    {
+     "name": "Pistachio",
+     "hex": "#C9DCC3",
+     "slug": "pistachio",
+     "glb": "library/models/galaxy-s26-fe__pistachio.glb",
+     "preview_back": "library/previews/galaxy-s26-fe__pistachio__back.webp",
+     "preview_front": "library/previews/galaxy-s26-fe__pistachio__front.webp",
+     "glb_bytes": 772156
+    }
+   ]
+  }
+ ]
+}

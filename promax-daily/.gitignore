@@ -3,3 +3,4 @@ output/
 data/uploads/
 data/validated.json
 *.log
+assets/library/models/
