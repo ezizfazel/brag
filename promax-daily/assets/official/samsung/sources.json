@@ -1,0 +1,451 @@
+{
+ "galaxy-s26": {
+  "Black": {
+   "sku": "ZKEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26/black-back.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzkexaa-550995412",
+    "gallery_index": 7
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26/black-front.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzkexaa-550995407",
+    "gallery_index": 2
+   }
+  },
+  "Cobalt Violet": {
+   "sku": "ZVEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26/cobalt-violet-back.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzvexaa-550995595",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26/cobalt-violet-front.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzvexaa-550995598",
+    "gallery_index": 3
+   }
+  },
+  "Pink Gold": {
+   "sku": "ZDEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26/pink-gold-back.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzdexaa-550995329",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26/pink-gold-front.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzdexaa-550995332",
+    "gallery_index": 3
+   }
+  },
+  "Silver Shadow": {
+   "sku": "ZSEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26/silver-shadow-back.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzsexaa-550995519",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26/silver-shadow-front.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzsexaa-550995522",
+    "gallery_index": 3
+   }
+  },
+  "Sky Blue": {
+   "sku": "LBEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26/sky-blue-back.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942ulbexaa-550995215",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26/sky-blue-front.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942ulbexaa-550995218",
+    "gallery_index": 3
+   }
+  },
+  "White": {
+   "sku": "ZWEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26/white-back.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzwexaa-550995747",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26/white-front.webp",
+    "size": [
+     499,
+     1030
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzwexaa-550995750",
+    "gallery_index": 3
+   }
+  }
+ },
+ "galaxy-s26-fe": {
+  "Blueberry": {
+   "sku": "ZVAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-fe/blueberry-back.webp",
+    "size": [
+     537,
+     1118
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzvaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzvaxaa-554292814",
+    "gallery_index": 7
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-fe/blueberry-front.webp",
+    "size": [
+     536,
+     1118
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzvaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzvaxaa-554292809",
+    "gallery_index": 2
+   }
+  },
+  "Graphite": {
+   "sku": "ZKAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-fe/graphite-back.webp",
+    "size": [
+     536,
+     1118
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzkaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzkaxaa-554292693",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-fe/graphite-front.webp",
+    "size": [
+     536,
+     1118
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzkaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzkaxaa-554292696",
+    "gallery_index": 3
+   }
+  },
+  "Pistachio": {
+   "sku": "LGAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-fe/pistachio-back.webp",
+    "size": [
+     537,
+     1118
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741ulgaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741ulgaxaa-554292598",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-fe/pistachio-front.webp",
+    "size": [
+     536,
+     1118
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741ulgaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741ulgaxaa-554292601",
+    "gallery_index": 3
+   }
+  }
+ },
+ "galaxy-s26-plus": {
+  "Black": {
+   "sku": "ZKAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-plus/black-back.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzkaxaa-550994730",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-plus/black-front.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzkaxaa-550994733",
+    "gallery_index": 3
+   }
+  },
+  "Cobalt Violet": {
+   "sku": "ZVAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-plus/cobalt-violet-back.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzvaxaa-550994920",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-plus/cobalt-violet-front.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzvaxaa-550994923",
+    "gallery_index": 3
+   }
+  },
+  "Pink Gold": {
+   "sku": "ZDAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-plus/pink-gold-back.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzdaxaa-550994654",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-plus/pink-gold-front.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzdaxaa-550994657",
+    "gallery_index": 3
+   }
+  },
+  "Silver Shadow": {
+   "sku": "ZSAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-plus/silver-shadow-back.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzsaxaa-550994844",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-plus/silver-shadow-front.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzsaxaa-550994847",
+    "gallery_index": 3
+   }
+  },
+  "Sky Blue": {
+   "sku": "LBAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-plus/sky-blue-back.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947ulbaxaa-550994540",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-plus/sky-blue-front.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947ulbaxaa-550994543",
+    "gallery_index": 3
+   }
+  },
+  "White": {
+   "sku": "ZWAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-plus/white-back.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzwaxaa-550995073",
+    "gallery_index": 0
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-plus/white-front.webp",
+    "size": [
+     527,
+     1092
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzwaxaa-550995076",
+    "gallery_index": 3
+   }
+  }
+ },
+ "galaxy-s26-ultra": {
+  "Black": {
+   "sku": "ZKAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-ultra/black-back.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzkaxaa-550993335",
+    "gallery_index": 11
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-ultra/black-front.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzkaxaa-550993326",
+    "gallery_index": 2
+   }
+  },
+  "Cobalt Violet": {
+   "sku": "ZVEXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-ultra/cobalt-violet-back.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzvexaa-550994059",
+    "gallery_index": 11
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-ultra/cobalt-violet-front.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzvexaa-550994049",
+    "gallery_index": 1
+   }
+  },
+  "Pink Gold": {
+   "sku": "ZDAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-ultra/pink-gold-back.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzdaxaa-550993142",
+    "gallery_index": 3
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-ultra/pink-gold-front.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzdaxaa-550993150",
+    "gallery_index": 11
+   }
+  },
+  "Silver Shadow": {
+   "sku": "ZSAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-ultra/silver-shadow-back.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzsaxaa-550993695",
+    "gallery_index": 1
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-ultra/silver-shadow-front.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzsaxaa-550993703",
+    "gallery_index": 9
+   }
+  },
+  "Sky Blue": {
+   "sku": "LBAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-ultra/sky-blue-back.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948ulbaxaa-550992884",
+    "gallery_index": 5
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-ultra/sky-blue-front.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948ulbaxaa-550992892",
+    "gallery_index": 13
+   }
+  },
+  "White": {
+   "sku": "ZWAXAA",
+   "back": {
+    "file": "official/samsung/galaxy-s26-ultra/white-back.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzwaxaa-550994244",
+    "gallery_index": 11
+   },
+   "front": {
+    "file": "official/samsung/galaxy-s26-ultra/white-front.webp",
+    "size": [
+     543,
+     1130
+    ],
+    "source": "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzwaxaa-550994235",
+    "gallery_index": 2
+   }
+  }
+ }
+}

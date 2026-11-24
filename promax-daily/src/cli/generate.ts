@@ -42,6 +42,7 @@ const date = v.settings.update_date;
 const outDir = PREVIEW ? P.preview : path.join(P.daily, date);
 const tmp = path.join(P.tmp, `${PREVIEW ? 'preview' : date}-${Date.now()}`);
 fs.mkdirSync(outDir, { recursive: true }); fs.mkdirSync(tmp, { recursive: true });
+if (!PREVIEW) for (const f of fs.readdirSync(outDir)) if (/^(promax-part-\d+\.mp4|thumbnail-\d+\.jpg|quality-report\.json)$/.test(f)) fs.rmSync(path.join(outDir, f)); // stale files from an earlier run
 
 /** strongest settled frame: first price of the first group, fully revealed */
 const posterFrame = (r: Reel) => r.groups[0].from + T.ENTER + 22;

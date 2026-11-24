@@ -69,6 +69,7 @@ export type Reel = {
   fps: number;
   intro: number;
   outro: number;
+  per: number; // frames per colour spotlight
   groups: Group[];
 };
 

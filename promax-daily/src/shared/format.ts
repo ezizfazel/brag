@@ -6,11 +6,13 @@ export const toFa = (s: string | number) => String(s).replace(/[0-9]/g, (d) => F
 /** 645000 -> "۶۴۵,۰۰۰" (grouping exactly as the number, no rounding) */
 export const faNumber = (n: number) => toFa(Math.round(n).toLocaleString('en-US'));
 
-export const unitLabel = (s: Pick<Settings, 'price_unit' | 'currency'>) =>
-  s.price_unit === 'thousand_toman' ? `هزار ${s.currency || 'تومان'}` : s.currency || 'تومان';
-
+/** Excel stores prices in thousand Toman by default: 485,500 → 485,500,000 Toman. */
+export const multiplier = (s: Pick<Settings, 'price_unit'>) => (s.price_unit === 'thousand_toman' ? 1000 : 1);
+export const unitLabel = (s: Pick<Settings, 'currency'>) => s.currency || 'تومان';
+export const enNumber = (n: number) => Math.round(n).toLocaleString('en-US');
 /** The exact string the video shows for a price (used by QC too). */
-export const priceText = (n: number) => faNumber(n);
+export const priceText = (n: number, s: Pick<Settings, 'price_unit'>) => enNumber(n * multiplier(s));
+export const enDate = (iso: string) => { const [y, m, d] = iso.split('-').map(Number); const [jy, jm, jd] = toJalali(y, m, d); return `${jy}/${String(jm).padStart(2, '0')}/${String(jd).padStart(2, '0')}`; };
 
 // ---- Gregorian -> Jalali (algorithmic, no deps) ----
 export function toJalali(gy: number, gm: number, gd: number): [number, number, number] {

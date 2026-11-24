@@ -31,6 +31,7 @@ ASSET_COLS = ["asset_id", "product_id", "asset_type", "file_path", "verified"]
 ASSET_TYPES = {"front", "back", "model3d", "video"}
 SUPPORTED_SERIES = {"Apple": ["iPhone 18 Series", "iPhone 17 Series", "iPhone Duo"],
                     "Samsung": ["Galaxy S26 Series"]}
+CATALOG = os.path.join(ROOT, 'assets', 'official', 'catalog.json')
 IMG_EXT = {".png", ".jpg", ".jpeg", ".webp"}
 MODEL_EXT = {".glb", ".gltf"}
 VIDEO_EXT = {".mp4", ".mov", ".webm"}
@@ -43,8 +44,8 @@ FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "012345678
 SAMPLE_SETTINGS = [
     ("update_date", dt.date.today().isoformat(), "Gregorian date YYYY-MM-DD (shown in the video as a Persian date)"),
     ("currency", "تومان", "Currency label"),
-    ("price_unit", "thousand_toman", "thousand_toman = prices typed in thousands of Toman (shown as «هزار تومان»); toman = full Toman"),
-    ("reel_duration", 30, "Maximum seconds per Reel (≤30)"),
+    ("price_unit", "thousand_toman", "thousand_toman = prices typed in thousands of Toman (485,500 → shown as 485,500,000 تومان); toman = typed in full Toman"),
+    ("reel_duration", 45, "Maximum length of the single Reel in seconds (15–45)"),
     ("fps", 30, "Frames per second"),
     ("resolution", "1080x1920", "Output size"),
     ("brand_name", "PROMAX MOBILE", ""),
@@ -63,13 +64,13 @@ SAMPLE_PRODUCTS = [
     ('18PM-CH-GL', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro Max', "256GB", 'Glacier', 'CH/A', 485500,
      '', '', "", "yes", 20, '#C9D9E8', "نات اکتیو", '🩵 = Glacier (official colour on GSMArena) — confirm'),
     ('18PM-CH-BU', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro Max', "256GB", 'Burgundy', 'CH/A', 485500,
-     'products/iphone18/18-pro-max-burgundy-front.png', 'products/iphone18/18-pro-max-burgundy-back.png', "", "yes", 21, '#6E2232', "نات اکتیو", '🍒 = Burgundy — confirm'),
+     '', '', "", "yes", 21, '#6E2232', "نات اکتیو", '🍒 = Burgundy — confirm'),
     ('18PM-ZA-SL', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro Max', "256GB", 'Silver', 'ZA/A', 417100,
      '', '', "", "yes", 30, '#E3E4E6', "نات اکتیو", '⚪️ = Silver — confirm'),
     ('18PM-ZA-BK', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro Max', "256GB", 'Black', 'ZA/A', 417100,
      '', '', "", "yes", 31, '#1F2023', "نات اکتیو", '⚫️ = Black — confirm'),
     ('18PM-ZA-BU', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro Max', "256GB", 'Burgundy', 'ZA/A', 434200,
-     'products/iphone18/18-pro-max-burgundy-front.png', 'products/iphone18/18-pro-max-burgundy-back.png', "", "yes", 32, '#6E2232', "نات اکتیو", '🍒 = Burgundy — confirm'),
+     '', '', "", "yes", 32, '#6E2232', "نات اکتیو", '🍒 = Burgundy — confirm'),
     ('18PM-ZA-GL', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro Max', "256GB", 'Glacier', 'ZA/A', '432.800',
      '', '', "", "yes", 33, '#C9D9E8', "نات اکتیو", '🩵 = Glacier — confirm; price typed as 432.800'),
     ('18P-ZA-BK', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro', "256GB", 'Black', 'ZA/A', 394500,
@@ -79,9 +80,9 @@ SAMPLE_PRODUCTS = [
     ('18P-ZA-BU', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro', "256GB", 'Burgundy', 'ZA/A', 394500,
      '', '', "", "yes", 42, '#6E2232', "نات اکتیو", '🍒 = Burgundy — confirm'),
     ('18P-ZA-GL', 'Apple', 'iPhone 18 Series', 'iPhone 18 Pro', "256GB", 'Glacier', 'ZA/A', '392.900',
-     'products/iphone18/18-pro-glacier-front.png', 'products/iphone18/18-pro-glacier-back.png', "", "yes", 43, '#C9D9E8', "نات اکتیو", '🩵 = Glacier — confirm; price typed as 392.900'),
+     '', '', "", "yes", 43, '#C9D9E8', "نات اکتیو", '🩵 = Glacier — confirm; price typed as 392.900'),
     ('17PM-ZA-OR', 'Apple', 'iPhone 17 Series', 'iPhone 17 Pro Max', "256GB", 'Cosmic Orange', 'ZA/A', 350200,
-     'products/iphone17/17-pro-max-cosmic-orange-front.png', 'products/iphone17/17-pro-max-cosmic-orange-back.png', "", "yes", 50, '#E3762F', "نات اکتیو", '🏀'),
+     '', '', "", "yes", 50, '#E3762F', "نات اکتیو", '🏀'),
     ('17PM-ZA-DB', 'Apple', 'iPhone 17 Series', 'iPhone 17 Pro Max', "256GB", 'Deep Blue', 'ZA/A', '362.000',
      '', '', "", "yes", 51, '#2C3E63', "نات اکتیو", '🔵; price typed as 362.000'),
     ('17PM-ZA-SL', 'Apple', 'iPhone 17 Series', 'iPhone 17 Pro Max', "256GB", 'Silver', 'ZA/A', 410500,
@@ -89,28 +90,24 @@ SAMPLE_PRODUCTS = [
     ('17PM-CH-SL', 'Apple', 'iPhone 17 Series', 'iPhone 17 Pro Max', "256GB", 'Silver', 'CH/A', 404000,
      '', '', "", "yes", 53, '#E4E6E9', "نات اکتیو", '⚪️ (--ch nat)'),
     ('17P-ZA-DB', 'Apple', 'iPhone 17 Series', 'iPhone 17 Pro', "256GB", 'Deep Blue', 'ZA/A', 357500,
-     'products/iphone17/17-pro-deep-blue-front.png', 'products/iphone17/17-pro-deep-blue-back.png', "", "yes", 60, '#2C3E63', "نات اکتیو", '🔵'),
+     '', '', "", "yes", 60, '#2C3E63', "نات اکتیو", '🔵'),
     ('17P-ZA-SL', 'Apple', 'iPhone 17 Series', 'iPhone 17 Pro', "256GB", 'Silver', 'ZA/A', 360500,
      '', '', "", "yes", 61, '#E4E6E9', "نات اکتیو", '⚪️'),
     ("DUO-256-NS", "Apple", "iPhone Duo", "iPhone Duo", "256GB", "Night Sky", "", 645000,
-     "products/iphone_duo/night-sky-front.png", "products/iphone_duo/night-sky-back.png", "", "yes", 65, "#2B3447", "نات اکتیو", "eSIM"),
+     "", "", "", "yes", 65, "#2B3447", "نات اکتیو", "eSIM"),
     ("DUO-256-SW", "Apple", "iPhone Duo", "iPhone Duo", "256GB", "Star White", "", 645000,
-     "products/iphone_duo/star-white-front.png", "products/iphone_duo/star-white-back.png", "", "yes", 66, "#EDEDEA", "نات اکتیو", "eSIM; source spelling «star withe»"),
+     "", "", "", "yes", 66, "#EDEDEA", "نات اکتیو", "eSIM; source spelling «star withe»"),
     ('S26U-BK', 'Samsung', 'Galaxy S26 Series', 'Galaxy S26 Ultra', "256GB", 'Black', '', 269000,
-     '', 'products/samsung_s26/s26-ultra-black-back.png', "", "yes", 70, '#2A2C2E', "نات اکتیو", '🖤 = Black'),
+     '', '', "", "yes", 70, '#2A2C2E', "نات اکتیو", '🖤 = Black'),
     ('S26U-CV', 'Samsung', 'Galaxy S26 Series', 'Galaxy S26 Ultra', "256GB", 'Cobalt Violet', '', 260000,
-     'products/samsung_s26/s26-ultra-cobalt-violet-front.png', 'products/samsung_s26/s26-ultra-cobalt-violet-back.png', "", "yes", 71, '#6B6496', "نات اکتیو", '💜 = Cobalt Violet — confirm'),
+     '', '', "", "yes", 71, '#6B6496', "نات اکتیو", '💜 = Cobalt Violet — confirm'),
     ('S26U-SB', 'Samsung', 'Galaxy S26 Series', 'Galaxy S26 Ultra', "256GB", 'Sky Blue', '', 269000,
-     '', 'products/samsung_s26/s26-ultra-sky-blue-back.png', "", "yes", 72, '#BFD6EA', "نات اکتیو", '💙 = Sky Blue — confirm'),
+     '', '', "", "yes", 72, '#BFD6EA', "نات اکتیو", '💙 = Sky Blue — confirm'),
     ('S26U-WH', 'Samsung', 'Galaxy S26 Series', 'Galaxy S26 Ultra', "256GB", 'White', '', '269.000',
-     '', 'products/samsung_s26/s26-ultra-white-back.png', "", "yes", 73, '#F2F2F2', "نات اکتیو", '⚪️ = White (Silver Shadow also exists) — confirm; price typed as 269.000'),
+     '', '', "", "yes", 73, '#F2F2F2', "نات اکتیو", '⚪️ = White (Silver Shadow also exists) — confirm; price typed as 269.000'),
 ]
 SAMPLE_ASSETS = [
-    ("A-001", "DUO-256-NS", "front", "products/iphone_duo/night-sky-front.png", "yes"),
-    ("A-002", "DUO-256-NS", "back", "products/iphone_duo/night-sky-back.png", "yes"),
-    ("A-003", "DUO-256-SW", "front", "products/iphone_duo/star-white-front.png", "yes"),
-    ("A-004", "DUO-256-SW", "back", "products/iphone_duo/star-white-back.png", "yes"),
-    ("A-005", "", "back", "products/_unassigned/navy-pro-back.png", "no"),
+    # optional overrides, e.g. ("A-001", "DUO-256-NS", "back", "products/iphone_duo/my-photo.png", "yes"),
 ]
 
 NAVY, BLUE, WHITE = "061426", "168BFF", "FFFFFF"
@@ -221,8 +218,20 @@ def image_info(assets_dir, rel):
         return {"width": 0, "height": 0, "mode": "unreadable"}
 
 
+def _norm_model(m):
+    m = re.sub(r'^(apple|samsung)\s+', '', m.lower()).replace('+', ' plus')
+    return re.sub(r'[^a-z0-9]+', ' ', m).strip()
+
+def load_catalog():
+    try:
+        cat = json.load(open(CATALOG, encoding='utf-8'))
+        return {_norm_model(m['name']): {re.sub(r'[^a-z0-9]', '', c['name'].lower()): c for c in m['colors']} for m in cat['models']}
+    except Exception:
+        return {}
+
 def validate(path, assets_dir):
     issues = []
+    catalog = load_catalog()
     def add(level, code, msg, pid=None, row=None):
         issues.append({"level": level, "code": code, "product_id": pid, "row": row, "message": msg})
 
@@ -235,8 +244,8 @@ def validate(path, assets_dir):
         for r in srows:
             k = str(r.get("setting", "")).strip()
             if k: settings[k] = r.get("value", "")
-    try: settings["reel_duration"] = min(30, max(10, int(settings.get("reel_duration") or 30)))
-    except Exception: settings["reel_duration"] = 30; add("warning", "setting_invalid", "reel_duration invalid — 30 used")
+    try: settings["reel_duration"] = min(45, max(15, int(settings.get("reel_duration") or 45)))
+    except Exception: settings["reel_duration"] = 45; add("warning", "setting_invalid", "reel_duration invalid — 45 used")
     try: settings["fps"] = int(settings.get("fps") or 30)
     except Exception: settings["fps"] = 30
     ud = settings.get("update_date")
@@ -316,8 +325,14 @@ def validate(path, assets_dir):
             else:
                 if not os.path.isfile(os.path.join(assets_dir, rel)): add("warning", "missing_asset", f"{pid}: {kind} not found: {rel}", pid, row); continue
                 imgs[kind] = {"path": rel}
+        lib = catalog.get(_norm_model(model), {}).get(re.sub(r'[^a-z0-9]', '', color.lower()))
         if "front" not in imgs and "back" not in imgs and "model3d" not in imgs:
-            add("warning", "missing_image", f"{pid}: no verified product image — branded placeholder will be used", pid, row)
+            if lib and (lib.get('official') or {}):
+                imgs['library'] = {'path': (lib['official'].get('hero') or lib['official'].get('back')), 'source': 'official'}
+            elif catalog.get(_norm_model(model)) is None:
+                add("warning", "missing_image", f"{pid}: model «{model}» is not in the image library — branded placeholder will be used", pid, row)
+            else:
+                add("warning", "missing_image", f"{pid}: colour «{color}» is not an official colour of {model} in the library — placeholder used; check the spelling", pid, row)
 
         rec = {"product_id": pid, "row": row, "brand": brand, "series": series, "model": model, "storage": storage.upper().replace(" ", ""),
                "color": color, "part_number": part, "price": price, "price_raw": str(r.get("price_toman")),

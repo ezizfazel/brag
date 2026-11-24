@@ -1,10 +1,11 @@
 {
  "reel": {
   "part": 1,
-  "parts": 2,
+  "parts": 1,
   "fps": 30,
-  "intro": 72,
-  "outro": 90,
+  "intro": 66,
+  "outro": 84,
+  "per": 39,
   "groups": [
    {
     "key": "Apple|iPhone 18 Series|iPhone 18 Pro Max|256GB|CH/A",
@@ -16,42 +17,60 @@
     "condition": "نات اکتیو",
     "variants": [
      {
-      "product_id": "18PM-CH-LB",
-      "row": 4,
+      "product_id": "18PM-CH-GL",
+      "row": 2,
       "brand": "Apple",
       "series": "iPhone 18 Series",
       "model": "iPhone 18 Pro Max",
       "storage": "256GB",
-      "color": "آبی روشن",
+      "color": "Glacier",
       "part_number": "CH/A",
       "price": 485500,
       "price_raw": "485500",
       "display_order": 20,
-      "color_hex": "#9FD3F2",
+      "color_hex": "#C9D9E8",
       "condition": "نات اکتیو",
-      "note": "color name from emoji 🩵",
-      "assets": {}
+      "note": "🩵 = Glacier (official colour on GSMArena) — confirm",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro-max/glacier-hero.webp",
+        "source": "official"
+       }
+      }
      },
      {
-      "product_id": "18PM-CH-RD",
-      "row": 5,
+      "product_id": "18PM-CH-BU",
+      "row": 3,
       "brand": "Apple",
       "series": "iPhone 18 Series",
       "model": "iPhone 18 Pro Max",
       "storage": "256GB",
-      "color": "قرمز",
+      "color": "Burgundy",
       "part_number": "CH/A",
       "price": 485500,
       "price_raw": "485500",
       "display_order": 21,
-      "color_hex": "#B3202E",
+      "color_hex": "#6E2232",
       "condition": "نات اکتیو",
-      "note": "color name from emoji 🍒",
-      "assets": {}
+      "note": "🍒 = Burgundy — confirm",
+      "assets": {
+       "front": {
+        "path": "products/iphone18/18-pro-max-burgundy-front.png",
+        "width": 321,
+        "height": 661,
+        "mode": "RGBA"
+       },
+       "back": {
+        "path": "products/iphone18/18-pro-max-burgundy-back.png",
+        "width": 321,
+        "height": 661,
+        "mode": "RGBA"
+       }
+      }
      }
     ],
-    "durationInFrames": 132,
-    "from": 72
+    "durationInFrames": 120,
+    "from": 66
    },
    {
     "key": "Apple|iPhone 18 Series|iPhone 18 Pro Max|256GB|ZA/A",
@@ -63,76 +82,104 @@
     "condition": "نات اکتیو",
     "variants": [
      {
-      "product_id": "18PM-ZA-WH",
+      "product_id": "18PM-ZA-SL",
+      "row": 4,
+      "brand": "Apple",
+      "series": "iPhone 18 Series",
+      "model": "iPhone 18 Pro Max",
+      "storage": "256GB",
+      "color": "Silver",
+      "part_number": "ZA/A",
+      "price": 417100,
+      "price_raw": "417100",
+      "display_order": 30,
+      "color_hex": "#E3E4E6",
+      "condition": "نات اکتیو",
+      "note": "⚪️ = Silver — confirm",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro-max/silver-hero.webp",
+        "source": "official"
+       }
+      }
+     },
+     {
+      "product_id": "18PM-ZA-BK",
+      "row": 5,
+      "brand": "Apple",
+      "series": "iPhone 18 Series",
+      "model": "iPhone 18 Pro Max",
+      "storage": "256GB",
+      "color": "Black",
+      "part_number": "ZA/A",
+      "price": 417100,
+      "price_raw": "417100",
+      "display_order": 31,
+      "color_hex": "#1F2023",
+      "condition": "نات اکتیو",
+      "note": "⚫️ = Black — confirm",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro-max/black-hero.webp",
+        "source": "official"
+       }
+      }
+     },
+     {
+      "product_id": "18PM-ZA-BU",
       "row": 6,
       "brand": "Apple",
       "series": "iPhone 18 Series",
       "model": "iPhone 18 Pro Max",
       "storage": "256GB",
-      "color": "سفید",
+      "color": "Burgundy",
       "part_number": "ZA/A",
-      "price": 417100,
-      "price_raw": "417100",
-      "display_order": 30,
-      "color_hex": "#E9EAEC",
+      "price": 434200,
+      "price_raw": "434200",
+      "display_order": 32,
+      "color_hex": "#6E2232",
       "condition": "نات اکتیو",
-      "note": "color name from emoji ⚪️",
-      "assets": {}
+      "note": "🍒 = Burgundy — confirm",
+      "assets": {
+       "front": {
+        "path": "products/iphone18/18-pro-max-burgundy-front.png",
+        "width": 321,
+        "height": 661,
+        "mode": "RGBA"
+       },
+       "back": {
+        "path": "products/iphone18/18-pro-max-burgundy-back.png",
+        "width": 321,
+        "height": 661,
+        "mode": "RGBA"
+       }
+      }
      },
      {
-      "product_id": "18PM-ZA-BK",
+      "product_id": "18PM-ZA-GL",
       "row": 7,
       "brand": "Apple",
       "series": "iPhone 18 Series",
       "model": "iPhone 18 Pro Max",
       "storage": "256GB",
-      "color": "مشکی",
-      "part_number": "ZA/A",
-      "price": 417100,
-      "price_raw": "417100",
-      "display_order": 31,
-      "color_hex": "#202226",
-      "condition": "نات اکتیو",
-      "note": "color name from emoji ⚫️",
-      "assets": {}
-     },
-     {
-      "product_id": "18PM-ZA-RD",
-      "row": 8,
-      "brand": "Apple",
-      "series": "iPhone 18 Series",
-      "model": "iPhone 18 Pro Max",
-      "storage": "256GB",
-      "color": "قرمز",
-      "part_number": "ZA/A",
-      "price": 434200,
-      "price_raw": "434200",
-      "display_order": 32,
-      "color_hex": "#B3202E",
-      "condition": "نات اکتیو",
-      "note": "color name from emoji 🍒",
-      "assets": {}
-     },
-     {
-      "product_id": "18PM-ZA-LB",
-      "row": 9,
-      "brand": "Apple",
-      "series": "iPhone 18 Series",
-      "model": "iPhone 18 Pro Max",
-      "storage": "256GB",
-      "color": "آبی روشن",
+      "color": "Glacier",
       "part_number": "ZA/A",
       "price": 432800,
       "price_raw": "432.800",
       "display_order": 33,
-      "color_hex": "#9FD3F2",
+      "color_hex": "#C9D9E8",
       "condition": "نات اکتیو",
-      "note": "color name from emoji 🩵; price typed as 432.800",
-      "assets": {}
+      "note": "🩵 = Glacier — confirm; price typed as 432.800",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro-max/glacier-hero.webp",
+        "source": "official"
+       }
+      }
      }
     ],
-    "durationInFrames": 204,
-    "from": 204
+    "durationInFrames": 198,
+    "from": 186
    },
    {
     "key": "Apple|iPhone 18 Series|iPhone 18 Pro|256GB|ZA/A",
@@ -145,84 +192,471 @@
     "variants": [
      {
       "product_id": "18P-ZA-BK",
+      "row": 8,
+      "brand": "Apple",
+      "series": "iPhone 18 Series",
+      "model": "iPhone 18 Pro",
+      "storage": "256GB",
+      "color": "Black",
+      "part_number": "ZA/A",
+      "price": 394500,
+      "price_raw": "394500",
+      "display_order": 40,
+      "color_hex": "#1F2023",
+      "condition": "نات اکتیو",
+      "note": "⚫️ = Black — confirm",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro/black-hero.webp",
+        "source": "official"
+       }
+      }
+     },
+     {
+      "product_id": "18P-ZA-SL",
+      "row": 9,
+      "brand": "Apple",
+      "series": "iPhone 18 Series",
+      "model": "iPhone 18 Pro",
+      "storage": "256GB",
+      "color": "Silver",
+      "part_number": "ZA/A",
+      "price": 391500,
+      "price_raw": "391500",
+      "display_order": 41,
+      "color_hex": "#E3E4E6",
+      "condition": "نات اکتیو",
+      "note": "⚪️ = Silver — confirm",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro/silver-hero.webp",
+        "source": "official"
+       }
+      }
+     },
+     {
+      "product_id": "18P-ZA-BU",
       "row": 10,
       "brand": "Apple",
       "series": "iPhone 18 Series",
       "model": "iPhone 18 Pro",
       "storage": "256GB",
-      "color": "مشکی",
+      "color": "Burgundy",
       "part_number": "ZA/A",
       "price": 394500,
       "price_raw": "394500",
-      "display_order": 40,
-      "color_hex": "#202226",
+      "display_order": 42,
+      "color_hex": "#6E2232",
       "condition": "نات اکتیو",
-      "note": "color name from emoji ⚫️",
-      "assets": {}
+      "note": "🍒 = Burgundy — confirm",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-18-pro/burgundy-hero.webp",
+        "source": "official"
+       }
+      }
      },
      {
-      "product_id": "18P-ZA-WH",
+      "product_id": "18P-ZA-GL",
       "row": 11,
       "brand": "Apple",
       "series": "iPhone 18 Series",
       "model": "iPhone 18 Pro",
       "storage": "256GB",
-      "color": "سفید",
-      "part_number": "ZA/A",
-      "price": 391500,
-      "price_raw": "391500",
-      "display_order": 41,
-      "color_hex": "#E9EAEC",
-      "condition": "نات اکتیو",
-      "note": "color name from emoji ⚪️",
-      "assets": {}
-     },
-     {
-      "product_id": "18P-ZA-RD",
-      "row": 12,
-      "brand": "Apple",
-      "series": "iPhone 18 Series",
-      "model": "iPhone 18 Pro",
-      "storage": "256GB",
-      "color": "قرمز",
-      "part_number": "ZA/A",
-      "price": 394500,
-      "price_raw": "394500",
-      "display_order": 42,
-      "color_hex": "#B3202E",
-      "condition": "نات اکتیو",
-      "note": "color name from emoji 🍒",
-      "assets": {}
-     },
-     {
-      "product_id": "18P-ZA-LB",
-      "row": 13,
-      "brand": "Apple",
-      "series": "iPhone 18 Series",
-      "model": "iPhone 18 Pro",
-      "storage": "256GB",
-      "color": "آبی روشن",
+      "color": "Glacier",
       "part_number": "ZA/A",
       "price": 392900,
       "price_raw": "392.900",
       "display_order": 43,
-      "color_hex": "#9FD3F2",
+      "color_hex": "#C9D9E8",
       "condition": "نات اکتیو",
-      "note": "color name from emoji 🩵; price typed as 392.900",
-      "assets": {}
+      "note": "🩵 = Glacier — confirm; price typed as 392.900",
+      "assets": {
+       "front": {
+        "path": "products/iphone18/18-pro-glacier-front.png",
+        "width": 317,
+        "height": 647,
+        "mode": "RGBA"
+       },
+       "back": {
+        "path": "products/iphone18/18-pro-glacier-back.png",
+        "width": 314,
+        "height": 646,
+        "mode": "RGBA"
+       }
+      }
      }
     ],
-    "durationInFrames": 204,
-    "from": 408
+    "durationInFrames": 198,
+    "from": 384
+   },
+   {
+    "key": "Apple|iPhone 17 Series|iPhone 17 Pro Max|256GB|ZA/A",
+    "brand": "Apple",
+    "series": "iPhone 17 Series",
+    "model": "iPhone 17 Pro Max",
+    "storage": "256GB",
+    "part_number": "ZA/A",
+    "condition": "نات اکتیو",
+    "variants": [
+     {
+      "product_id": "17PM-ZA-OR",
+      "row": 12,
+      "brand": "Apple",
+      "series": "iPhone 17 Series",
+      "model": "iPhone 17 Pro Max",
+      "storage": "256GB",
+      "color": "Cosmic Orange",
+      "part_number": "ZA/A",
+      "price": 350200,
+      "price_raw": "350200",
+      "display_order": 50,
+      "color_hex": "#E3762F",
+      "condition": "نات اکتیو",
+      "note": "🏀",
+      "assets": {
+       "front": {
+        "path": "products/iphone17/17-pro-max-cosmic-orange-front.png",
+        "width": 318,
+        "height": 650,
+        "mode": "RGBA"
+       },
+       "back": {
+        "path": "products/iphone17/17-pro-max-cosmic-orange-back.png",
+        "width": 316,
+        "height": 650,
+        "mode": "RGBA"
+       }
+      }
+     },
+     {
+      "product_id": "17PM-ZA-DB",
+      "row": 13,
+      "brand": "Apple",
+      "series": "iPhone 17 Series",
+      "model": "iPhone 17 Pro Max",
+      "storage": "256GB",
+      "color": "Deep Blue",
+      "part_number": "ZA/A",
+      "price": 362000,
+      "price_raw": "362.000",
+      "display_order": 51,
+      "color_hex": "#2C3E63",
+      "condition": "نات اکتیو",
+      "note": "🔵; price typed as 362.000",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-17-pro-max/deep-blue-hero.webp",
+        "source": "official"
+       }
+      }
+     },
+     {
+      "product_id": "17PM-ZA-SL",
+      "row": 14,
+      "brand": "Apple",
+      "series": "iPhone 17 Series",
+      "model": "iPhone 17 Pro Max",
+      "storage": "256GB",
+      "color": "Silver",
+      "part_number": "ZA/A",
+      "price": 410500,
+      "price_raw": "410500",
+      "display_order": 52,
+      "color_hex": "#E4E6E9",
+      "condition": "نات اکتیو",
+      "note": "⚪️",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-17-pro-max/silver-hero.webp",
+        "source": "official"
+       }
+      }
+     }
+    ],
+    "durationInFrames": 159,
+    "from": 582
+   },
+   {
+    "key": "Apple|iPhone 17 Series|iPhone 17 Pro Max|256GB|CH/A",
+    "brand": "Apple",
+    "series": "iPhone 17 Series",
+    "model": "iPhone 17 Pro Max",
+    "storage": "256GB",
+    "part_number": "CH/A",
+    "condition": "نات اکتیو",
+    "variants": [
+     {
+      "product_id": "17PM-CH-SL",
+      "row": 15,
+      "brand": "Apple",
+      "series": "iPhone 17 Series",
+      "model": "iPhone 17 Pro Max",
+      "storage": "256GB",
+      "color": "Silver",
+      "part_number": "CH/A",
+      "price": 404000,
+      "price_raw": "404000",
+      "display_order": 53,
+      "color_hex": "#E4E6E9",
+      "condition": "نات اکتیو",
+      "note": "⚪️ (--ch nat)",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-17-pro-max/silver-hero.webp",
+        "source": "official"
+       }
+      }
+     }
+    ],
+    "durationInFrames": 81,
+    "from": 741
+   },
+   {
+    "key": "Apple|iPhone 17 Series|iPhone 17 Pro|256GB|ZA/A",
+    "brand": "Apple",
+    "series": "iPhone 17 Series",
+    "model": "iPhone 17 Pro",
+    "storage": "256GB",
+    "part_number": "ZA/A",
+    "condition": "نات اکتیو",
+    "variants": [
+     {
+      "product_id": "17P-ZA-DB",
+      "row": 16,
+      "brand": "Apple",
+      "series": "iPhone 17 Series",
+      "model": "iPhone 17 Pro",
+      "storage": "256GB",
+      "color": "Deep Blue",
+      "part_number": "ZA/A",
+      "price": 357500,
+      "price_raw": "357500",
+      "display_order": 60,
+      "color_hex": "#2C3E63",
+      "condition": "نات اکتیو",
+      "note": "🔵",
+      "assets": {
+       "front": {
+        "path": "products/iphone17/17-pro-deep-blue-front.png",
+        "width": 318,
+        "height": 652,
+        "mode": "RGBA"
+       },
+       "back": {
+        "path": "products/iphone17/17-pro-deep-blue-back.png",
+        "width": 317,
+        "height": 650,
+        "mode": "RGBA"
+       }
+      }
+     },
+     {
+      "product_id": "17P-ZA-SL",
+      "row": 17,
+      "brand": "Apple",
+      "series": "iPhone 17 Series",
+      "model": "iPhone 17 Pro",
+      "storage": "256GB",
+      "color": "Silver",
+      "part_number": "ZA/A",
+      "price": 360500,
+      "price_raw": "360500",
+      "display_order": 61,
+      "color_hex": "#E4E6E9",
+      "condition": "نات اکتیو",
+      "note": "⚪️",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-17-pro/silver-hero.webp",
+        "source": "official"
+       }
+      }
+     }
+    ],
+    "durationInFrames": 120,
+    "from": 822
+   },
+   {
+    "key": "Apple|iPhone Duo|iPhone Duo|256GB|",
+    "brand": "Apple",
+    "series": "iPhone Duo",
+    "model": "iPhone Duo",
+    "storage": "256GB",
+    "part_number": "",
+    "condition": "نات اکتیو",
+    "variants": [
+     {
+      "product_id": "DUO-256-NS",
+      "row": 18,
+      "brand": "Apple",
+      "series": "iPhone Duo",
+      "model": "iPhone Duo",
+      "storage": "256GB",
+      "color": "Night Sky",
+      "part_number": "",
+      "price": 645000,
+      "price_raw": "645000",
+      "display_order": 65,
+      "color_hex": "#2B3447",
+      "condition": "نات اکتیو",
+      "note": "eSIM",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-duo/night-sky-hero.webp",
+        "source": "official"
+       }
+      }
+     },
+     {
+      "product_id": "DUO-256-SW",
+      "row": 19,
+      "brand": "Apple",
+      "series": "iPhone Duo",
+      "model": "iPhone Duo",
+      "storage": "256GB",
+      "color": "Star White",
+      "part_number": "",
+      "price": 645000,
+      "price_raw": "645000",
+      "display_order": 66,
+      "color_hex": "#EDEDEA",
+      "condition": "نات اکتیو",
+      "note": "eSIM; source spelling «star withe»",
+      "assets": {
+       "library": {
+        "path": "official/apple/iphone-duo/star-white-hero.webp",
+        "source": "official"
+       }
+      }
+     }
+    ],
+    "durationInFrames": 120,
+    "from": 942
+   },
+   {
+    "key": "Samsung|Galaxy S26 Series|Galaxy S26 Ultra|256GB|",
+    "brand": "Samsung",
+    "series": "Galaxy S26 Series",
+    "model": "Galaxy S26 Ultra",
+    "storage": "256GB",
+    "part_number": "",
+    "condition": "نات اکتیو",
+    "variants": [
+     {
+      "product_id": "S26U-BK",
+      "row": 20,
+      "brand": "Samsung",
+      "series": "Galaxy S26 Series",
+      "model": "Galaxy S26 Ultra",
+      "storage": "256GB",
+      "color": "Black",
+      "part_number": "",
+      "price": 269000,
+      "price_raw": "269000",
+      "display_order": 70,
+      "color_hex": "#2A2C2E",
+      "condition": "نات اکتیو",
+      "note": "🖤 = Black",
+      "assets": {
+       "back": {
+        "path": "products/samsung_s26/s26-ultra-black-back.png",
+        "width": 176,
+        "height": 424,
+        "mode": "RGBA"
+       }
+      }
+     },
+     {
+      "product_id": "S26U-CV",
+      "row": 21,
+      "brand": "Samsung",
+      "series": "Galaxy S26 Series",
+      "model": "Galaxy S26 Ultra",
+      "storage": "256GB",
+      "color": "Cobalt Violet",
+      "part_number": "",
+      "price": 260000,
+      "price_raw": "260000",
+      "display_order": 71,
+      "color_hex": "#6B6496",
+      "condition": "نات اکتیو",
+      "note": "💜 = Cobalt Violet — confirm",
+      "assets": {
+       "front": {
+        "path": "products/samsung_s26/s26-ultra-cobalt-violet-front.png",
+        "width": 298,
+        "height": 618,
+        "mode": "RGBA"
+       },
+       "back": {
+        "path": "products/samsung_s26/s26-ultra-cobalt-violet-back.png",
+        "width": 297,
+        "height": 619,
+        "mode": "RGBA"
+       }
+      }
+     },
+     {
+      "product_id": "S26U-SB",
+      "row": 22,
+      "brand": "Samsung",
+      "series": "Galaxy S26 Series",
+      "model": "Galaxy S26 Ultra",
+      "storage": "256GB",
+      "color": "Sky Blue",
+      "part_number": "",
+      "price": 269000,
+      "price_raw": "269000",
+      "display_order": 72,
+      "color_hex": "#BFD6EA",
+      "condition": "نات اکتیو",
+      "note": "💙 = Sky Blue — confirm",
+      "assets": {
+       "back": {
+        "path": "products/samsung_s26/s26-ultra-sky-blue-back.png",
+        "width": 175,
+        "height": 424,
+        "mode": "RGBA"
+       }
+      }
+     },
+     {
+      "product_id": "S26U-WH",
+      "row": 23,
+      "brand": "Samsung",
+      "series": "Galaxy S26 Series",
+      "model": "Galaxy S26 Ultra",
+      "storage": "256GB",
+      "color": "White",
+      "part_number": "",
+      "price": 269000,
+      "price_raw": "269.000",
+      "display_order": 73,
+      "color_hex": "#F2F2F2",
+      "condition": "نات اکتیو",
+      "note": "⚪️ = White (Silver Shadow also exists) — confirm; price typed as 269.000",
+      "assets": {
+       "back": {
+        "path": "products/samsung_s26/s26-ultra-white-back.png",
+        "width": 176,
+        "height": 424,
+        "mode": "RGBA"
+       }
+      }
+     }
+    ],
+    "durationInFrames": 198,
+    "from": 1062
    }
   ],
-  "durationInFrames": 702
+  "durationInFrames": 1344
  },
  "settings": {
   "update_date": "2026-11-24",
   "currency": "تومان",
   "price_unit": "thousand_toman",
-  "reel_duration": 30,
+  "reel_duration": 45,
   "fps": 30,
   "resolution": "1080x1920",
   "brand_name": "PROMAX MOBILE",
@@ -232,6 +666,5 @@
   "show_color": true,
   "show_storage": true,
   "allow_placeholders": true
- },
- "preview": false
+ }
 }
