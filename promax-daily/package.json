@@ -1,0 +1,40 @@
+{
+  "name": "promax-daily-price",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PROMAX DAILY PRICE — Excel → premium 30s Instagram Reels",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server/server.ts",
+    "validate": "tsx src/cli/validate.ts",
+    "preview": "tsx src/cli/generate.ts --preview",
+    "generate": "tsx src/cli/generate.ts",
+    "export": "tsx src/cli/export.ts",
+    "template": "python3 python/promax_excel.py template",
+    "studio": "remotion studio src/remotion/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.1.2",
+    "@remotion/bundler": "^4.0.547",
+    "@remotion/cli": "^4.0.547",
+    "@remotion/renderer": "^4.0.547",
+    "@remotion/three": "^4.0.547",
+    "express": "^4.21.2",
+    "gsap": "^3.12.7",
+    "multer": "^2.0.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "remotion": "^4.0.547",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.1.2",
+    "@types/three": "^0.170.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROMAX Daily Price</title>
+<link rel="icon" href="/assets/logos/promax-logo.png">
+<style>
+@font-face{font-family:Vazirmatn;src:url(/assets/fonts/Dxxo8j6PP2D_kU2muijlHcWW.woff2) format('woff2');font-weight:100 900;unicode-range:U+0600-06FF,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:Vazirmatn;src:url(/assets/fonts/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2) format('woff2');font-weight:100 900;unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Inter;src:url(/assets/fonts/Inter-Bold.otf);font-weight:700}
+@font-face{font-family:Inter;src:url(/assets/fonts/Inter-Black.otf);font-weight:900}
+:root{--blue:#168BFF;--navy:#061426;--white:#fff;--silver:#C8D3E0;--black:#05080D;--card:#0b1d36;--line:rgba(22,139,255,.25);--ok:#2fd27a;--warn:#ffb84d;--err:#ff5a6a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#0d3570 0%,rgba(13,53,112,0) 60%),var(--black);color:var(--white);font-family:Vazirmatn,Inter,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;gap:16px;padding:22px 32px;border-bottom:1px solid var(--line);background:rgba(6,20,38,.7);backdrop-filter:blur(12px);position:sticky;top:0;z-index:5}
+header .logo{width:46px;height:46px;border-radius:12px;background:#fff;padding:5px}
+header h1{margin:0;font-family:Inter;font-weight:900;font-size:22px;letter-spacing:4px;direction:ltr}
+header h1 span{color:var(--blue)}
+header .sub{margin-inline-start:auto;color:var(--silver);font-size:14px}
+main{max-width:1280px;margin:0 auto;padding:28px 32px 80px;display:grid;gap:22px}
+.panel{background:linear-gradient(180deg,rgba(11,29,54,.9),rgba(6,20,38,.9));border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+h2{margin:0 0 14px;font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px}
+h2 .n{font-family:Inter;font-weight:900;color:var(--blue);font-size:14px;border:1px solid var(--line);border-radius:8px;padding:2px 8px;direction:ltr}
+#drop{border:2px dashed rgba(22,139,255,.55);border-radius:18px;padding:34px;text-align:center;cursor:pointer;transition:.2s;background:rgba(22,139,255,.05)}
+#drop.over{background:rgba(22,139,255,.18);border-color:var(--blue)}
+#drop b{font-size:20px;display:block;margin-bottom:6px}
+#drop small{color:var(--silver)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.tile{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(5,8,13,.45)}
+.tile .k{color:var(--silver);font-size:13px}
+.tile .v{font-size:30px;font-weight:900;margin-top:4px}
+.tile.ok .v{color:var(--ok)}.tile.warn .v{color:var(--warn)}.tile.err .v{color:var(--err)}
+button,.btn{font-family:inherit;font-weight:800;font-size:15px;border:0;border-radius:14px;padding:13px 22px;cursor:pointer;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.primary{background:linear-gradient(160deg,#3aa0ff,var(--blue) 55%,#0b4fb3);box-shadow:0 0 24px rgba(22,139,255,.45)}
+.ghost{background:rgba(255,255,255,.06);border:1px solid var(--line)}
+button:disabled{opacity:.45;cursor:not-allowed}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{color:var(--silver);font-weight:600;text-align:start;padding:8px;border-bottom:1px solid var(--line);font-size:13px}
+td{padding:8px;border-bottom:1px solid rgba(22,139,255,.08)}
+td.en{font-family:Inter;direction:ltr;text-align:right}
+.sw{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:middle;margin-inline-end:6px;box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
+.tag{font-size:12px;border-radius:8px;padding:2px 8px}
+.tag.ok{background:rgba(47,210,122,.15);color:var(--ok)}.tag.warn{background:rgba(255,184,77,.15);color:var(--warn)}.tag.err{background:rgba(255,90,106,.15);color:var(--err)}
+.issues{max-height:280px;overflow:auto;font-size:14px;display:grid;gap:6px}
+.issue{padding:8px 12px;border-radius:10px;background:rgba(5,8,13,.5);border-inline-start:3px solid var(--warn)}
+.issue.error{border-color:var(--err)}.issue.info{border-color:var(--silver);opacity:.75}
+pre#log{background:#02050a;border:1px solid var(--line);border-radius:14px;padding:14px;max-height:260px;overflow:auto;direction:ltr;text-align:left;font-size:12px;color:#9fd0ff;margin:12px 0 0;white-space:pre-wrap}
+.outs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.out{border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(5,8,13,.45)}
+.out video,.out img{width:100%;border-radius:10px;aspect-ratio:9/16;object-fit:cover;background:#000}
+.out .name{font-family:Inter;font-size:12px;direction:ltr;text-align:left;margin:8px 0;color:var(--silver);word-break:break-all}
+.plan{display:flex;gap:12px;flex-wrap:wrap}
+.plan .p{border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:rgba(22,139,255,.07);font-size:14px}
+.plan .p b{font-family:Inter}
+.muted{color:var(--silver);font-size:14px}
+</style>
+</head>
+<body>
+<header><img class="logo" src="/assets/logos/promax-logo.png" alt=""><h1>PROMAX <span>DAILY PRICE</span></h1><div class="sub" id="last">—</div></header>
+<main>
+  <section class="panel">
+    <h2><span class="n">1</span>آپلود لیست قیمت امروز</h2>
+    <div id="drop"><b>فایل اکسل رو اینجا رها کن یا کلیک کن</b><small>فقط ‎.xlsx · ستون‌ها مطابق قالب PROMAX-DAILY-PRICES</small><input type="file" id="file" accept=".xlsx" hidden></div>
+    <div class="row" style="margin-top:14px"><a class="btn ghost" href="/templates/PROMAX-DAILY-PRICES.xlsx" download>⬇ دانلود قالب اکسل</a><button class="ghost" id="revalidate">بررسی دوباره</button><span class="muted" id="upmsg"></span></div>
+  </section>
+
+  <section class="panel">
+    <h2><span class="n">2</span>بررسی محصولات و خطاها</h2>
+    <div class="tiles" id="tiles"></div>
+    <div style="margin-top:16px" class="plan" id="plan"></div>
+    <div style="margin-top:16px;overflow:auto"><table id="products"></table></div>
+    <h2 style="margin-top:20px;font-size:16px">هشدارها و خطاها</h2>
+    <div class="issues" id="issues"></div>
+  </section>
+
+  <section class="panel">
+    <h2><span class="n">3</span>ساخت ریلز</h2>
+    <div class="row">
+      <button class="ghost" data-job="preview">▶ پیش‌نمایش سریع (کیفیت پایین)</button>
+      <button class="primary" data-job="generate">✦ ساخت ریلز نهایی</button>
+      <button class="ghost" data-job="export">⇪ خروجی نهایی</button>
+      <span class="muted" id="jobmsg"></span>
+    </div>
+    <pre id="log">آماده.</pre>
+  </section>
+
+  <section class="panel">
+    <h2><span class="n">4</span>دانلود خروجی‌ها</h2>
+    <div id="outputs"></div>
+  </section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const fa=n=>String(n).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const money=n=>fa(Number(n).toLocaleString('en-US'));
+let S=null, polling=null;
+async function api(url,opt){const r=await fetch(url,opt);const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
+function render(s){
+  S=s; const v=s.validated;
+  $('#last').textContent = v ? `آخرین بررسی: ${new Date(v.validated_at).toLocaleString('fa-IR')} · تاریخ قیمت: ${v.settings.update_date}` : 'هنوز فایلی آپلود نشده';
+  if(s.lastUpload) $('#upmsg').textContent=`آخرین آپلود: ${s.lastUpload.name}`;
+  if(v){
+    const st=v.stats;
+    $('#tiles').innerHTML=[
+      ['تعداد محصولات فعال',fa(st.active_valid),'ok'],['برندها',st.brands.join(' · ')||'—',''],
+      ['بدون تصویر',fa(st.missing_images),st.missing_images?'warn':'ok'],['قیمت نامعتبر',fa(st.invalid_prices),st.invalid_prices?'err':'ok'],
+      ['ردیف رد شده',fa(st.rejected),st.rejected?'err':'ok'],['غیرفعال',fa(st.inactive),''],['هشدار',fa(st.warnings),st.warnings?'warn':'ok']
+    ].map(([k,val,c])=>`<div class="tile ${c}"><div class="k">${k}</div><div class="v" style="${k==='برندها'?'font-size:18px;font-family:Inter':''}">${val}</div></div>`).join('');
+    const unit=v.settings.price_unit==='thousand_toman'?'هزار تومان':'تومان';
+    const rows=[...v.products.map(p=>({...p,_s:'ok'})),...v.rejected.map(p=>({...p,_s:'err'}))];
+    $('#products').innerHTML='<tr><th>شناسه</th><th>مدل</th><th>حافظه</th><th>رنگ</th><th>پارت‌نامبر</th><th>قیمت ('+unit+')</th><th>تصویر</th><th>وضعیت</th></tr>'+rows.map(p=>`<tr>
+      <td class="en">${p.product_id}</td><td class="en">${p.model}</td><td class="en">${p.storage}</td>
+      <td><span class="sw" style="background:${p.color_hex||'#888'}"></span>${p.color}</td><td class="en">${p.part_number||'—'}</td>
+      <td style="font-weight:800">${p.price?money(p.price):'<span class="tag err">'+(p.price_raw||'خالی')+'</span>'}</td>
+      <td>${p.assets&&(p.assets.back||p.assets.front)?`<img src="/assets/${(p.assets.back||p.assets.front).path}" style="height:42px">`:'<span class="tag warn">ندارد</span>'}</td>
+      <td>${p._s==='ok'?'<span class="tag ok">آماده</span>':'<span class="tag err">'+(p.errors||[]).join('، ')+'</span>'}</td></tr>`).join('');
+    $('#issues').innerHTML=v.issues.length?v.issues.map(i=>`<div class="issue ${i.level}">${i.message}</div>`).join(''):'<div class="muted">بدون مشکل ✓</div>';
+    $('#plan').innerHTML=s.plan.map(p=>`<div class="p">ریلز <b>${p.part}</b> · ${fa(p.seconds.toFixed(1))} ثانیه<br><span class="muted">${p.groups.map(g=>g.model+(g.part_number?' '+g.part_number:'')+' ×'+fa(g.variants)).join(' · ')}</span></div>`).join('');
+  }
+  const j=s.job;
+  document.querySelectorAll('[data-job]').forEach(b=>b.disabled=!!(j&&j.status==='running')||!v||!v.ok);
+  if(j){ $('#log').textContent=j.log.join('\n')||'…'; $('#log').scrollTop=1e9; $('#jobmsg').textContent={running:'در حال اجرا…',done:'✓ انجام شد',failed:'✖ ناموفق — گزارش را ببینید'}[j.status]; }
+  $('#outputs').innerHTML=s.outputs.length?s.outputs.map(o=>`<h3 class="muted" style="direction:ltr;text-align:left">${o.group} ${o.report?`<span class="tag ${o.report==='pass'?'ok':'err'}">QC ${o.report}</span>`:''}</h3><div class="outs">${o.files.map(f=>`<div class="out">${f.name.endsWith('.mp4')?`<video src="${f.url}" controls preload="metadata"></video>`:f.name.endsWith('.jpg')?`<img src="${f.url}">`:''}<div class="name">${f.name} · ${(f.size/1048576).toFixed(1)} MB</div><a class="btn ghost" href="${f.url}" download>⬇ دانلود</a></div>`).join('')}</div>`).join(''):'<div class="muted">هنوز خروجی‌ای ساخته نشده.</div>';
+  if(j&&j.status==='running'){ if(!polling) polling=setInterval(refresh,1500); } else if(polling){ clearInterval(polling); polling=null; }
+}
+async function refresh(){ render(await api('/api/state')); }
+async function sendFile(f){ const fd=new FormData(); fd.append('file',f); $('#upmsg').textContent='در حال بررسی…'; try{ render(await api('/api/upload',{method:'POST',body:fd})); }catch(e){ $('#upmsg').textContent='خطا: '+e.message; } }
+const drop=$('#drop');
+drop.onclick=()=>$('#file').click(); $('#file').onchange=e=>e.target.files[0]&&sendFile(e.target.files[0]);
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',e=>e.dataTransfer.files[0]&&sendFile(e.dataTransfer.files[0]));
+$('#revalidate').onclick=async()=>{ try{ render(await api('/api/validate',{method:'POST'})); }catch(e){ $('#upmsg').textContent=e.message; } };
+document.querySelectorAll('[data-job]').forEach(b=>b.onclick=async()=>{ try{ render(await api('/api/job',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:b.dataset.job})})); }catch(e){ $('#jobmsg').textContent=e.message; } });
+refresh();
+</script>
+</body>
+</html>
