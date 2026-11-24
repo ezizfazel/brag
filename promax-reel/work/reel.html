@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<title>PROMAX Reel</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{ --blue:#1E6BFF; --glow:#3FA0FF; --deep:#0A2A6B; --ink:#03050A; --white:#F4F8FF; }
+  html,body{margin:0;background:#000;overflow:hidden}
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#02040a}
+  canvas{position:absolute;inset:0}
+  .abs{position:absolute}
+  .fa{font-family:'Vazirmatn',sans-serif;direction:rtl;color:var(--white)}
+  i.en{font-style:normal;font-family:'Inter',sans-serif;font-weight:700;direction:ltr;unicode-bidi:isolate;
+       background:rgba(63,160,255,.16);border:1.5px solid rgba(63,160,255,.55);border-radius:12px;padding:0 12px 4px;margin:0 4px;color:#fff;display:inline-block;line-height:1.25}
+  #focus{position:absolute;inset:0;pointer-events:none}
+  #shade{position:absolute;inset:0;pointer-events:none;background:
+     linear-gradient(180deg,rgba(2,4,10,.78) 0%,rgba(2,4,10,.25) 14%,rgba(2,4,10,0) 24%,rgba(2,4,10,0) 80%,rgba(2,4,10,.55) 100%);}
+  /* step card */
+  #step{left:0;right:0;top:250px;display:flex;justify-content:center}
+  #step .card{display:flex;align-items:center;gap:22px;max-width:960px;padding:20px 30px 24px 34px;border-radius:30px;
+     background:linear-gradient(180deg,rgba(6,14,32,.88),rgba(3,8,20,.84));border:2px solid rgba(63,160,255,.75);
+     box-shadow:0 0 34px rgba(30,107,255,.45),0 10px 30px rgba(0,0,0,.5)}
+  #step .num{flex:none;width:78px;height:78px;border-radius:24px;display:flex;align-items:center;justify-content:center;
+     font-family:'Vazirmatn';font-weight:900;font-size:50px;color:#fff;background:linear-gradient(160deg,#3FA0FF,#1E6BFF 55%,#0A2A6B);
+     box-shadow:0 0 22px rgba(63,160,255,.8), inset 0 1px 0 rgba(255,255,255,.4)}
+  #step .txt{font-weight:800;font-size:44px;line-height:1.45}
+  #step .lbl{font-family:'Inter';font-weight:800;font-size:20px;letter-spacing:5px;color:#7fbaff;margin-bottom:2px;direction:ltr;text-align:right}
+  /* highlight */
+  .hl{position:absolute;border-radius:18px;border:4px solid #5fb2ff;background:rgba(63,160,255,.10);
+      box-shadow:0 0 18px rgba(63,160,255,.95),0 0 46px rgba(30,107,255,.6), inset 0 0 18px rgba(63,160,255,.35)}
+  .tap{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#fff;box-shadow:0 0 18px #3FA0FF,0 0 40px #1E6BFF}
+  /* hook */
+  #hook{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  #hook .l{font-weight:900;font-size:104px;line-height:1.3;text-align:center;white-space:nowrap}
+  #hook .l b{color:#4aa8ff;text-shadow:0 0 30px rgba(63,160,255,.9)}
+  #hook .kick{margin-top:34px;font-family:'Inter';font-weight:800;font-size:26px;letter-spacing:12px;color:#7fbaff;padding-left:12px}
+  .gt{text-shadow:0 0 22px rgba(63,160,255,.6),0 0 60px rgba(30,107,255,.35),0 6px 20px rgba(0,0,0,.8)}
+  #intro{left:0;right:0;top:250px;text-align:center}
+  #intro .t{display:inline-block;font-weight:900;font-size:96px;padding:6px 44px 18px;border-radius:34px;background:rgba(3,8,20,.72);border:2px solid rgba(63,160,255,.75);box-shadow:0 0 40px rgba(30,107,255,.45)}
+  #guide{position:absolute;pointer-events:none}
+  #guide .c{position:absolute;width:70px;height:70px;border-color:#5fb2ff;border-style:solid;filter:drop-shadow(0 0 10px #3FA0FF)}
+  /* voice chip */
+  #voice{left:0;right:0;top:262px;display:flex;justify-content:center}
+  #voice .chip{display:flex;align-items:center;gap:22px;padding:16px 34px;border-radius:60px;background:linear-gradient(160deg,#2a86ff,#1E6BFF 60%,#0f3fa8);
+     box-shadow:0 0 40px rgba(63,160,255,.8);direction:ltr}
+  #voice .w{font-family:'Inter';font-weight:900;font-size:62px;color:#fff;letter-spacing:1px}
+  #voice .bars{display:flex;gap:7px;align-items:center;height:60px}
+  #voice .bars span{width:8px;border-radius:4px;background:#fff}
+  #ok{left:0;right:0;top:300px;text-align:center}
+  #ok .t{display:inline-flex;align-items:center;gap:24px;font-weight:900;font-size:100px;padding:8px 50px 22px;border-radius:40px;
+     background:linear-gradient(160deg,rgba(42,134,255,.95),rgba(30,107,255,.95) 60%,rgba(10,42,107,.95));box-shadow:0 0 60px rgba(63,160,255,.85)}
+  /* outro */
+  #outro{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  #logo{display:flex;flex-direction:column;align-items:center}
+  #logo .mark{width:150px;height:150px;border-radius:44px;display:flex;align-items:center;justify-content:center;
+     background:linear-gradient(160deg,#3FA0FF,#1E6BFF 55%,#0A2A6B);box-shadow:0 0 60px rgba(63,160,255,.8), inset 0 2px 0 rgba(255,255,255,.35);
+     font-family:'Inter';font-weight:900;font-size:96px;color:#fff;letter-spacing:-4px}
+  #logo .w1{margin-top:34px;font-family:'Inter';font-weight:900;font-size:110px;letter-spacing:10px;color:#fff;padding-left:10px;line-height:1}
+  #logo .w2{margin-top:14px;font-family:'Inter';font-weight:800;font-size:38px;letter-spacing:30px;color:#4aa8ff;padding-left:30px}
+  #o1{margin-top:70px;font-weight:900;font-size:62px;line-height:1.45;max-width:940px}
+  #o2{margin-top:44px;display:inline-flex;align-items:center;gap:18px;font-weight:700;font-size:40px;padding:18px 36px 22px;border-radius:50px;
+      background:rgba(255,255,255,.08);border:2px solid rgba(63,160,255,.8);box-shadow:0 0 30px rgba(30,107,255,.4)}
+  #flash{inset:0;background:radial-gradient(circle at 50% 50%,rgba(170,215,255,.95),rgba(30,107,255,.75) 55%,rgba(10,42,107,.6));opacity:0;mix-blend-mode:screen}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="cv" width="1080" height="1920"></canvas>
+  <div id="focus"></div>
+  <div id="shade"></div>
+  <div id="hls"></div>
+  <div id="guide"><div class="c" style="top:0;left:0;border-width:5px 0 0 5px;border-radius:30px 0 0 0"></div><div class="c" style="top:0;right:0;border-width:5px 5px 0 0;border-radius:0 30px 0 0"></div><div class="c" style="bottom:0;left:0;border-width:0 0 5px 5px;border-radius:0 0 0 30px"></div><div class="c" style="bottom:0;right:0;border-width:0 5px 5px 0;border-radius:0 0 30px 0"></div></div>
+  <div id="step" class="abs"><div class="card"><div class="num">۱</div><div><div class="lbl">STEP 1</div><div class="txt fa"></div></div></div></div>
+  <div id="intro" class="abs fa"><span class="t gt">بدون لمس گوشی!</span></div>
+  <div id="voice" class="abs"><div class="chip">
+     <svg width="46" height="60" viewBox="0 0 24 32" fill="#fff"><rect x="7" y="1" width="10" height="19" rx="5"/><path d="M3 15a9 9 0 0 0 18 0" stroke="#fff" stroke-width="2.4" fill="none"/><rect x="11" y="24" width="2.4" height="6"/></svg>
+     <span class="w">"promax"</span><div class="bars"></div></div></div>
+  <div id="ok" class="abs fa"><span class="t"><svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11V7a5 5 0 0 1 9.9-1"/><rect x="4" y="11" width="16" height="10" rx="2.5" fill="rgba(255,255,255,.18)"/></svg>باز شد!</span></div>
+  <canvas id="fx" width="1080" height="1920"></canvas>
+  <div id="hook" class="abs fa">
+    <div class="l gt" id="h1">فقط با گفتن <b>یک کلمه</b>،</div>
+    <div class="l gt" id="h2">آیفونت رو باز کن!</div>
+    <div class="kick" id="hk">PROMAX MOBILE · iPHONE TIPS</div>
+  </div>
+  <div id="outro" class="abs fa">
+    <div id="logo"><div class="mark">P</div><div class="w1">PROMAX</div><div class="w2">MOBILE</div></div>
+    <div id="o1" class="gt">ترفندهای جذاب آیفون رو با پرومکس یاد بگیر!</div>
+    <div id="o2"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7fbaff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>این ترفند رو امتحان کن و برای دوستت بفرست.</div>
+  </div>
+  <div id="flash" class="abs"></div>
+</div>
+<script>
+const W=1080,H=1920,SW=720,SH=1280,FPS=25,NF=1472;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lin=(t,a,b)=>clamp((t-a)/(b-a));
+const ss=(t,a,b)=>{const x=lin(t,a,b);return x*x*(3-2*x)};
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ob=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,s)=>a+(b-a)*s;
+const $=id=>document.getElementById(id);
+
+// ---------- time mapping (speed ramp on the unlock) ----------
+const R0=54.8, RS=1.4, RO=2.8, END=63.4;
+function srcT(t){
+  if(t<R0) return t;
+  if(t<R0+RO){ const u=(t-R0)/RO; return R0+RS*(2*u*u*u-3*u*u+2*u); }
+  return Math.min(t-(RO-RS),(NF-1)/FPS);
+}
+// ---------- camera keys: [outT, zoom, cx, cy] (source px) ----------
+const O=[1.45,365,865];
+const K=[[0,1.75,365,865],[2.4,1.75,365,865],[3.6,...O],
+ [5.6,...O],[6.4,2.0,362,868],[12.0,2.0,362,868],[12.8,...O],
+ [13.0,...O],[13.6,2.2,365,940],[14.7,2.2,365,940],[15.4,...O],
+ [18.8,...O],[19.4,2.2,365,790],[20.6,2.2,365,790],[21.2,...O],
+ [21.5,...O],[21.9,2.1,365,800],[22.9,2.1,365,800],[23.6,2.1,365,730],[25.6,2.1,365,730],[26.3,1.8,365,800],[30.8,1.8,365,800],
+ [31.4,2.1,365,750],[33.6,2.1,365,750],[34.4,...O],
+ [36.0,...O],[36.6,1.9,345,815],[39.8,1.9,345,815],[40.3,1.9,395,740],[42.9,1.9,395,740],[43.6,...O],
+ [44.4,...O],[44.9,2.1,400,760],[46.6,2.1,400,760],[47.3,...O],
+ [53.5,...O],[54.2,1.75,365,830],[56.6,1.95,365,850],[57.6,...O],
+ [58.0,...O],[END,1.6,365,865]];
+function cam(t){
+  if(t<=K[0][0]) return K[0].slice(1);
+  for(let i=0;i<K.length-1;i++){ if(t<=K[i+1][0]){ const s=eio(lin(t,K[i][0],K[i+1][0])); return [1,2,3].map(j=>lerp(K[i][j],K[i+1][j],s)); } }
+  return K[K.length-1].slice(1);
+}
+function view(t){
+  let [z,cx,cy]=cam(t); const cw=SW/z, ch=SH/z;
+  let ox=clamp(cx-cw/2,0,SW-cw), oy=clamp(cy-ch/2,0,SH-ch);
+  return {z,ox,oy,s:W/cw};
+}
+const mapR=(v,r)=>({x:(r[0]-v.ox)*v.s, y:(r[1]-v.oy)*v.s, w:(r[2]-r[0])*v.s, h:(r[3]-r[1])*v.s});
+
+// ---------- highlights & blurs (source time, source px) ----------
+const HL=[
+ [6.2,12.2,[268,752,452,990]],
+ [13.2,14.8,[233,970,497,1006]],
+ [19.2,20.7,[238,743,500,773]],
+ [21.6,23.2,[240,809,485,839]],
+ [23.6,25.7,[245,672,485,702]],
+ [26.3,30.9,[245,687,480,727]],
+ [31.6,33.8,[245,710,480,739]],
+ [36.3,40.0,[275,758,392,860]],
+ [40.1,41.0,[416,643,466,670]],
+ [41.3,43.0,[413,650,463,677]],
+ [44.8,46.7,[410,675,460,700]],
+ [54.25,55.5,[322,643,398,669]],
+];
+const BL=[[12.3,15.3,[248,650,508,708]],[52.1,53.1,[230,733,510,1012]]];
+const STEPS=[
+ [5.0,12.5,'۱','محل اعداد رمز رو با ماژیک روی صفحه علامت بزن'],
+ [12.7,18.8,'۲','وارد تنظیمات شو ← <i class="en">Accessibility</i>'],
+ [19.0,21.1,'۳','گزینه‌ی <i class="en">Voice Control</i> رو بزن'],
+ [21.3,25.8,'۴','<i class="en">Commands</i> ← <i class="en">Create New Command</i>'],
+ [26.0,30.9,'۵','توی <i class="en">Phrase</i> بنویس: <i class="en">promax</i>'],
+ [31.0,34.3,'۶','<i class="en">Action</i> ← <i class="en">Run Custom Gesture</i>'],
+ [34.5,40.9,'۷','روی نقطه‌ها به ترتیب رمزت بزن و <i class="en">Save</i>'],
+ [41.0,47.3,'۸','ذخیره کن و <i class="en">Voice Control</i> رو روشن کن'],
+ [47.5,53.65,'۹','گوشی رو قفل کن و فقط بگو <i class="en">promax</i>'],
+];
+const EN_NUM=['1','2','3','4','5','6','7','8','9'];
+
+// ---------- frames ----------
+const cache=new Map();
+function loadFrame(i){
+  i=clamp(i,0,NF-1); if(cache.has(i)) return cache.get(i);
+  const p=new Promise(res=>{ const im=new Image(); im.onload=()=>res(im); im.src=`frames/${String(i+1).padStart(5,'0')}.jpg`; });
+  cache.set(i,p); if(cache.size>40){ const k=cache.keys().next().value; cache.delete(k); } return p;
+}
+const cv=$('cv'), ctx=cv.getContext('2d'); ctx.imageSmoothingQuality='high';
+const fx=$('fx'), fctx=fx.getContext('2d');
+
+function drawLines(g,t,a){
+  if(a<=0) return;
+  g.save(); g.globalAlpha=a; g.globalCompositeOperation='lighter';
+  // faint grid
+  g.strokeStyle='rgba(63,160,255,0.06)'; g.lineWidth=1;
+  for(let x=0;x<=W;x+=90){ g.beginPath(); g.moveTo(x,0); g.lineTo(x,H); g.stroke(); }
+  for(let y=(t*30)%90;y<=H;y+=90){ g.beginPath(); g.moveTo(0,y); g.lineTo(W,y); g.stroke(); }
+  // light streaks
+  for(let i=0;i<9;i++){
+    const sp=520+i*90, ph=(i*0.37)%1;
+    const y0=((ph*H*1.6 + t*sp)%(H*1.6))-H*0.3;
+    const x0=-200+((i*271)%W);
+    const len=380+(i%3)*220;
+    const ang=-0.42;
+    const x1=x0+Math.cos(ang)*len, y1=y0+Math.sin(ang)*len;
+    const gr=g.createLinearGradient(x0,y0,x1,y1);
+    gr.addColorStop(0,'rgba(30,107,255,0)'); gr.addColorStop(0.7,'rgba(63,160,255,0.55)'); gr.addColorStop(1,'rgba(220,240,255,0.95)');
+    g.strokeStyle=gr; g.lineWidth=i%3===0?4:2; g.shadowColor='#3FA0FF'; g.shadowBlur=18;
+    g.beginPath(); g.moveTo(x0,y0); g.lineTo(x1,y1); g.stroke();
+  }
+  // big soft glow
+  const rg=g.createRadialGradient(W/2,H*0.48,0,W/2,H*0.48,900);
+  rg.addColorStop(0,'rgba(30,107,255,0.22)'); rg.addColorStop(1,'rgba(30,107,255,0)');
+  g.fillStyle=rg; g.fillRect(0,0,W,H);
+  g.restore();
+}
+function reveal(el,t,a,b,o={}){
+  const {dy=30,blur=14,dur=.45,od=.3,sc=.96}=o;
+  const i=eo(lin(t,a,a+dur)), x=b==null?0:ss(t,b,b+od), op=i*(1-x);
+  el.style.display=op<=.001?'none':''; el.style.opacity=op.toFixed(3);
+  el.style.transform=`translateY(${((1-i)*dy-x*16).toFixed(1)}px) scale(${lerp(sc,1,i).toFixed(4)})`;
+  el.style.filter=`blur(${((1-i)*blur+x*6).toFixed(2)}px)`;
+}
+const bars=$('voice').querySelector('.bars'); for(let i=0;i<9;i++) bars.appendChild(document.createElement('span'));
+const hlEls=HL.map(()=>{ const d=document.createElement('div'); d.className='hl'; $('hls').appendChild(d); return d; });
+let lastStep=-1;
+
+window.DURATION=END; window.FPS=FPS;
+window.renderAt=async function(t){
+  const st=srcT(t), fi=st*FPS, i0=Math.floor(fi), fr=fi-i0;
+  const [a,b]=await Promise.all([loadFrame(i0),loadFrame(i0+1)]);
+  const v=view(t);
+  const outro=ss(t,58.4,59.2);
+  const hookA=1-ss(t,2.45,2.85);
+  // --- footage ---
+  ctx.save(); ctx.fillStyle='#02040a'; ctx.fillRect(0,0,W,H);
+  const blurAmt = hookA*22 + outro*26;
+  const bright = 1 - hookA*0.75 - outro*0.62;
+  ctx.filter=`contrast(1.08) saturate(1.1) brightness(${(1.02*bright).toFixed(3)})${blurAmt>0.3?` blur(${blurAmt.toFixed(1)}px)`:''}`;
+  const dw=SW*v.s, dh=SH*v.s, dx=-v.ox*v.s, dy=-v.oy*v.s;
+  ctx.drawImage(a,dx,dy,dw,dh);
+  if(fr>0.02 && t>=R0 && t<R0+RO){ ctx.globalAlpha=fr; ctx.drawImage(b,dx,dy,dw,dh); ctx.globalAlpha=1; }
+  ctx.restore();
+  // privacy blurs
+  for(const [t0,t1,r] of BL){ if(st<t0||st>t1) continue; const m=mapR(v,r);
+    ctx.save(); ctx.beginPath(); ctx.roundRect(m.x,m.y,m.w,m.h,14); ctx.clip(); ctx.filter='blur(16px) brightness(1.02)'; ctx.drawImage(a,dx,dy,dw,dh); ctx.restore(); }
+  // focus vignette centred on the phone screen
+  { const sc=mapR(v,[225,620,505,1110]); const cx=sc.x+sc.w/2, cy=sc.y+sc.h/2;
+    ctx.save(); const g=ctx.createRadialGradient(cx,cy,Math.max(sc.w,sc.h)*0.55,cx,cy,Math.max(sc.w,sc.h)*1.05);
+    g.addColorStop(0,'rgba(2,4,10,0)'); g.addColorStop(1,'rgba(2,4,10,0.55)'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); ctx.restore(); }
+
+  // --- guide frame (intro) ---
+  { const gA = ss(t,2.7,3.1)*(1-ss(t,4.7,5.1)); const g=$('guide');
+    if(gA>0.001){ const sc=mapR(v,[222,616,508,1114]); const pad=lerp(60,14,eo(lin(t,2.7,3.3)));
+      g.style.display=''; g.style.opacity=gA; g.style.left=(sc.x-pad)+'px'; g.style.top=(sc.y-pad)+'px'; g.style.width=(sc.w+pad*2)+'px'; g.style.height=(sc.h+pad*2)+'px'; }
+    else g.style.display='none'; }
+  reveal($('intro'),t,2.85,4.85,{dy:40,blur:18,sc:1.12,dur:.5});
+
+  // --- step cards ---
+  let si=-1; for(let k=0;k<STEPS.length;k++) if(t>=STEPS[k][0]-0.05 && t<STEPS[k][1]+0.35) si=k;
+  const stepEl=$('step');
+  if(si>=0){ const S=STEPS[si];
+    if(si!==lastStep){ stepEl.querySelector('.num').textContent=S[2]; stepEl.querySelector('.txt').innerHTML=S[3]; stepEl.querySelector('.lbl').textContent='STEP '+EN_NUM[si]+' / 9'; lastStep=si; }
+    reveal(stepEl,t,S[0],S[1],{dy:-26,blur:12,sc:.94,dur:.4,od:.3});
+  } else stepEl.style.display='none';
+
+  // --- highlights ---
+  HL.forEach(([t0,t1,r],k)=>{ const el=hlEls[k];
+    if(st<t0-0.01||st>t1+0.3){ el.style.display='none'; return; }
+    const m=mapR(v,r); const pad=10; const ii=ob(lin(st,t0,t0+0.35)), oo=ss(st,t1,t1+0.3);
+    const pulse=1+0.035*Math.sin((st-t0)*6.5);
+    el.style.display=''; el.style.opacity=(lin(st,t0,t0+0.15)*(1-oo)).toFixed(3);
+    el.style.left=(m.x-pad)+'px'; el.style.top=(m.y-pad)+'px'; el.style.width=(m.w+pad*2)+'px'; el.style.height=(m.h+pad*2)+'px';
+    el.style.transform=`scale(${(lerp(1.25,1,ii)*pulse).toFixed(4)})`;
+  });
+
+  // --- voice chip ("promax") ---
+  { const el=$('voice'); reveal(el,t,54.0,56.6,{dy:30,blur:12,sc:.85,dur:.35});
+    [...bars.children].forEach((s,k)=>{ const talk=1-ss(t,54.75,55.2); const h=10+talk*(14+40*Math.abs(Math.sin(t*13+k*1.7))*(0.5+0.5*Math.sin(k*2.1+t*7))); s.style.height=h.toFixed(1)+'px'; }); }
+  // --- unlocked ---
+  reveal($('ok'),t,57.45,58.4,{dy:40,blur:14,sc:.8,dur:.4});
+  { const f=Math.max(0, 1-Math.abs(t-57.4)/0.14); $('flash').style.opacity=(f*0.8).toFixed(3); }
+
+  // --- fx canvas: light lines for hook & outro ---
+  fctx.clearRect(0,0,W,H);
+  drawLines(fctx,t,Math.max(hookA, outro));
+
+  // --- hook ---
+  { const h=$('hook'); h.style.display=hookA<=0.001?'none':''; h.style.opacity=hookA;
+    const zoomOut=1+ss(t,2.45,2.85)*0.25; h.style.transform=`scale(${zoomOut})`; h.style.filter=`blur(${(ss(t,2.45,2.85)*14).toFixed(1)}px)`;
+    const ln=(el,a)=>{ const p=eo(lin(t,a,a+0.38)); el.style.opacity=lin(t,a,a+0.12);
+      el.style.transform=`translateX(${((1-p)*-220).toFixed(1)}px) scaleX(${(1+(1-p)*0.35).toFixed(3)})`; el.style.filter=`blur(${((1-p)*18).toFixed(1)}px)`; };
+    ln($('h1'),0.12); ln($('h2'),0.42);
+    const k=eo(lin(t,0.8,1.2)); $('hk').style.opacity=k; $('hk').style.transform=`translateY(${(1-k)*16}px)`; }
+  // --- outro ---
+  { const o=$('outro'); o.style.display=outro<=0.001?'none':''; o.style.opacity=Math.min(1,outro*1.4);
+    const lg=ob(lin(t,58.8,59.35)); $('logo').style.transform=`scale(${lerp(0.6,1,lg).toFixed(3)})`; $('logo').style.opacity=lin(t,58.8,59.0);
+    $('logo').style.filter=`blur(${((1-eo(lin(t,58.8,59.2)))*16).toFixed(1)}px)`;
+    reveal($('o1'),t,59.5,null,{dy:30,blur:12,dur:.5});
+    reveal($('o2'),t,60.3,null,{dy:30,blur:12,dur:.5}); }
+};
+Promise.all([document.fonts.load('900 60px Vazirmatn'),document.fonts.load('800 40px Inter')]).then(()=>document.fonts.ready).then(()=>{ window.READY=true; });
+</script>
+</body>
+</html>
