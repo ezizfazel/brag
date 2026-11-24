@@ -36,7 +36,7 @@ IMG_EXT = {".png", ".jpg", ".jpeg", ".webp"}
 MODEL_EXT = {".glb", ".gltf"}
 VIDEO_EXT = {".mp4", ".mov", ".webm"}
 PART_RE = re.compile(r"^[A-Z]{1,3}/[A-Z]$")
-STORAGE_RE = re.compile(r"^\d{2,4}\s?(GB|TB)$", re.I)
+STORAGE_RE = re.compile(r"^\d{1,4}\s?(GB|TB)$", re.I)
 GROUPED_RE = re.compile(r"^\d{1,3}([.,٬]\d{3})+$")
 FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
 

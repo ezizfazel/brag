@@ -153,7 +153,13 @@ export const GroupScene: React.FC<{ group: Group; reel: Reel; settings: Settings
       <div style={{ position: 'absolute', top: LAYOUT.title, left: 60, right: 60, textAlign: 'center', opacity: tIn * (1 - tOut), transform: `translateY(${(1 - tIn) * -30}px)` }}>
         <div style={{ fontFamily: EN, fontWeight: 600, fontSize: 22, letterSpacing: 6, color: C.blue }}>{chips.toUpperCase()}</div>
         <div style={{ fontFamily: EN, fontWeight: 800, fontSize: group.model.length > 17 ? 78 : 90, color: C.navy, lineHeight: 1.1, marginTop: 4, letterSpacing: -1 }}>{group.model}</div>
-        {group.condition ? <div style={{ marginTop: 10, display: 'inline-block', fontFamily: FA, fontWeight: 500, fontSize: 22, color: C.muted, padding: '4px 16px', borderRadius: 20, border: `1.5px solid ${C.line}`, direction: 'rtl' }}>{group.condition}</div> : null}
+        <div style={{ marginTop: 12, display: 'flex', justifyContent: 'center', gap: 10, direction: 'ltr' }}>
+          {[settings.show_storage ? group.storage : null, settings.show_part_number && group.part_number ? group.part_number : null].filter(Boolean).map((t) => (
+            <span key={t as string} style={{ fontFamily: EN, fontWeight: 700, fontSize: 30, color: '#fff', background: `linear-gradient(135deg, #3AA2FF, ${C.blue})`, padding: '4px 18px', borderRadius: 14, boxShadow: '0 6px 16px rgba(22,139,255,.25)' }}>{t}</span>
+          ))}
+          {group.condition ? <span style={{ fontFamily: FA, fontWeight: 700, fontSize: 26, color: /^اکتیو/.test(group.condition) ? '#0E8A5F' : C.navy, background: /^اکتیو/.test(group.condition) ? '#E3F7EE' : C.sky,
+            padding: '6px 18px', borderRadius: 14, direction: 'rtl', unicodeBidi: 'isolate' }}>{group.condition}</span> : null}
+        </div>
       </div>
       {/* device */}
       <div style={{ position: 'absolute', left: 0, right: 0, top: LAYOUT.stageTop + 40 }}>

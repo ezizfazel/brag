@@ -63,6 +63,8 @@ pre#log{background:#02050a;border:1px solid var(--line);border-radius:14px;paddi
   <section class="panel">
     <h2><span class="n">1</span>آپلود لیست قیمت امروز</h2>
     <div id="drop"><b>فایل اکسل رو اینجا رها کن یا کلیک کن</b><small>فقط ‎.xlsx · ستون‌ها مطابق قالب PROMAX-DAILY-PRICES</small><input type="file" id="file" accept=".xlsx" hidden></div>
+    <div style="margin-top:16px"><textarea id="paste" placeholder="یا لیست قیمت را همان‌طور که در واتس‌اپ/تلگرام می‌فرستید اینجا بچسبانید…&#10;💙iphone Duo 512g zaa Esim/714200 act&#10;🍒18 pro max 256g zaa/437700 not" style="width:100%;min-height:150px;border-radius:14px;border:1px solid var(--line);background:rgba(5,8,13,.5);color:#fff;padding:14px;font:15px/1.6 Inter,Vazirmatn,sans-serif;direction:ltr"></textarea>
+    <div class="row" style="margin-top:10px"><button class="primary" id="pasteBtn">تبدیل متن به اکسل و بررسی</button><span class="muted" id="pastemsg"></span></div></div>
     <div class="row" style="margin-top:14px"><a class="btn ghost" href="/templates/PROMAX-DAILY-PRICES.xlsx" download>⬇ دانلود قالب اکسل</a><button class="ghost" id="revalidate">بررسی دوباره</button><span class="muted" id="upmsg"></span></div>
   </section>
 
@@ -132,6 +134,10 @@ drop.onclick=()=>$('#file').click(); $('#file').onchange=e=>e.target.files[0]&&s
 ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
 ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
 drop.addEventListener('drop',e=>e.dataTransfer.files[0]&&sendFile(e.dataTransfer.files[0]));
+$('#pasteBtn').onclick=async()=>{ const t=$('#paste').value; if(!t.trim())return; $('#pastemsg').textContent='در حال تبدیل…';
+  try{ const s=await api('/api/paste',{method:'POST',headers:{'Content-Type':'text/plain'},body:t}); render(s);
+    const p=s.paste; $('#pastemsg').textContent=`${p.rows} ردیف خوانده شد`+(p.problems.length?` · ${p.problems.length} خط نامفهوم: `+p.problems.map(x=>x.line+': '+x.reason).join(' | '):' · بدون مشکل ✓'); }
+  catch(e){ $('#pastemsg').textContent='خطا: '+e.message; } };
 $('#revalidate').onclick=async()=>{ try{ render(await api('/api/validate',{method:'POST'})); }catch(e){ $('#upmsg').textContent=e.message; } };
 document.querySelectorAll('[data-job]').forEach(b=>b.onclick=async()=>{ try{ render(await api('/api/job',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:b.dataset.job})})); }catch(e){ $('#jobmsg').textContent=e.message; } });
 refresh();

@@ -12,7 +12,7 @@ export const T = {
   MAX_SECONDS: 45,
 };
 export const groupFrames = (n: number, per: number) => T.ENTER + n * per + T.EXIT;
-const keyOf = (p: Product) => [p.brand, p.series, p.model, p.storage, p.part_number].join('|');
+const keyOf = (p: Product) => [p.brand, p.series, p.model, p.storage, p.part_number, p.condition].join('|');
 
 export function buildGroups(products: Product[]): Omit<Group, 'from'>[] {
   const map = new Map<string, Omit<Group, 'from'>>();

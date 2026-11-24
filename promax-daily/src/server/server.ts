@@ -65,6 +65,20 @@ app.post('/api/upload', upload.single('file'), async (q, r) => {
   catch (e) { r.status(500).json({ error: String(e) }); }
 });
 
+app.post('/api/paste', express.text({ type: '*/*', limit: '1mb' }), async (q, r) => {
+  // paste the daily price list as text (WhatsApp/Telegram format) → Excel → validation
+  const txt = typeof q.body === 'string' ? q.body : String(q.body?.text || '');
+  if (!txt.trim()) return r.status(400).json({ error: 'Empty list' });
+  const src = path.join(P.uploads, `paste-${Date.now()}.txt`); fs.writeFileSync(src, txt);
+  const py = spawn(process.env.PYTHON || 'python3', [path.join(P.python, 'promax_text.py'), src, '--out', P.latestXlsx]);
+  let out = ''; py.stdout.on('data', (d) => (out += d)); py.stderr.on('data', (d) => (out += d));
+  py.on('close', async () => {
+    let parsed: unknown = null; try { parsed = JSON.parse(out); } catch { return r.status(500).json({ error: out.slice(-800) }); }
+    lastUpload = { name: 'متن چسبانده‌شده', at: new Date().toISOString() };
+    try { validated = await validateExcel(P.latestXlsx); r.json({ ...state(), paste: parsed }); } catch (e) { r.status(500).json({ error: String(e) }); }
+  });
+});
+
 app.post('/api/validate', async (_q, r) => {
   if (!fs.existsSync(P.latestXlsx)) return r.status(400).json({ error: 'No Excel uploaded yet' });
   try { validated = await validateExcel(P.latestXlsx); r.json(state()); } catch (e) { r.status(500).json({ error: String(e) }); }
