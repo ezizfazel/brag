@@ -32,3 +32,8 @@ promax-reel/work/*
 !promax-reel/work/audio.py
 promax-reel/output/*
 !promax-reel/output/brag-plan.md
+!promax-reel/work/v2/
+promax-reel/work/v2/*
+!promax-reel/work/v2/index.html
+!promax-reel/work/render2.js
+!promax-reel/work/audio2.py
