@@ -1,0 +1,171 @@
+[
+ {
+  "file": "products/iphone17/17-pro-deep-blue-front.png",
+  "model": "iPhone 17 Pro",
+  "color": "Deep Blue",
+  "side": "front",
+  "size": [
+   318,
+   652
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone17/17-pro-deep-blue-back.png",
+  "model": "iPhone 17 Pro",
+  "color": "Deep Blue",
+  "side": "back",
+  "size": [
+   317,
+   650
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone17/17-pro-max-cosmic-orange-front.png",
+  "model": "iPhone 17 Pro Max",
+  "color": "Cosmic Orange",
+  "side": "front",
+  "size": [
+   318,
+   650
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-max-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone17/17-pro-max-cosmic-orange-back.png",
+  "model": "iPhone 17 Pro Max",
+  "color": "Cosmic Orange",
+  "side": "back",
+  "size": [
+   316,
+   650
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-max-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone18/18-pro-glacier-front.png",
+  "model": "iPhone 18 Pro",
+  "color": "Glacier",
+  "side": "front",
+  "size": [
+   317,
+   647
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone18-pro-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone18/18-pro-glacier-back.png",
+  "model": "iPhone 18 Pro",
+  "color": "Glacier",
+  "side": "back",
+  "size": [
+   314,
+   646
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone18-pro-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone18/18-pro-max-burgundy-front.png",
+  "model": "iPhone 18 Pro Max",
+  "color": "Burgundy",
+  "side": "front",
+  "size": [
+   321,
+   661
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone18-pro-max-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/iphone18/18-pro-max-burgundy-back.png",
+  "model": "iPhone 18 Pro Max",
+  "color": "Burgundy",
+  "side": "back",
+  "size": [
+   321,
+   661
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone18-pro-max-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/samsung_s26/s26-ultra-cobalt-violet-front.png",
+  "model": "Galaxy S26 Ultra",
+  "color": "Cobalt Violet",
+  "side": "front",
+  "size": [
+   298,
+   618
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s26-ultra-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/samsung_s26/s26-ultra-cobalt-violet-back.png",
+  "model": "Galaxy S26 Ultra",
+  "color": "Cobalt Violet",
+  "side": "back",
+  "size": [
+   297,
+   619
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s26-ultra-1.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/samsung_s26/s26-ultra-white-back.png",
+  "model": "Galaxy S26 Ultra",
+  "color": "White",
+  "side": "back",
+  "size": [
+   176,
+   424
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s26-ultra-3.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/samsung_s26/s26-ultra-sky-blue-back.png",
+  "model": "Galaxy S26 Ultra",
+  "color": "Sky Blue",
+  "side": "back",
+  "size": [
+   175,
+   424
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s26-ultra-3.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ },
+ {
+  "file": "products/samsung_s26/s26-ultra-black-back.png",
+  "model": "Galaxy S26 Ultra",
+  "color": "Black",
+  "side": "back",
+  "size": [
+   176,
+   424
+  ],
+  "source": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s26-ultra-3.jpg",
+  "source_page": "https://www.gsmarena.com/",
+  "note": "official manufacturer image as published on GSMArena; background removed only"
+ }
+]

@@ -13,10 +13,14 @@ import { C } from '../theme';
 const ease = Easing.bezier(0.65, 0, 0.35, 1);
 const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' } as const;
 
-export function poseAt(f: number, n: number) {
+export function poseAt(f: number, n: number, firstHasFront = true) {
   // rotation in degrees: 180 = rear, 360 = front
   let rot: number;
-  if (f < 14) rot = 200;
+  if (!firstHasFront) {
+    // only a rear image exists: stay on the verified rear view (slow turntable), no invented front
+    rot = f < T.ENTER ? interpolate(f, [0, T.ENTER], [212, 172], { ...clamp, easing: ease }) : interpolate(f, [T.ENTER, T.ENTER + 12], [172, 160], { ...clamp, easing: ease });
+    for (let v = 1; v < n; v++) { const b = T.ENTER + v * T.PER_VARIANT; rot += interpolate(f, [b - 8, b + 8], [0, 360], { ...clamp, easing: ease }); }
+  } else if (f < 14) rot = 200;
   else if (f < 34) rot = interpolate(f, [14, 34], [200, 360], { ...clamp, easing: ease });
   else if (f < T.ENTER) rot = interpolate(f, [34, T.ENTER], [360, 352], clamp);
   else {
@@ -35,7 +39,7 @@ export function poseAt(f: number, n: number) {
   return { rot: rot + sway, idx, enter, exit };
 }
 
-const Face: React.FC<{ src?: string; side: 'front' | 'back'; w: number; h: number; hex: string; sweep: number }> = ({ src, side, w, h, hex, sweep }) => {
+const Face: React.FC<{ src?: string; side: 'front' | 'back'; w: number; h: number; hex: string; sweep: number; mirror?: boolean }> = ({ src, side, w, h, hex, sweep, mirror }) => {
   const url = src ? staticFile(src) : undefined;
   const style: React.CSSProperties = {
     position: 'absolute', left: 0, top: 0, width: w, height: h, backfaceVisibility: 'hidden',
@@ -44,7 +48,7 @@ const Face: React.FC<{ src?: string; side: 'front' | 'back'; w: number; h: numbe
   const mask: React.CSSProperties = url ? { WebkitMaskImage: `url(${url})`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center' } : { borderRadius: 64 };
   return (
     <div style={style}>
-      {url ? <Img src={url} style={{ width: w, height: h, objectFit: 'contain' }} /> : <Placeholder side={side} w={w} h={h} hex={hex} />}
+      {url ? <Img src={url} style={{ width: w, height: h, objectFit: 'contain', transform: mirror ? 'scaleX(-1)' : undefined, filter: mirror ? 'brightness(.55)' : undefined }} /> : <Placeholder side={side} w={w} h={h} hex={hex} />}
       {/* travelling blue light */}
       <div style={{ position: 'absolute', inset: 0, ...mask, pointerEvents: 'none',
         background: `linear-gradient(105deg, rgba(255,255,255,0) ${sweep - 18}%, rgba(120,190,255,.55) ${sweep - 4}%, rgba(255,255,255,.75) ${sweep}%, rgba(120,190,255,.45) ${sweep + 4}%, rgba(255,255,255,0) ${sweep + 18}%)` }} />
@@ -66,14 +70,15 @@ const Placeholder: React.FC<{ side: 'front' | 'back'; w: number; h: number; hex:
 );
 
 export const SmartphoneShowcase: React.FC<{ variants: Product[]; f: number; height?: number }> = ({ variants, f, height = 600 }) => {
-  const { rot, idx, enter, exit } = poseAt(f, variants.length);
+  const firstFront = !!variants[0].assets.front || (!variants[0].assets.back && !variants[0].assets.front);
+  const { rot, idx, enter, exit } = poseAt(f, variants.length, firstFront);
   const v = variants[idx];
   const front = v.assets.front, back = v.assets.back;
   const ar = (a?: { width?: number; height?: number }) => (a?.width && a?.height ? a.width / a.height : 0.49);
   const w = Math.round(height * Math.max(ar(front), ar(back), front || back ? 0 : 0.49));
   const h = height;
   const hex = v.color_hex || '#2B3447';
-  const prev = poseAt(f - 1, variants.length).rot;
+  const prev = poseAt(f - 1, variants.length, firstFront).rot;
   const vel = Math.abs(rot - prev);
   const blur = Math.min(16, vel * 0.55);
   const sweep = interpolate(f, [28, 46], [-30, 130], clamp) + (f > T.ENTER ? interpolate((f - T.ENTER) % T.PER_VARIANT, [10, 28], [-30, 130], clamp) : 0);
@@ -90,7 +95,7 @@ export const SmartphoneShowcase: React.FC<{ variants: Product[]; f: number; heig
           background: `linear-gradient(90deg, #6d7686, ${C.silver} 30%, color-mix(in srgb, ${hex} 55%, #9aa6b8) 60%, #3b4250)`,
           ...(edgeMask ? { WebkitMaskImage: `url(${edgeMask})`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center' } : { borderRadius: 64 }) }} />
       ))}
-      <Face side="front" src={front?.path} w={w} h={h} hex={hex} sweep={sweep} />
+      <Face side="front" src={front?.path ?? back?.path} mirror={!front && !!back} w={w} h={h} hex={hex} sweep={sweep} />
       <Face side="back" src={back?.path} w={w} h={h} hex={hex} sweep={sweep} />
     </div>
   );

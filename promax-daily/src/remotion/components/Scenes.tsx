@@ -85,7 +85,8 @@ export const Outro: React.FC<{ settings: Settings }> = ({ settings }) => {
 export const GroupScene: React.FC<{ group: Group; settings: Settings; preview?: boolean }> = ({ group, settings, preview }) => {
   const f = useCurrentFrame();
   const n = group.variants.length;
-  const { idx } = poseAt(f, n);
+  const v0 = group.variants[0].assets;
+  const { idx } = poseAt(f, n, !!v0.front || (!v0.back && !v0.front));
   const head = useRef<HTMLDivElement>(null);
   useGsapTimeline((tl) => {
     const s = (x: number) => x / 30;
