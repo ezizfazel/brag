@@ -1,0 +1,1165 @@
+{
+ "note": "Official manufacturer product images (apple.com store CDN, samsung.com product galleries) + PROMAX procedural 3D fallback",
+ "models": [
+  {
+   "id": "iphone-16",
+   "name": "iPhone 16",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "dims_mm": [
+    147.6,
+    71.6,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#3B3D42",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-16/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-black-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16__black__back.webp",
+     "glb": "library/models/iphone-16__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F3F2EE",
+     "slug": "white",
+     "official": {
+      "hero": "official/apple/iphone-16/white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-white-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16__white__back.webp",
+     "glb": "library/models/iphone-16__white.glb"
+    },
+    {
+     "name": "Pink",
+     "hex": "#F2AED6",
+     "slug": "pink",
+     "official": {
+      "hero": "official/apple/iphone-16/pink-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pink-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16__pink__back.webp",
+     "glb": "library/models/iphone-16__pink.glb"
+    },
+    {
+     "name": "Teal",
+     "hex": "#A8D3CF",
+     "slug": "teal",
+     "official": {
+      "hero": "official/apple/iphone-16/teal-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-teal-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16__teal__back.webp",
+     "glb": "library/models/iphone-16__teal.glb"
+    },
+    {
+     "name": "Ultramarine",
+     "hex": "#8FA3F2",
+     "slug": "ultramarine",
+     "official": {
+      "hero": "official/apple/iphone-16/ultramarine-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-ultramarine-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16__ultramarine__back.webp",
+     "glb": "library/models/iphone-16__ultramarine.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-16-plus",
+   "name": "iPhone 16 Plus",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "dims_mm": [
+    160.9,
+    77.8,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#3B3D42",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-16-plus/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-black-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16-plus__black__back.webp",
+     "glb": "library/models/iphone-16-plus__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F3F2EE",
+     "slug": "white",
+     "official": {
+      "hero": "official/apple/iphone-16-plus/white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-white-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16-plus__white__back.webp",
+     "glb": "library/models/iphone-16-plus__white.glb"
+    },
+    {
+     "name": "Pink",
+     "hex": "#F2AED6",
+     "slug": "pink",
+     "official": {
+      "hero": "official/apple/iphone-16-plus/pink-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-pink-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16-plus__pink__back.webp",
+     "glb": "library/models/iphone-16-plus__pink.glb"
+    },
+    {
+     "name": "Teal",
+     "hex": "#A8D3CF",
+     "slug": "teal",
+     "official": {
+      "hero": "official/apple/iphone-16-plus/teal-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-teal-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16-plus__teal__back.webp",
+     "glb": "library/models/iphone-16-plus__teal.glb"
+    },
+    {
+     "name": "Ultramarine",
+     "hex": "#8FA3F2",
+     "slug": "ultramarine",
+     "official": {
+      "hero": "official/apple/iphone-16-plus/ultramarine-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-ultramarine-select-202409"
+     ],
+     "preview3d": "library/previews/iphone-16-plus__ultramarine__back.webp",
+     "glb": "library/models/iphone-16-plus__ultramarine.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-16-pro",
+   "name": "iPhone 16 Pro",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "dims_mm": [
+    149.6,
+    71.5,
+    8.3
+   ],
+   "colors": [
+    {
+     "name": "Black Titanium",
+     "hex": "#3A3A3C",
+     "slug": "black-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro/black-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-blacktitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro__black-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro__black-titanium.glb"
+    },
+    {
+     "name": "White Titanium",
+     "hex": "#EFEEEA",
+     "slug": "white-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro/white-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-whitetitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro__white-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro__white-titanium.glb"
+    },
+    {
+     "name": "Natural Titanium",
+     "hex": "#C3BDB2",
+     "slug": "natural-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro/natural-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-naturaltitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro__natural-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro__natural-titanium.glb"
+    },
+    {
+     "name": "Desert Titanium",
+     "hex": "#C2A68F",
+     "slug": "desert-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro/desert-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-deserttitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro__desert-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro__desert-titanium.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-16-pro-max",
+   "name": "iPhone 16 Pro Max",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "dims_mm": [
+    163,
+    77.6,
+    8.3
+   ],
+   "colors": [
+    {
+     "name": "Black Titanium",
+     "hex": "#3A3A3C",
+     "slug": "black-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro-max/black-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-blacktitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro-max__black-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro-max__black-titanium.glb"
+    },
+    {
+     "name": "White Titanium",
+     "hex": "#EFEEEA",
+     "slug": "white-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro-max/white-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-whitetitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro-max__white-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro-max__white-titanium.glb"
+    },
+    {
+     "name": "Natural Titanium",
+     "hex": "#C3BDB2",
+     "slug": "natural-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro-max/natural-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-naturaltitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro-max__natural-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro-max__natural-titanium.glb"
+    },
+    {
+     "name": "Desert Titanium",
+     "hex": "#C2A68F",
+     "slug": "desert-titanium",
+     "official": {
+      "hero": "official/apple/iphone-16-pro-max/desert-titanium-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-deserttitanium"
+     ],
+     "preview3d": "library/previews/iphone-16-pro-max__desert-titanium__back.webp",
+     "glb": "library/models/iphone-16-pro-max__desert-titanium.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-16e",
+   "name": "iPhone 16e",
+   "brand": "Apple",
+   "series": "iPhone 16 Series",
+   "dims_mm": [
+    146.7,
+    71.5,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2E3136",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-16e/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16e-finish-select-202502-black"
+     ],
+     "preview3d": "library/previews/iphone-16e__black__back.webp",
+     "glb": "library/models/iphone-16e__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F4F4F2",
+     "slug": "white",
+     "official": {
+      "hero": "official/apple/iphone-16e/white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16e-finish-select-202502-white"
+     ],
+     "preview3d": "library/previews/iphone-16e__white__back.webp",
+     "glb": "library/models/iphone-16e__white.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-17",
+   "name": "iPhone 17",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "dims_mm": [
+    149.6,
+    71.5,
+    8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2D2E31",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-17/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-black-202509"
+     ],
+     "preview3d": "library/previews/iphone-17__black__back.webp",
+     "glb": "library/models/iphone-17__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F4F4F0",
+     "slug": "white",
+     "official": {
+      "hero": "official/apple/iphone-17/white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-white-202509"
+     ],
+     "preview3d": "library/previews/iphone-17__white__back.webp",
+     "glb": "library/models/iphone-17__white.glb"
+    },
+    {
+     "name": "Mist Blue",
+     "hex": "#AFC2DA",
+     "slug": "mist-blue",
+     "official": {
+      "hero": "official/apple/iphone-17/mist-blue-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-mistblue-202509"
+     ],
+     "preview3d": "library/previews/iphone-17__mist-blue__back.webp",
+     "glb": "library/models/iphone-17__mist-blue.glb"
+    },
+    {
+     "name": "Sage",
+     "hex": "#B3C0A6",
+     "slug": "sage",
+     "official": {
+      "hero": "official/apple/iphone-17/sage-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-sage-202509"
+     ],
+     "preview3d": "library/previews/iphone-17__sage__back.webp",
+     "glb": "library/models/iphone-17__sage.glb"
+    },
+    {
+     "name": "Lavender",
+     "hex": "#D5C8E8",
+     "slug": "lavender",
+     "official": {
+      "hero": "official/apple/iphone-17/lavender-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-lavender-202509"
+     ],
+     "preview3d": "library/previews/iphone-17__lavender__back.webp",
+     "glb": "library/models/iphone-17__lavender.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-air",
+   "name": "iPhone Air",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "dims_mm": [
+    156.2,
+    74.7,
+    5.6
+   ],
+   "colors": [
+    {
+     "name": "Space Black",
+     "hex": "#2A2A2D",
+     "slug": "space-black",
+     "official": {
+      "hero": "official/apple/iphone-air/space-black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-spaceblack-202509"
+     ],
+     "preview3d": "library/previews/iphone-air__space-black__back.webp",
+     "glb": "library/models/iphone-air__space-black.glb"
+    },
+    {
+     "name": "Cloud White",
+     "hex": "#F3F3F1",
+     "slug": "cloud-white",
+     "official": {
+      "hero": "official/apple/iphone-air/cloud-white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-cloudwhite-202509"
+     ],
+     "preview3d": "library/previews/iphone-air__cloud-white__back.webp",
+     "glb": "library/models/iphone-air__cloud-white.glb"
+    },
+    {
+     "name": "Light Gold",
+     "hex": "#EEE1C6",
+     "slug": "light-gold",
+     "official": {
+      "hero": "official/apple/iphone-air/light-gold-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-lightgold-202509"
+     ],
+     "preview3d": "library/previews/iphone-air__light-gold__back.webp",
+     "glb": "library/models/iphone-air__light-gold.glb"
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#D2E2F0",
+     "slug": "sky-blue",
+     "official": {
+      "hero": "official/apple/iphone-air/sky-blue-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-skyblue-202509"
+     ],
+     "preview3d": "library/previews/iphone-air__sky-blue__back.webp",
+     "glb": "library/models/iphone-air__sky-blue.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-17-pro",
+   "name": "iPhone 17 Pro",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "dims_mm": [
+    150,
+    71.9,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Silver",
+     "hex": "#E2E4E7",
+     "slug": "silver",
+     "official": {
+      "hero": "official/apple/iphone-17-pro/silver-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-3inch-silver"
+     ],
+     "preview3d": "library/previews/iphone-17-pro__silver__back.webp",
+     "glb": "library/models/iphone-17-pro__silver.glb"
+    },
+    {
+     "name": "Cosmic Orange",
+     "hex": "#E8772E",
+     "slug": "cosmic-orange",
+     "official": {
+      "hero": "official/apple/iphone-17-pro/cosmic-orange-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-3inch-cosmicorange"
+     ],
+     "preview3d": "library/previews/iphone-17-pro__cosmic-orange__back.webp",
+     "glb": "library/models/iphone-17-pro__cosmic-orange.glb"
+    },
+    {
+     "name": "Deep Blue",
+     "hex": "#2F3C58",
+     "slug": "deep-blue",
+     "official": {
+      "hero": "official/apple/iphone-17-pro/deep-blue-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-3inch-deepblue"
+     ],
+     "preview3d": "library/previews/iphone-17-pro__deep-blue__back.webp",
+     "glb": "library/models/iphone-17-pro__deep-blue.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-17-pro-max",
+   "name": "iPhone 17 Pro Max",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "dims_mm": [
+    163.4,
+    78,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Silver",
+     "hex": "#E2E4E7",
+     "slug": "silver",
+     "official": {
+      "hero": "official/apple/iphone-17-pro-max/silver-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-9inch-silver"
+     ],
+     "preview3d": "library/previews/iphone-17-pro-max__silver__back.webp",
+     "glb": "library/models/iphone-17-pro-max__silver.glb"
+    },
+    {
+     "name": "Cosmic Orange",
+     "hex": "#E8772E",
+     "slug": "cosmic-orange",
+     "official": {
+      "hero": "official/apple/iphone-17-pro-max/cosmic-orange-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-9inch-cosmicorange"
+     ],
+     "preview3d": "library/previews/iphone-17-pro-max__cosmic-orange__back.webp",
+     "glb": "library/models/iphone-17-pro-max__cosmic-orange.glb"
+    },
+    {
+     "name": "Deep Blue",
+     "hex": "#2F3C58",
+     "slug": "deep-blue",
+     "official": {
+      "hero": "official/apple/iphone-17-pro-max/deep-blue-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-9inch-deepblue"
+     ],
+     "preview3d": "library/previews/iphone-17-pro-max__deep-blue__back.webp",
+     "glb": "library/models/iphone-17-pro-max__deep-blue.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-17e",
+   "name": "iPhone 17e",
+   "brand": "Apple",
+   "series": "iPhone 17 Series",
+   "dims_mm": [
+    146.7,
+    71.5,
+    7.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2E3136",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-17e/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17e-finish-select-black-202603"
+     ],
+     "preview3d": "library/previews/iphone-17e__black__back.webp",
+     "glb": "library/models/iphone-17e__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F4F4F2",
+     "slug": "white",
+     "official": {
+      "hero": "official/apple/iphone-17e/white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17e-finish-select-white-202603"
+     ],
+     "preview3d": "library/previews/iphone-17e__white__back.webp",
+     "glb": "library/models/iphone-17e__white.glb"
+    },
+    {
+     "name": "Soft Pink",
+     "hex": "#F4D5D8",
+     "slug": "soft-pink",
+     "official": {
+      "hero": "official/apple/iphone-17e/soft-pink-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17e-finish-select-softpink-202603"
+     ],
+     "preview3d": "library/previews/iphone-17e__soft-pink__back.webp",
+     "glb": "library/models/iphone-17e__soft-pink.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-18-pro",
+   "name": "iPhone 18 Pro",
+   "brand": "Apple",
+   "series": "iPhone 18 Series",
+   "dims_mm": [
+    150,
+    71.9,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2B2C30",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-18-pro/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-black-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro__black__back.webp",
+     "glb": "library/models/iphone-18-pro__black.glb"
+    },
+    {
+     "name": "Silver",
+     "hex": "#E3E4E6",
+     "slug": "silver",
+     "official": {
+      "hero": "official/apple/iphone-18-pro/silver-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-silver-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro__silver__back.webp",
+     "glb": "library/models/iphone-18-pro__silver.glb"
+    },
+    {
+     "name": "Glacier",
+     "hex": "#C6D7E7",
+     "slug": "glacier",
+     "official": {
+      "hero": "official/apple/iphone-18-pro/glacier-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-glacier-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro__glacier__back.webp",
+     "glb": "library/models/iphone-18-pro__glacier.glb"
+    },
+    {
+     "name": "Burgundy",
+     "hex": "#6B2231",
+     "slug": "burgundy",
+     "official": {
+      "hero": "official/apple/iphone-18-pro/burgundy-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-burgundy-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro__burgundy__back.webp",
+     "glb": "library/models/iphone-18-pro__burgundy.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-18-pro-max",
+   "name": "iPhone 18 Pro Max",
+   "brand": "Apple",
+   "series": "iPhone 18 Series",
+   "dims_mm": [
+    163.4,
+    78,
+    8.8
+   ],
+   "colors": [
+    {
+     "name": "Black",
+     "hex": "#2B2C30",
+     "slug": "black",
+     "official": {
+      "hero": "official/apple/iphone-18-pro-max/black-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-black-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro-max__black__back.webp",
+     "glb": "library/models/iphone-18-pro-max__black.glb"
+    },
+    {
+     "name": "Silver",
+     "hex": "#E3E4E6",
+     "slug": "silver",
+     "official": {
+      "hero": "official/apple/iphone-18-pro-max/silver-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-silver-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro-max__silver__back.webp",
+     "glb": "library/models/iphone-18-pro-max__silver.glb"
+    },
+    {
+     "name": "Glacier",
+     "hex": "#C6D7E7",
+     "slug": "glacier",
+     "official": {
+      "hero": "official/apple/iphone-18-pro-max/glacier-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-glacier-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro-max__glacier__back.webp",
+     "glb": "library/models/iphone-18-pro-max__glacier.glb"
+    },
+    {
+     "name": "Burgundy",
+     "hex": "#6B2231",
+     "slug": "burgundy",
+     "official": {
+      "hero": "official/apple/iphone-18-pro-max/burgundy-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-burgundy-202609"
+     ],
+     "preview3d": "library/previews/iphone-18-pro-max__burgundy__back.webp",
+     "glb": "library/models/iphone-18-pro-max__burgundy.glb"
+    }
+   ]
+  },
+  {
+   "id": "iphone-duo",
+   "name": "iPhone Duo",
+   "brand": "Apple",
+   "series": "iPhone Duo",
+   "dims_mm": [
+    117.8,
+    84.1,
+    5.2
+   ],
+   "colors": [
+    {
+     "name": "Night Sky",
+     "hex": "#2B3447",
+     "slug": "night-sky",
+     "official": {
+      "hero": "official/apple/iphone-duo/night-sky-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-duo-finish-select-night-sky-202609"
+     ],
+     "preview3d": "library/previews/iphone-duo__night-sky__back.webp",
+     "glb": "library/models/iphone-duo__night-sky.glb"
+    },
+    {
+     "name": "Star White",
+     "hex": "#EDEDEA",
+     "slug": "star-white",
+     "official": {
+      "hero": "official/apple/iphone-duo/star-white-hero.webp"
+     },
+     "source": [
+      "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-duo-finish-select-star-white-202609"
+     ],
+     "preview3d": "library/previews/iphone-duo__star-white__back.webp",
+     "glb": "library/models/iphone-duo__star-white.glb"
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26",
+   "name": "Galaxy S26",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "dims_mm": [
+    149.6,
+    71.7,
+    7.2
+   ],
+   "colors": [
+    {
+     "name": "Cobalt Violet",
+     "hex": "#6C6597",
+     "slug": "cobalt-violet",
+     "official": {
+      "back": "official/samsung/galaxy-s26/cobalt-violet-back.webp",
+      "front": "official/samsung/galaxy-s26/cobalt-violet-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzvexaa-550995595",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzvexaa-550995598"
+     ],
+     "preview3d": "library/previews/galaxy-s26__cobalt-violet__back.webp",
+     "glb": "library/models/galaxy-s26__cobalt-violet.glb"
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#BFD6EA",
+     "slug": "sky-blue",
+     "official": {
+      "back": "official/samsung/galaxy-s26/sky-blue-back.webp",
+      "front": "official/samsung/galaxy-s26/sky-blue-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942ulbexaa-550995215",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942ulbexaa-550995218"
+     ],
+     "preview3d": "library/previews/galaxy-s26__sky-blue__back.webp",
+     "glb": "library/models/galaxy-s26__sky-blue.glb"
+    },
+    {
+     "name": "Black",
+     "hex": "#2A2C2F",
+     "slug": "black",
+     "official": {
+      "back": "official/samsung/galaxy-s26/black-back.webp",
+      "front": "official/samsung/galaxy-s26/black-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzkexaa-550995412",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzkexaa-550995407"
+     ],
+     "preview3d": "library/previews/galaxy-s26__black__back.webp",
+     "glb": "library/models/galaxy-s26__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F2F2F2",
+     "slug": "white",
+     "official": {
+      "back": "official/samsung/galaxy-s26/white-back.webp",
+      "front": "official/samsung/galaxy-s26/white-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzwexaa-550995747",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzwexaa-550995750"
+     ],
+     "preview3d": "library/previews/galaxy-s26__white__back.webp",
+     "glb": "library/models/galaxy-s26__white.glb"
+    },
+    {
+     "name": "Silver Shadow",
+     "hex": "#C8CACD",
+     "slug": "silver-shadow",
+     "official": {
+      "back": "official/samsung/galaxy-s26/silver-shadow-back.webp",
+      "front": "official/samsung/galaxy-s26/silver-shadow-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzsexaa-550995519",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzsexaa-550995522"
+     ],
+     "preview3d": "library/previews/galaxy-s26__silver-shadow__back.webp",
+     "glb": "library/models/galaxy-s26__silver-shadow.glb"
+    },
+    {
+     "name": "Pink Gold",
+     "hex": "#E9CBBB",
+     "slug": "pink-gold",
+     "official": {
+      "back": "official/samsung/galaxy-s26/pink-gold-back.webp",
+      "front": "official/samsung/galaxy-s26/pink-gold-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzdexaa-550995329",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s942-sm-s942uzdexaa-550995332"
+     ],
+     "preview3d": "library/previews/galaxy-s26__pink-gold__back.webp",
+     "glb": "library/models/galaxy-s26__pink-gold.glb"
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26-plus",
+   "name": "Galaxy S26+",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "dims_mm": [
+    158.4,
+    75.8,
+    7.3
+   ],
+   "colors": [
+    {
+     "name": "Cobalt Violet",
+     "hex": "#6C6597",
+     "slug": "cobalt-violet",
+     "official": {
+      "back": "official/samsung/galaxy-s26-plus/cobalt-violet-back.webp",
+      "front": "official/samsung/galaxy-s26-plus/cobalt-violet-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzvaxaa-550994920",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzvaxaa-550994923"
+     ],
+     "preview3d": "library/previews/galaxy-s26-plus__cobalt-violet__back.webp",
+     "glb": "library/models/galaxy-s26-plus__cobalt-violet.glb"
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#BFD6EA",
+     "slug": "sky-blue",
+     "official": {
+      "back": "official/samsung/galaxy-s26-plus/sky-blue-back.webp",
+      "front": "official/samsung/galaxy-s26-plus/sky-blue-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947ulbaxaa-550994540",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947ulbaxaa-550994543"
+     ],
+     "preview3d": "library/previews/galaxy-s26-plus__sky-blue__back.webp",
+     "glb": "library/models/galaxy-s26-plus__sky-blue.glb"
+    },
+    {
+     "name": "Black",
+     "hex": "#2A2C2F",
+     "slug": "black",
+     "official": {
+      "back": "official/samsung/galaxy-s26-plus/black-back.webp",
+      "front": "official/samsung/galaxy-s26-plus/black-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzkaxaa-550994730",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzkaxaa-550994733"
+     ],
+     "preview3d": "library/previews/galaxy-s26-plus__black__back.webp",
+     "glb": "library/models/galaxy-s26-plus__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F2F2F2",
+     "slug": "white",
+     "official": {
+      "back": "official/samsung/galaxy-s26-plus/white-back.webp",
+      "front": "official/samsung/galaxy-s26-plus/white-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzwaxaa-550995073",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzwaxaa-550995076"
+     ],
+     "preview3d": "library/previews/galaxy-s26-plus__white__back.webp",
+     "glb": "library/models/galaxy-s26-plus__white.glb"
+    },
+    {
+     "name": "Silver Shadow",
+     "hex": "#C8CACD",
+     "slug": "silver-shadow",
+     "official": {
+      "back": "official/samsung/galaxy-s26-plus/silver-shadow-back.webp",
+      "front": "official/samsung/galaxy-s26-plus/silver-shadow-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzsaxaa-550994844",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzsaxaa-550994847"
+     ],
+     "preview3d": "library/previews/galaxy-s26-plus__silver-shadow__back.webp",
+     "glb": "library/models/galaxy-s26-plus__silver-shadow.glb"
+    },
+    {
+     "name": "Pink Gold",
+     "hex": "#E9CBBB",
+     "slug": "pink-gold",
+     "official": {
+      "back": "official/samsung/galaxy-s26-plus/pink-gold-back.webp",
+      "front": "official/samsung/galaxy-s26-plus/pink-gold-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzdaxaa-550994654",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-s947-sm-s947uzdaxaa-550994657"
+     ],
+     "preview3d": "library/previews/galaxy-s26-plus__pink-gold__back.webp",
+     "glb": "library/models/galaxy-s26-plus__pink-gold.glb"
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26-ultra",
+   "name": "Galaxy S26 Ultra",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "dims_mm": [
+    163.6,
+    78.1,
+    7.9
+   ],
+   "colors": [
+    {
+     "name": "Cobalt Violet",
+     "hex": "#6C6597",
+     "slug": "cobalt-violet",
+     "official": {
+      "back": "official/samsung/galaxy-s26-ultra/cobalt-violet-back.webp",
+      "front": "official/samsung/galaxy-s26-ultra/cobalt-violet-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzvexaa-550994059",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzvexaa-550994049"
+     ],
+     "preview3d": "library/previews/galaxy-s26-ultra__cobalt-violet__back.webp",
+     "glb": "library/models/galaxy-s26-ultra__cobalt-violet.glb"
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#BFD6EA",
+     "slug": "sky-blue",
+     "official": {
+      "back": "official/samsung/galaxy-s26-ultra/sky-blue-back.webp",
+      "front": "official/samsung/galaxy-s26-ultra/sky-blue-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948ulbaxaa-550992884",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948ulbaxaa-550992892"
+     ],
+     "preview3d": "library/previews/galaxy-s26-ultra__sky-blue__back.webp",
+     "glb": "library/models/galaxy-s26-ultra__sky-blue.glb"
+    },
+    {
+     "name": "Black",
+     "hex": "#2A2C2F",
+     "slug": "black",
+     "official": {
+      "back": "official/samsung/galaxy-s26-ultra/black-back.webp",
+      "front": "official/samsung/galaxy-s26-ultra/black-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzkaxaa-550993335",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzkaxaa-550993326"
+     ],
+     "preview3d": "library/previews/galaxy-s26-ultra__black__back.webp",
+     "glb": "library/models/galaxy-s26-ultra__black.glb"
+    },
+    {
+     "name": "White",
+     "hex": "#F2F2F2",
+     "slug": "white",
+     "official": {
+      "back": "official/samsung/galaxy-s26-ultra/white-back.webp",
+      "front": "official/samsung/galaxy-s26-ultra/white-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzwaxaa-550994244",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzwaxaa-550994235"
+     ],
+     "preview3d": "library/previews/galaxy-s26-ultra__white__back.webp",
+     "glb": "library/models/galaxy-s26-ultra__white.glb"
+    },
+    {
+     "name": "Silver Shadow",
+     "hex": "#C8CACD",
+     "slug": "silver-shadow",
+     "official": {
+      "back": "official/samsung/galaxy-s26-ultra/silver-shadow-back.webp",
+      "front": "official/samsung/galaxy-s26-ultra/silver-shadow-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzsaxaa-550993695",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzsaxaa-550993703"
+     ],
+     "preview3d": "library/previews/galaxy-s26-ultra__silver-shadow__back.webp",
+     "glb": "library/models/galaxy-s26-ultra__silver-shadow.glb"
+    },
+    {
+     "name": "Pink Gold",
+     "hex": "#E9CBBB",
+     "slug": "pink-gold",
+     "official": {
+      "back": "official/samsung/galaxy-s26-ultra/pink-gold-back.webp",
+      "front": "official/samsung/galaxy-s26-ultra/pink-gold-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzdaxaa-550993142",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/s2602/gallery/us-galaxy-s26-ultra-s948-sm-s948uzdaxaa-550993150"
+     ],
+     "preview3d": "library/previews/galaxy-s26-ultra__pink-gold__back.webp",
+     "glb": "library/models/galaxy-s26-ultra__pink-gold.glb"
+    }
+   ]
+  },
+  {
+   "id": "galaxy-s26-fe",
+   "name": "Galaxy S26 FE",
+   "brand": "Samsung",
+   "series": "Galaxy S26 Series",
+   "dims_mm": [
+    161.6,
+    76.9,
+    7.4
+   ],
+   "colors": [
+    {
+     "name": "Blueberry",
+     "hex": "#3F4F7C",
+     "slug": "blueberry",
+     "official": {
+      "back": "official/samsung/galaxy-s26-fe/blueberry-back.webp",
+      "front": "official/samsung/galaxy-s26-fe/blueberry-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzvaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzvaxaa-554292814",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzvaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzvaxaa-554292809"
+     ],
+     "preview3d": "library/previews/galaxy-s26-fe__blueberry__back.webp",
+     "glb": "library/models/galaxy-s26-fe__blueberry.glb"
+    },
+    {
+     "name": "Graphite",
+     "hex": "#4A4C51",
+     "slug": "graphite",
+     "official": {
+      "back": "official/samsung/galaxy-s26-fe/graphite-back.webp",
+      "front": "official/samsung/galaxy-s26-fe/graphite-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzkaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzkaxaa-554292693",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741uzkaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741uzkaxaa-554292696"
+     ],
+     "preview3d": "library/previews/galaxy-s26-fe__graphite__back.webp",
+     "glb": "library/models/galaxy-s26-fe__graphite.glb"
+    },
+    {
+     "name": "Pistachio",
+     "hex": "#C9DCC3",
+     "slug": "pistachio",
+     "official": {
+      "back": "official/samsung/galaxy-s26-fe/pistachio-back.webp",
+      "front": "official/samsung/galaxy-s26-fe/pistachio-front.webp"
+     },
+     "source": [
+      "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741ulgaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741ulgaxaa-554292598",
+      "https://images.samsung.com/is/image/samsung/p6pim/us/sm-s741ulgaxaa/gallery/us-galaxy-s26-fe-sm-s741-sm-s741ulgaxaa-554292601"
+     ],
+     "preview3d": "library/previews/galaxy-s26-fe__pistachio__back.webp",
+     "glb": "library/models/galaxy-s26-fe__pistachio.glb"
+    }
+   ]
+  }
+ ]
+}

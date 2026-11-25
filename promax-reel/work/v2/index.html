@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<title>PROMAX Reel v2</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{--b1:#1E6BFF;--b2:#3FA0FF;--b3:#1BC4FF;--navy:#061433;--ink:#02040B;--w:#F4F8FF}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#02040B;perspective:2600px}
+canvas{position:absolute;inset:0}
+.abs{position:absolute}
+.fa{font-family:'Vazirmatn',sans-serif;direction:rtl;color:var(--w)}
+.en{font-family:'Inter',sans-serif;direction:ltr;unicode-bidi:isolate}
+.glow{text-shadow:0 0 26px rgba(63,160,255,.65),0 0 70px rgba(30,107,255,.4)}
+.grad{background:linear-gradient(100deg,#9fe0ff 0%,#3FA0FF 40%,#1E6BFF 75%,#7fb8ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------------- PHONE ---------------- */
+#phoneWrap{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-style:preserve-3d;pointer-events:none}
+#phone{position:absolute;width:570px;height:1206px;left:255px;top:462px;border-radius:84px;transform-style:preserve-3d;
+  background:linear-gradient(135deg,#d9dee8 0%,#7d8596 18%,#2b303b 45%,#5c6372 70%,#e3e7ef 100%);
+  box-shadow:0 60px 120px rgba(0,0,0,.65),0 0 0 2px rgba(255,255,255,.08),0 0 90px rgba(30,107,255,.25)}
+#phone .bez{position:absolute;inset:7px;border-radius:78px;background:#050608;}
+#phone .glass{position:absolute;left:12px;top:12px;width:546px;height:1182px;border-radius:70px;overflow:hidden;background:#000}
+#phone .sheen{position:absolute;inset:0;border-radius:70px;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.10) 42%,rgba(255,255,255,0) 54%);mix-blend-mode:screen}
+#phone .btn{position:absolute;width:6px;border-radius:3px;background:linear-gradient(90deg,#4a505c,#a9b0bd)}
+.island{position:absolute;left:50%;top:11px;width:124px;height:36px;margin-left:-62px;border-radius:20px;background:#000;z-index:50}
+.vcdot{position:absolute;left:50%;top:22px;margin-left:30px;width:14px;height:14px;border-radius:50%;background:#1E6BFF;box-shadow:0 0 8px #3FA0FF;z-index:51;display:none}
+.scr{position:absolute;left:0;top:0;width:390px;height:844px;zoom:1.4;overflow:hidden;font-family:'Inter',sans-serif;direction:ltr;color:#000;background:#000}
+.s{position:absolute;left:0;top:0;width:390px;height:844px;overflow:hidden;background:#F2F2F7;display:none}
+.sb{position:absolute;left:0;top:0;width:390px;height:50px;display:flex;justify-content:space-between;align-items:center;padding:6px 34px 0 40px;font-weight:600;font-size:16px;z-index:5}
+.sb .r{display:flex;gap:6px;align-items:center}
+.dark .sb{color:#fff}
+.content{position:absolute;left:0;top:0;width:390px}
+.nav{position:absolute;left:0;top:50px;width:390px;height:44px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:17px;z-index:4;background:rgba(242,242,247,.94)}
+.nav .back{position:absolute;left:8px;color:#0a7aff;font-weight:400;display:flex;align-items:center;gap:2px}
+.nav .right{position:absolute;right:16px;color:#0a7aff;font-weight:600}
+.big{font-size:34px;font-weight:700;padding:4px 18px 8px}
+.grp{margin:0 16px 22px;background:#fff;border-radius:11px;overflow:visible}
+.gh{font-size:13px;color:#6d6d72;text-transform:uppercase;padding:0 32px 6px;letter-spacing:.2px}
+.gf{font-size:13px;color:#6d6d72;padding:0 32px;margin:-14px 0 22px;line-height:1.35}
+.row{position:relative;height:44px;display:flex;align-items:center;padding:0 14px;font-size:17px}
+.row+.row:before{content:'';position:absolute;left:58px;right:0;top:0;height:.5px;background:#c8c7cc}
+.grp.noi .row+.row:before{left:16px}
+.ic{width:29px;height:29px;border-radius:7px;margin-right:15px;display:flex;align-items:center;justify-content:center;flex:none}
+.ic svg{width:19px;height:19px}
+.row .v{margin-left:auto;color:#8a8a8e;font-size:17px;display:flex;align-items:center;gap:8px}
+.chev{width:8px;height:13px;margin-left:8px}
+.row.blue{color:#0a7aff}
+.tg{margin-left:auto;width:51px;height:31px;border-radius:16px;background:#e9e9ea;position:relative;transition:none}
+.tg i{position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25)}
+.tg.on{background:#34c759}.tg.on i{left:22px}
+.hl{position:absolute;inset:-3px;border-radius:12px;pointer-events:none;border:2.5px solid #3FA0FF;background:rgba(63,160,255,.12);box-shadow:0 0 10px rgba(63,160,255,.9),0 0 24px rgba(30,107,255,.6);opacity:0;z-index:3}
+.tap{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;pointer-events:none;opacity:0;z-index:20;
+  background:radial-gradient(circle,rgba(255,255,255,.95) 0 28%,rgba(63,160,255,.55) 45%,rgba(30,107,255,0) 70%)}
+.ring{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2.5px solid #3FA0FF;opacity:0;pointer-events:none;z-index:20}
+/* lock */
+.wall{position:absolute;inset:0;background:
+   radial-gradient(120% 70% at 80% 0%,#2a7bff 0%,rgba(30,107,255,0) 55%),
+   radial-gradient(90% 60% at 0% 100%,#1bc4ff 0%,rgba(27,196,255,0) 55%),
+   radial-gradient(70% 50% at 50% 60%,#0d2f7a 0%,rgba(13,47,122,0) 70%),
+   linear-gradient(180deg,#071a44,#020818)}
+.wall .w1{position:absolute;left:-60px;top:430px;width:520px;height:520px;border-radius:50%;border:2px solid rgba(120,190,255,.25);box-shadow:0 0 60px rgba(63,160,255,.25) inset}
+.wall .w2{position:absolute;left:40px;top:520px;width:320px;height:320px;border-radius:50%;border:1.5px solid rgba(160,210,255,.2)}
+.wall .mk{position:absolute;left:95px;top:520px;width:200px;height:200px;opacity:.28;filter:blur(.3px) drop-shadow(0 0 20px #3FA0FF)}
+.lk .date{position:absolute;top:96px;width:100%;text-align:center;color:rgba(255,255,255,.92);font-weight:600;font-size:20px}
+.lk .time{position:absolute;top:112px;width:100%;text-align:center;color:#fff;font-weight:700;font-size:104px;letter-spacing:-2px}
+.lk .lock{position:absolute;top:60px;left:50%;margin-left:-8px;width:16px;height:20px}
+.lk .qb{position:absolute;bottom:52px;width:50px;height:50px;border-radius:50%;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center}
+.lk .home{position:absolute;bottom:8px;left:50%;width:140px;height:5px;margin-left:-70px;border-radius:3px;background:#fff}
+.lk .hint{position:absolute;bottom:36px;width:100%;text-align:center;color:rgba(255,255,255,.75);font-size:13px}
+/* passcode */
+.pc .bl{position:absolute;inset:-30px;filter:blur(22px) brightness(.6)}
+.pc .ttl{position:absolute;top:150px;width:100%;text-align:center;color:#fff;font-size:20px}
+.pc .dots{position:absolute;top:186px;width:100%;display:flex;justify-content:center;gap:24px}
+.pc .dots i{width:13px;height:13px;border-radius:50%;border:1.6px solid #fff}
+.pc .dots i.f{background:#fff}
+.key{position:absolute;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.key b{font-size:36px;font-weight:400;line-height:1}
+.key small{font-size:10px;letter-spacing:2px;font-weight:600;margin-top:2px}
+.key.dn{background:rgba(255,255,255,.55)}
+.mark{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;pointer-events:none;z-index:6}
+.pc .bt{position:absolute;bottom:58px;color:#fff;font-size:17px}
+/* home */
+.hm .grid{position:absolute;top:70px;left:22px;right:22px;display:grid;grid-template-columns:repeat(4,1fr);row-gap:26px}
+.app{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font-size:12px;font-weight:500}
+.app .ai{width:62px;height:62px;border-radius:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.app .ai svg{width:32px;height:32px}
+.dock{position:absolute;bottom:16px;left:12px;right:12px;height:96px;border-radius:32px;background:rgba(255,255,255,.22);backdrop-filter:blur(10px);display:flex;justify-content:space-around;align-items:center}
+/* keyboard */
+.kb{position:absolute;left:0;bottom:0;width:390px;height:291px;background:#d1d3d9;padding:8px 3px 0}
+.kb .kr{display:flex;justify-content:center;gap:6px;margin-bottom:12px}
+.kb .k{width:33px;height:43px;border-radius:5px;background:#fff;box-shadow:0 1px 0 #898a8d;display:flex;align-items:center;justify-content:center;font-size:23px;position:relative}
+.kb .k.dn{background:#aeb3be}
+.kb .k .pop{position:absolute;bottom:40px;left:50%;width:46px;height:56px;margin-left:-23px;border-radius:8px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;font-size:30px}
+.kb .k.dn .pop{display:flex}
+.fld{height:44px;display:flex;align-items:center;padding:0 16px;font-size:17px}
+.caret{display:inline-block;width:2px;height:22px;background:#0a7aff;margin-left:1px;vertical-align:middle}
+/* gesture */
+.gs{background:#fff}
+.gs .tip{position:absolute;top:300px;width:100%;text-align:center;color:#8a8a8e;font-size:15px;padding:0 50px;line-height:1.4}
+.gs .bar{position:absolute;left:0;right:0;bottom:0;height:96px;background:#f6f6f8;border-top:.5px solid #ccc}
+.gs .prog{position:absolute;left:16px;right:16px;top:12px;height:4px;border-radius:2px;background:#ddd;overflow:hidden}
+.gs .prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:#0a7aff}
+.gs .bb{position:absolute;top:34px;font-size:17px;color:#0a7aff}
+
+/* ---------------- OVERLAYS ---------------- */
+#card{left:60px;right:60px;top:200px;height:230px}
+#card .num{position:absolute;right:0;top:0;font-family:'Inter';font-weight:900;font-size:150px;line-height:1;letter-spacing:-6px;direction:ltr}
+#card .lbl{position:absolute;right:250px;top:28px;font-family:'Vazirmatn';font-weight:700;font-size:30px;color:#7fbaff;direction:rtl;letter-spacing:0}
+#card .ttl{position:absolute;right:250px;top:72px;left:0;font-family:'Vazirmatn';font-weight:900;font-size:50px;line-height:1.4;direction:rtl;text-align:right;color:#fff}
+#card .ttl i{font-style:normal;font-family:'Inter';font-weight:800;color:#6cc0ff;direction:ltr;unicode-bidi:isolate}
+#card .line{position:absolute;right:250px;left:0;top:64px;height:2px;background:linear-gradient(270deg,#3FA0FF,rgba(63,160,255,0))}
+#prog{left:60px;right:60px;top:170px;height:4px;border-radius:2px;background:rgba(255,255,255,.1);overflow:hidden}
+#prog i{position:absolute;right:0;top:0;bottom:0;background:linear-gradient(270deg,#1bc4ff,#1E6BFF);box-shadow:0 0 12px #3FA0FF}
+#hookTxt{left:0;right:0;top:250px;text-align:center}
+#hookTxt .a{font-weight:800;font-size:66px;line-height:1.3}
+#hookTxt .b{font-weight:900;font-size:150px;line-height:1.2;margin-top:4px}
+#hookTxt .c{font-weight:800;font-size:72px;line-height:1.3;margin-top:6px}
+#word{left:0;right:0;top:300px;text-align:center}
+#word .w{font-family:'Inter';font-weight:900;font-size:190px;letter-spacing:-4px;line-height:1}
+#word .wave{display:flex;justify-content:center;gap:9px;height:110px;align-items:center;margin-top:24px}
+#word .wave span{width:10px;border-radius:5px;background:linear-gradient(#9fe0ff,#1E6BFF);box-shadow:0 0 12px #3FA0FF}
+#word .mic{display:inline-flex;align-items:center;gap:14px;margin-bottom:26px;padding:10px 26px;border-radius:40px;background:rgba(30,107,255,.18);border:1.5px solid rgba(63,160,255,.6);font-family:'Vazirmatn';font-weight:700;font-size:32px;color:#cfe6ff;direction:rtl}
+#intro{left:0;right:0;top:250px;text-align:center}
+#intro .t1{font-weight:900;font-size:110px;line-height:1.2}
+#intro .t2{margin-top:18px;display:inline-block;font-weight:700;font-size:40px;padding:10px 34px 14px;border-radius:40px;border:1.5px solid rgba(63,160,255,.7);background:rgba(30,107,255,.14);color:#d8ebff}
+#vchip{left:0;right:0;top:250px;text-align:center}
+#vchip .c{display:inline-flex;align-items:center;gap:20px;padding:18px 40px;border-radius:70px;background:linear-gradient(160deg,#2a86ff,#1E6BFF 60%,#0f3fa8);box-shadow:0 0 50px rgba(63,160,255,.8);direction:ltr}
+#vchip .w{font-family:'Inter';font-weight:900;font-size:76px;color:#fff}
+#vchip .bars{display:flex;gap:7px;align-items:center;height:70px}
+#vchip .bars span{width:9px;border-radius:5px;background:#fff}
+#done{left:0;right:0;top:250px;text-align:center}
+#done .t{display:inline-flex;align-items:center;gap:26px;font-weight:900;font-size:120px;line-height:1.25}
+#outro{left:0;right:0;top:0;bottom:0}
+#logoTile{position:absolute;left:390px;top:430px;width:300px;height:300px;border-radius:76px;background:linear-gradient(160deg,#ffffff,#e8f1ff);
+  box-shadow:0 0 0 2px rgba(255,255,255,.5),0 30px 80px rgba(0,0,0,.6),0 0 120px rgba(30,107,255,.75);display:flex;align-items:center;justify-content:center}
+#logoTile img{width:240px;height:240px}
+#wm{position:absolute;left:0;right:0;top:790px;text-align:center}
+#wm .a{font-family:'Inter';font-weight:900;font-size:118px;letter-spacing:12px;color:#fff;padding-left:12px;line-height:1}
+#wm .b{font-family:'Inter';font-weight:800;font-size:40px;letter-spacing:34px;padding-left:34px;margin-top:16px}
+#o1{position:absolute;left:60px;right:60px;top:1040px;text-align:center;font-weight:900;font-size:64px;line-height:1.45}
+#o2{position:absolute;left:0;right:0;top:1290px;text-align:center}
+#o2 .p{display:inline-flex;align-items:center;gap:18px;font-weight:700;font-size:40px;padding:20px 40px 24px;border-radius:60px;background:rgba(255,255,255,.08);border:2px solid rgba(63,160,255,.85);box-shadow:0 0 34px rgba(30,107,255,.45);color:#fff}
+#hookLogo{position:absolute;left:470px;top:1720px;width:140px;display:flex;flex-direction:column;align-items:center;gap:8px}
+#flash{inset:0;opacity:0;background:radial-gradient(circle at 50% 55%,rgba(210,235,255,1),rgba(63,160,255,.85) 40%,rgba(30,107,255,0) 75%);mix-blend-mode:screen;pointer-events:none}
+#vig{inset:0;pointer-events:none;background:radial-gradient(ellipse 90% 75% at 50% 50%,rgba(0,0,0,0) 60%,rgba(0,0,0,.55) 100%)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <div id="phoneWrap"><div id="phone">
+    <div class="btn" style="left:-5px;top:230px;height:60px"></div><div class="btn" style="left:-5px;top:320px;height:100px"></div><div class="btn" style="left:-5px;top:440px;height:100px"></div>
+    <div class="btn" id="sideBtn" style="right:-5px;top:330px;height:150px;background:linear-gradient(270deg,#4a505c,#a9b0bd)"></div>
+    <div class="bez"></div>
+    <div class="glass"><div class="scr" id="scr">
+
+      <!-- LOCK -->
+      <div class="s dark lk" id="s-lock"><div class="wall"><div class="w1"></div><div class="w2"></div><img class="mk" src="logo.png"></div>
+        <div class="sb"><span></span><span class="r">●●●● ⌁ ▮</span></div>
+        <svg class="lock" viewBox="0 0 16 20"><rect x="1" y="8" width="14" height="11" rx="2.5" fill="#fff"/><path d="M4 8V5.5a4 4 0 0 1 8 0V8" stroke="#fff" stroke-width="2" fill="none"/></svg>
+        <div class="date">Wednesday 19 August</div><div class="time">19:31</div>
+        <div class="qb" style="left:46px"><svg width="20" height="24" viewBox="0 0 20 24" fill="#fff"><rect x="6" y="9" width="8" height="14" rx="2"/><path d="M4 1h12l-2 7H6z"/></svg></div>
+        <div class="qb" style="right:46px"><svg width="24" height="20" viewBox="0 0 24 20" fill="#fff"><path d="M2 5h5l2-3h6l2 3h5v14H2z"/><circle cx="12" cy="11" r="4" fill="#333"/></svg></div>
+        <div class="hint">Swipe up to open</div><div class="home"></div></div>
+
+      <!-- PASSCODE -->
+      <div class="s dark pc" id="s-pass"><div class="bl"><div class="wall"></div></div>
+        <div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="ttl">Enter Passcode</div><div class="dots"><i></i><i></i><i></i><i></i></div>
+        <div id="keys"></div>
+        <div class="bt" style="left:52px">Emergency</div><div class="bt" style="right:52px">Cancel</div></div>
+
+      <!-- HOME -->
+      <div class="s dark hm" id="s-home"><div class="wall"></div>
+        <div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="grid" id="appgrid"></div>
+        <div class="dock" id="dock"></div></div>
+
+      <!-- SETTINGS -->
+      <div class="s" id="s-settings"><div class="sb"><span>19:30</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="content" id="c-settings" style="top:50px">
+          <div class="big" style="padding-top:44px">Settings</div>
+          <div style="margin:4px 16px 18px;height:36px;border-radius:10px;background:#e3e3e8;color:#8a8a8e;display:flex;align-items:center;padding:0 10px;font-size:17px">⌕&nbsp; Search</div>
+          <div class="grp noi"><div class="row" style="height:68px"><div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(#a0a7b4,#7c8391);color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center;margin-right:12px">PM</div><div><div style="font-size:19px">Apple Account</div><div style="font-size:13px;color:#8a8a8e">iCloud, Media &amp; Purchases</div></div></div></div>
+          <div class="grp" id="g-set1"></div>
+          <div class="grp" id="g-set2"></div>
+        </div></div>
+
+      <!-- ACCESSIBILITY -->
+      <div class="s" id="s-acc"><div class="sb"><span>19:30</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="nav"><span class="back">‹ Settings</span><span id="acc-navt" style="opacity:0">Accessibility</span></div>
+        <div class="content" id="c-acc" style="top:94px">
+          <div class="grp" style="padding:16px;text-align:center"><div style="width:58px;height:58px;border-radius:13px;background:#0a7aff;margin:0 auto 10px;display:flex;align-items:center;justify-content:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="4" r="2.3"/><path d="M4 7.5l8 1.5 8-1.5.5 2-6 1.5v4l2 7-2 .5-2.5-6.5-2.5 6.5-2-.5 2-7v-4l-6-1.5z"/></svg></div><div style="font-weight:700;font-size:22px">Accessibility</div><div style="font-size:14px;color:#3c3c43;margin-top:6px;line-height:1.35">Personalize iPhone in ways that work best for you with accessibility features for vision, mobility, hearing, speech, and cognition.</div></div>
+          <div class="gh">Vision</div><div class="grp" id="g-acc1"></div>
+          <div class="gh">Physical and Motor</div><div class="grp" id="g-acc2"></div>
+          <div class="gh">Hearing</div><div class="grp" id="g-acc3"></div>
+        </div></div>
+
+      <!-- VOICE CONTROL -->
+      <div class="s" id="s-vc"><div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="nav"><span class="back">‹ Accessibility</span>Voice Control</div>
+        <div class="content" style="top:110px">
+          <div class="grp noi"><div class="row" id="r-vctoggle">Voice Control<div class="tg" id="tg-vc"><i></i></div></div></div>
+          <div class="gf" style="margin-top:-14px">Voice Control allows you to use your voice to control your iOS device even when you are not touching it.</div>
+          <div class="grp noi"><div class="row blue">Open Voice Control Tutorial</div></div>
+          <div class="grp noi"><div class="row">Language<span class="v">English (United States)<svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg></span></div>
+            <div class="row" id="r-commands">Commands<span class="v"><svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg></span></div>
+            <div class="row">Vocabulary<span class="v"><svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg></span></div></div>
+          <div class="gh">Command Feedback</div>
+          <div class="grp noi"><div class="row">Show Confirmation<div class="tg on"><i></i></div></div><div class="row">Play Sound<div class="tg"><i></i></div></div><div class="row">Show Hints<div class="tg on"><i></i></div></div></div>
+          <div class="gh">Continuous Overlay</div>
+          <div class="grp noi"><div class="row">Overlay<span class="v">None<svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg></span></div></div>
+        </div></div>
+
+      <!-- COMMANDS -->
+      <div class="s" id="s-cmd"><div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="nav"><span class="back">‹ Voice Control</span>Commands</div>
+        <div class="content" style="top:110px">
+          <div class="grp noi"><div class="row blue" id="r-create">Create New Command…</div></div>
+          <div class="grp noi" id="g-cmd"></div>
+        </div></div>
+
+      <!-- NEW COMMAND (sheet) -->
+      <div class="s" id="s-new" style="border-radius:12px 12px 0 0;top:0"><div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="nav" style="background:transparent"><span class="back" style="left:16px;font-size:22px;color:#8a8a8e">✕</span>New Command<span class="right" id="r-save" style="padding:4px 8px;margin-right:-8px;border-radius:8px">Save</span></div>
+        <div class="content" style="top:110px">
+          <div class="gh">Phrase</div>
+          <div class="grp noi"><div class="fld" id="r-phrase"><span id="phr" style="color:#c4c4c7">Enter a speakable phrase</span></div></div>
+          <div class="gf" style="margin-top:-14px">A command must have a speakable phrase that is unique from all other commands.</div>
+          <div class="grp noi"><div class="row" id="r-action">Action<span class="v" id="actv">Not Set<svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg></span></div>
+            <div class="row">Application<span class="v">Any<svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg></span></div></div>
+        </div>
+        <div class="kb" id="kb"></div></div>
+
+      <!-- ACTION -->
+      <div class="s" id="s-action"><div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="nav"><span class="back">‹ New Command</span>Action</div>
+        <div class="content" style="top:110px">
+          <div class="grp noi"><div class="row">Insert Text</div><div class="row" id="r-rcg">Run Custom Gesture</div><div class="row">Run Shortcut</div><div class="row">Playback Recorded Commands</div></div>
+          <div class="gf" style="margin-top:-14px">To use Playback Recorded Commands, say “Start recording commands”, speak a sequence of commands and then say “Stop recording commands”.</div>
+        </div></div>
+
+      <!-- NEW GESTURE -->
+      <div class="s gs" id="s-gest"><div class="sb"><span>19:31</span><span class="r">●●●● ⌁ ▮</span></div>
+        <div class="nav" style="background:transparent"><span class="back" style="left:16px;font-size:22px;color:#8a8a8e">✕</span>New Gesture<span class="right" id="r-gsave" style="padding:4px 8px;margin-right:-8px;border-radius:8px">Save</span></div>
+        <div class="tip" id="gtip">Tap or swipe to create a custom gesture.</div>
+        <div id="gmarks"></div>
+        <div class="bar"><div class="prog"><i id="gprog"></i></div><span class="bb" style="left:20px">Play</span><span class="bb" style="left:150px">Hide Controls</span><span class="bb" style="right:20px">Stop</span></div></div>
+
+      <div class="s" id="s-off" style="background:#000"></div>
+    </div>
+    <div class="island"></div><div class="vcdot" id="vcdot"></div>
+    <div class="sheen" id="sheen"></div>
+    </div>
+  </div></div>
+
+  <div id="topfade" class="abs" style="left:0;right:0;top:0;height:640px;pointer-events:none;background:linear-gradient(180deg,rgba(2,4,11,.97) 0%,rgba(2,4,11,.93) 62%,rgba(2,4,11,0) 100%)"></div>
+  <canvas id="fx" width="1080" height="1920"></canvas>
+  <div id="vig" class="abs"></div>
+
+  <!-- hook -->
+  <div id="word" class="abs"><div class="mic fa"><svg width="30" height="40" viewBox="0 0 24 32" fill="#9fd0ff"><rect x="7" y="1" width="10" height="19" rx="5"/><path d="M3 15a9 9 0 0 0 18 0" stroke="#9fd0ff" stroke-width="2.4" fill="none"/><rect x="11" y="24" width="2.4" height="6"/></svg>فقط بگو</div>
+    <div class="w grad en">promax</div><div class="wave" id="wave"></div></div>
+  <div id="hookTxt" class="abs fa"><div class="a glow" id="ha">فقط با گفتن</div><div class="b grad" id="hb">یک کلمه</div><div class="c glow" id="hc">آیفونت رو باز کن!</div></div>
+  <div id="intro" class="abs fa"><div class="t1 glow">بدون لمس گوشی!</div><div class="t2">آموزش قدم‌به‌قدم · ۹ مرحله</div></div>
+  <div id="prog" class="abs"><i id="progi"></i></div>
+  <div id="card" class="abs"><div class="num grad" id="cnum">01</div><div class="line"></div><div class="lbl" id="clbl">مرحله ۱</div><div class="ttl" id="cttl"></div></div>
+  <div id="vchip" class="abs"><div class="c"><svg width="50" height="66" viewBox="0 0 24 32" fill="#fff"><rect x="7" y="1" width="10" height="19" rx="5"/><path d="M3 15a9 9 0 0 0 18 0" stroke="#fff" stroke-width="2.4" fill="none"/><rect x="11" y="24" width="2.4" height="6"/></svg><span class="w">“promax”</span><div class="bars" id="vbars"></div></div></div>
+  <div id="done" class="abs fa"><div class="t grad">باز شد!</div></div>
+  <div id="outro" class="abs fa">
+    <div id="logoTile"><img src="logo.png"></div>
+    <div id="wm"><div class="a">PROMAX</div><div class="b grad">MOBILE</div></div>
+    <div id="o1" class="glow">ترفندهای جذاب آیفون رو<br>با <span class="grad">پرومکس</span> یاد بگیر!</div>
+    <div id="o2"><span class="p"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7fd0ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>این ترفند رو امتحان کن و برای دوستت بفرست.</span></div>
+  </div>
+  <div id="flash" class="abs"></div>
+</div>
+
+<script>
+const W=1080,H=1920,FPS=30;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lin=(t,a,b)=>clamp((t-a)/(b-a));
+const ss=(t,a,b)=>{const x=lin(t,a,b);return x*x*(3-2*x)};
+const eo=x=>1-Math.pow(1-x,3);
+const eo5=x=>1-Math.pow(1-x,5);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const ob=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const lerp=(a,b,s)=>a+(b-a)*s;
+const $=id=>document.getElementById(id);
+const OFF=5.0;               // narration (source t=0) starts here
+const END=68.0; window.DURATION=END; window.FPS=FPS;
+const S=t=>t+OFF;            // source time -> output time
+
+// ---------------- build UI ----------------
+const chev='<svg class="chev" viewBox="0 0 8 13"><path d="M1 1l5.5 5.5L1 12" stroke="#c4c4c7" stroke-width="2" fill="none"/></svg>';
+const G={ // simple white glyphs
+  plane:'<path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="#fff"/>',
+  wifi:'<path d="M12 18.5a1.6 1.6 0 1 0 0 .01zM5 11a10 10 0 0 1 14 0l-1.6 1.6a7.7 7.7 0 0 0-10.8 0zM8.3 14.3a5.4 5.4 0 0 1 7.4 0l-1.6 1.6a3.1 3.1 0 0 0-4.2 0z" fill="#fff"/>',
+  bt:'<path d="M7 7l10 10-5 4V3l5 4L7 17" stroke="#fff" stroke-width="2" fill="none"/>',
+  cell:'<path d="M5 18v-4h2v4zm4 0v-7h2v7zm4 0V8h2v10zm4 0V5h2v13z" fill="#fff"/>',
+  link:'<path d="M9 15l6-6M8 11l-2 2a3 3 0 0 0 4 4l2-2M16 13l2-2a3 3 0 0 0-4-4l-2 2" stroke="#fff" stroke-width="2" fill="none"/>',
+  batt:'<rect x="3" y="8" width="16" height="8" rx="2" fill="#fff"/><rect x="20" y="10.5" width="1.6" height="3" fill="#fff"/>',
+  vpn:'<text x="12" y="15.5" text-anchor="middle" font-size="8" font-weight="800" fill="#fff" font-family="Inter">VPN</text>',
+  gear:'<circle cx="12" cy="12" r="3.2" stroke="#fff" stroke-width="2" fill="none"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#fff" stroke-width="2"/>',
+  acc:'<circle cx="12" cy="4.5" r="2" fill="#fff"/><path d="M5 8l7 1.5L19 8l.4 1.8-5 1.4v3.6l1.8 6.2-1.8.5L12 15.6l-2.4 5.9-1.8-.5 1.8-6.2v-3.6l-5-1.4z" fill="#fff"/>',
+  act:'<rect x="9" y="3" width="6" height="18" rx="3" fill="#fff"/>',
+  cam:'<path d="M3 7h4l2-3h6l2 3h4v12H3z" fill="#fff"/><circle cx="12" cy="12.5" r="3.4" fill="#888"/>',
+  cc:'<rect x="4" y="4" width="7" height="7" rx="2" fill="#fff"/><rect x="13" y="4" width="7" height="7" rx="3.5" fill="#fff"/><rect x="4" y="13" width="7" height="7" rx="3.5" fill="#fff"/><rect x="13" y="13" width="7" height="7" rx="2" fill="#fff"/>',
+  sun:'<circle cx="12" cy="12" r="4" fill="#fff"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2" stroke="#fff" stroke-width="2"/>',
+  eye:'<path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6S2 12 2 12z" fill="#fff"/><circle cx="12" cy="12" r="3" fill="#444"/>',
+  zoom:'<circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="2.4" fill="none"/><path d="M15 15l5 5" stroke="#fff" stroke-width="2.6"/>',
+  txt:'<text x="12" y="17" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Inter">AA</text>',
+  mot:'<circle cx="12" cy="12" r="6" stroke="#fff" stroke-width="2.4" fill="none"/><circle cx="12" cy="12" r="2" fill="#fff"/>',
+  hand:'<path d="M8 21v-9l-2-2 1-1 3 2V4h2v7h1V3h2v8h1V5h2v10c0 4-2 6-5 6z" fill="#fff"/>',
+  face:'<rect x="4" y="4" width="16" height="16" rx="4" stroke="#fff" stroke-width="2" fill="none"/><path d="M9 10v1M15 10v1M9 15c2 1.6 4 1.6 6 0" stroke="#fff" stroke-width="2"/>',
+  sw:'<rect x="4" y="5" width="16" height="14" rx="3" stroke="#fff" stroke-width="2" fill="none"/><rect x="7" y="8" width="4" height="8" rx="1" fill="#fff"/>',
+  mic:'<rect x="9" y="3" width="6" height="11" rx="3" fill="#fff"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4" stroke="#fff" stroke-width="2" fill="none"/>',
+  ear:'<path d="M8 9a4 4 0 1 1 8 0c0 3-3 4-3 7a3 3 0 0 1-5 2" stroke="#fff" stroke-width="2.2" fill="none"/>',
+  side:'<rect x="7" y="3" width="10" height="18" rx="3" stroke="#fff" stroke-width="2" fill="none"/><rect x="18" y="8" width="2" height="5" fill="#fff"/>',
+  wave:'<path d="M3 12h2M7 8v8M11 5v14M15 8v8M19 11v2" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>',
+  tty:'<rect x="3" y="7" width="18" height="10" rx="2" stroke="#fff" stroke-width="2" fill="none"/><path d="M6 11h2M10 11h2M14 11h2M7 14h10" stroke="#fff" stroke-width="1.6"/>',
+};
+const icon=(bg,g)=>`<div class="ic" style="background:${bg}"><svg viewBox="0 0 24 24">${G[g]}</svg></div>`;
+function rows(el,list){ $(el).innerHTML=list.map(r=>`<div class="row" ${r[3]?`id="${r[3]}"`:''}>${icon(r[0],r[1])}${r[2]}<span class="v">${r[4]||''}${chev}</span></div>`).join(''); }
+rows('g-set1',[['#ff9500','plane','Airplane Mode','','<div class="tg"><i></i></div>'],['#0a7aff','wifi','Wi‑Fi','','Not Connected'],['#0a7aff','bt','Bluetooth','','On'],['#34c759','cell','Cellular'],['#34c759','link','Personal Hotspot','','Off'],['#34c759','batt','Battery'],['#0a7aff','vpn','VPN','','Not Connected']]);
+document.querySelectorAll('#g-set1 .row')[0].querySelector('.chev').remove();
+rows('g-set2',[['#8e8e93','gear','General'],['#0a7aff','acc','Accessibility','','r-acc'.slice(0,0)],['#0a7aff','act','Action Button'],['#8e8e93','cam','Camera'],['#8e8e93','cc','Control Center'],['#0a7aff','sun','Display & Brightness']]);
+document.querySelectorAll('#g-set2 .row')[1].id='r-acc';
+rows('g-acc1',[['#1c1c1e','eye','VoiceOver','','Off'],['#1c1c1e','zoom','Zoom','','Off'],['#0a7aff','txt','Display & Text Size'],['#34c759','mot','Motion'],['#1c1c1e','wave','Spoken Content'],['#0a7aff','eye','Audio Descriptions','','Off']]);
+rows('g-acc2',[['#0a7aff','hand','Touch'],['#34c759','face','Face ID & Attention'],['#1c1c1e','sw','Switch Control','','Off'],['#0a7aff','mic','Voice Control','','Off'],['#5856d6','eye','Eye Tracking','','Off'],['#34c759','face','Head Tracking','','Off'],['#0a7aff','side','Side Button'],['#0a7aff','cam','Camera Control']]);
+document.querySelectorAll('#g-acc2 .row')[3].id='r-voicectl';
+rows('g-acc3',[['#0a7aff','ear','Hearing Devices'],['#8e8e93','cc','Hearing Control Center'],['#ff2d55','wave','Sound & Name Recognition'],['#34c759','tty','TTY','','Off']]);
+$('g-cmd').innerHTML=['Basic Navigation','Overlays','Basic Gestures','Advanced Gestures','Dictation','Text Navigation','Text Selection','Text Editing','Text Deletion','Device','Accessibility'].map(x=>`<div class="row">${x}<span class="v">${chev}</span></div>`).join('');
+// keyboard
+{ const R=['qwertyuiop','asdfghjkl','zxcvbnm']; let h='';
+  R.forEach((r,i)=>{ h+='<div class="kr">'+(i===2?'<div class="k" style="width:42px;background:#adb2bc">⇧</div>':'')+[...r].map(c=>`<div class="k" id="k-${c}">${c}<span class="pop">${c}</span></div>`).join('')+(i===2?'<div class="k" style="width:42px;background:#adb2bc">⌫</div>':'')+'</div>'; });
+  h+='<div class="kr"><div class="k" style="width:86px;background:#adb2bc;font-size:16px">123</div><div class="k" style="width:190px;font-size:16px">space</div><div class="k" style="width:86px;background:#0a7aff;color:#fff;font-size:16px">done</div></div>';
+  $('kb').innerHTML=h; }
+// keypad
+const KP={}; { const L=['1','2','3','4','5','6','7','8','9','0']; const sub=['','ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ',''];
+  let h=''; L.forEach((d,i)=>{ const col=i<9?i%3:1, row=i<9?Math.floor(i/3):3; const x=97+col*98, y=330+row*94; KP[d]=[x,y];
+    h+=`<div class="key" id="key-${d}" style="left:${x}px;top:${y}px"><b>${d}</b><small>${sub[i]}</small></div>`; }); $('keys').innerHTML=h; }
+const CODE=['2','4','6','8'];   // illustrative code (not the presenter's)
+// marker marks: on passcode keys and on the gesture canvas at the same physical spots
+const markSVG=`<svg viewBox="0 0 30 30"><path d="M15 6c5 0 9 3.5 9 8.5S20 24 15 24 6 20 6 15s4-9 9-9z" fill="none" stroke="#1E6BFF" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1"/></svg>`;
+CODE.forEach((d,i)=>{ const [x,y]=KP[d];
+  const m=document.createElement('div'); m.className='mark'; m.id='pm'+i; m.style.left=x+'px'; m.style.top=(y-20)+'px'; m.innerHTML=markSVG; $('s-pass').appendChild(m);
+  const g=document.createElement('div'); g.className='mark'; g.id='gm'+i; g.style.left=x+'px'; g.style.top=(y-20)+'px'; g.innerHTML=markSVG; $('gmarks').appendChild(g); });
+// apps
+{ const apps=[['FaceTime','#34c759','cam'],['Calendar','#fff','txt'],['Photos','linear-gradient(135deg,#ffcc00,#ff2d55,#5856d6)','sun'],['Camera','#8e8e93','cam'],
+  ['Mail','#0a7aff','tty'],['Notes','#ffcc00','txt'],['Reminders','#fff','cc'],['Clock','#1c1c1e','mot'],
+  ['TV','#1c1c1e','sw'],['Podcasts','#af52de','mic'],['App Store','#0a7aff','acc'],['Maps','#34c759','link'],
+  ['Health','#fff','face'],['Wallet','#1c1c1e','batt'],['Settings','#8e8e93','gear'],['PROMAX','#fff','zoom']];
+  $('appgrid').innerHTML=apps.map(a=>`<div class="app"><div class="ai" style="background:${a[1]}">${a[0]==='PROMAX'?'<img src="logo.png" style="width:46px">':`<svg viewBox="0 0 24 24" style="filter:${a[1]==='#fff'?'invert(.6)':''}">${G[a[2]]}</svg>`}</div>${a[0]}</div>`).join('');
+  $('dock').innerHTML=[['#34c759','cell'],['#0a7aff','wifi'],['#34c759','tty'],['#ff2d55','wave']].map(a=>`<div class="ai" style="width:62px;height:62px;border-radius:15px;background:${a[0]};display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:32px">${G[a[1]]}</svg></div>`).join(''); }
+// highlight boxes & tap elements
+function addHL(id){ const el=$(id); const d=document.createElement('div'); d.className='hl'; if(getComputedStyle(el).position==='static') el.style.position='relative'; el.appendChild(d); return d; }
+function addTap(id){ const el=$(id); if(getComputedStyle(el).position==='static') el.style.position='relative'; const a=document.createElement('div'); a.className='tap'; const b=document.createElement('div'); b.className='ring'; el.appendChild(a); el.appendChild(b); return [a,b]; }
+
+// ---------------- TIMELINE (source seconds unless noted) ----------------
+// NAV: [outT, screen, type]
+const NAV=[
+ [0.0,'lock','cut'],[1.55,'pass','up'],[2.75,'home','unlock'],
+ [S(-0.2),'lock','fade'],[S(3.6),'pass','up'],
+ [S(12.6),'settings','fade'],[S(14.75),'acc','push'],[S(21.0),'vc','push'],[S(23.45),'cmd','push'],[S(25.8),'new','sheet'],
+ [S(31.15),'action','push'],[S(33.85),'gest','push'],[S(40.85),'new','pop'],[S(42.65),'cmd','unsheet'],[S(43.85),'vc','pop'],
+ [S(48.3),'off','fade'],[S(49.9),'lock','wake'],[S(53.2),'pass','up'],[S(56.0),'home','unlock'],
+];
+// highlights: [outT0,outT1,id]
+const HLS=[[S(13.3),S(14.75),'r-acc'],[S(19.2),S(20.9),'r-voicectl'],[S(21.6),S(23.3),'r-commands'],[S(23.8),S(25.7),'r-create'],
+  [S(26.2),S(30.9),'r-phrase'],[S(30.0),S(31.1),'r-action'],[S(31.6),S(33.75),'r-rcg'],[S(40.0),S(40.8),'r-gsave'],[S(41.4),S(42.6),'r-save'],[S(44.6),S(46.4),'r-vctoggle']]
+  .map(h=>({t0:h[0],t1:h[1],el:addHL(h[2])}));
+// taps: [outT,id]
+const TAPS=[[S(14.55),'r-acc'],[S(20.8),'r-voicectl'],[S(23.25),'r-commands'],[S(25.6),'r-create'],[S(30.95),'r-action'],[S(33.65),'r-rcg'],
+  [S(40.65),'r-gsave'],[S(42.45),'r-save'],[S(45.8),'tg-vc']].map(x=>({t:x[0],els:addTap(x[1])}));
+// gesture taps on the marks + passcode taps (voice-driven, so no finger: Voice Control touch circles)
+const GT=[S(37.0),S(37.6),S(38.2),S(38.8)].map((t,i)=>({t,els:addTap('gm'+i)}));
+const HOOKP=[1.85,2.05,2.25,2.45], ENDP=[S(54.35),S(54.75),S(55.15),S(55.55)];
+const PT=[...HOOKP.map((t,i)=>({t,els:addTap('key-'+CODE[i])})),...ENDP.map((t,i)=>({t,els:addTap('key-'+CODE[i])}))];
+const MARK_T=[S(6.4),S(7.9),S(9.4),S(10.9)];
+const TYPE_T=[27.4,27.85,28.3,28.75,29.2,29.65].map(S);
+const STEPS=[
+ [S(5.0),S(12.5),'01','محل اعداد رمز رو با ماژیک روی صفحه علامت بزن'],
+ [S(12.7),S(18.8),'02','وارد <i>Settings</i> شو و <i>Accessibility</i> رو بزن'],
+ [S(19.0),S(21.1),'03','گزینه‌ی <i>Voice Control</i> رو انتخاب کن'],
+ [S(21.3),S(25.8),'04','<i>Commands</i> و بعد <i>Create New Command</i>'],
+ [S(26.0),S(30.9),'05','توی <i>Phrase</i> بنویس: <i>promax</i>'],
+ [S(31.0),S(34.3),'06','<i>Action</i> رو بزن و <i>Run Custom Gesture</i>'],
+ [S(34.5),S(40.9),'07','به ترتیب رمزت روی علامت‌ها بزن و <i>Save</i>'],
+ [S(41.0),S(47.3),'08','ذخیره کن و <i>Voice Control</i> رو روشن کن'],
+ [S(47.5),S(53.7),'09','گوشی رو قفل کن و فقط بگو <i>promax</i>'],
+];
+const FA='۰۱۲۳۴۵۶۷۸۹';
+// camera: [outT, zoom, focusX, focusY (screen px 390x844), rotY, rotX, lift(px)]
+const C0=[1,195,422,-9,3,0];
+const CAM=[
+ [0.0,0.78,195,422,28,8,220],[1.2,0.86,195,422,-6,2,180],[2.6,0.92,195,422,-10,2,170],[2.9,0.76,195,422,-14,4,360],[4.6,0.74,195,422,-16,5,380],
+ [S(-0.3),0.86,195,422,10,2,90],[S(2.0),...C0],
+ [S(5.6),...C0],[S(6.3),1.32,195,500,-4,1,0],[S(12.2),1.32,195,500,-4,1,0],[S(12.8),...C0],
+ [S(13.1),...C0],[S(13.6),1.45,195,560,-3,1,0],[S(14.9),1.45,195,560,-3,1,0],[S(15.5),...C0],
+ [S(18.8),...C0],[S(19.3),1.5,195,330,-3,1,0],[S(21.0),1.5,195,330,-3,1,0],[S(21.4),...C0],
+ [S(21.5),...C0],[S(21.9),1.45,195,330,-3,1,0],[S(25.7),1.45,195,180,-3,1,0],[S(26.3),1.25,195,300,-4,1,0],[S(30.8),1.25,195,300,-4,1,0],
+ [S(31.4),1.45,195,200,-3,1,0],[S(33.7),1.45,195,200,-3,1,0],[S(34.5),...C0],
+ [S(36.4),...C0],[S(36.9),1.3,195,440,-4,1,0],[S(39.6),1.3,195,440,-4,1,0],[S(40.2),1.45,290,200,-2,1,0],[S(42.6),1.45,290,200,-2,1,0],[S(43.3),...C0],
+ [S(44.3),...C0],[S(44.8),1.6,215,140,-3,1,0],[S(46.6),1.6,215,140,-3,1,0],[S(47.3),...C0],
+ [S(53.0),...C0],[S(54.0),1.12,195,430,-6,2,60],[S(55.8),1.18,195,430,-4,1,60],[S(56.4),0.92,195,422,-10,3,120],
+ [S(57.0),0.9,195,422,-12,3,140],[S(57.7),0.7,195,422,-24,6,900],[END,0.7,195,422,-30,6,1100]];
+function cam(t){
+  if(t<=CAM[0][0]) return CAM[0].slice(1);
+  for(let i=0;i<CAM.length-1;i++){ if(t<=CAM[i+1][0]){ const s=eio(lin(t,CAM[i][0],CAM[i+1][0])); return [1,2,3,4,5,6].map(j=>lerp(CAM[i][j],CAM[i+1][j],s)); } }
+  return CAM[CAM.length-1].slice(1);
+}
+// scroll keyframes per screen: [outT, px]
+const SCROLL={settings:[[S(12.6),0],[S(13.0),0],[S(13.5),120],[S(99),120]], acc:[[S(14.8),0],[S(15.6),0],[S(18.6),330],[S(99),330]]};
+const scr=(id,t)=>{ const k=SCROLL[id]; if(!k) return 0; if(t<=k[0][0]) return k[0][1]; for(let i=0;i<k.length-1;i++) if(t<=k[i+1][0]) return lerp(k[i][1],k[i+1][1],eio(lin(t,k[i][0],k[i+1][0]))); return k[k.length-1][1]; };
+
+// ---------------- background & fx ----------------
+const bg=$('bg').getContext('2d'), fx=$('fx').getContext('2d');
+const P=[...Array(70)].map((_,i)=>({x:(i*397)%1080,y:(i*733)%1920,r:1+((i*13)%5)*0.6,s:6+((i*7)%9)*3,a:.15+((i*11)%7)*.06}));
+function drawBG(t,energy){
+  bg.fillStyle='#02040B'; bg.fillRect(0,0,W,H);
+  // orbs
+  const orbs=[[540+Math.sin(t*.25)*260,820+Math.cos(t*.2)*160,900,'rgba(30,107,255,0.30)'],[200+Math.cos(t*.18)*120,1500,700,'rgba(27,196,255,0.16)'],[900,300+Math.sin(t*.3)*100,650,'rgba(63,120,255,0.18)']];
+  for(const [x,y,r,c] of orbs){ const g=bg.createRadialGradient(x,y,0,x,y,r); g.addColorStop(0,c); g.addColorStop(1,'rgba(0,0,0,0)'); bg.fillStyle=g; bg.fillRect(0,0,W,H); }
+  // perspective grid floor
+  bg.save(); bg.globalAlpha=.55; bg.strokeStyle='rgba(63,160,255,0.16)'; bg.lineWidth=1.2;
+  const hz=1360; for(let i=-14;i<=14;i++){ bg.beginPath(); bg.moveTo(540+i*40,hz); bg.lineTo(540+i*260,H); bg.stroke(); }
+  for(let k=0;k<14;k++){ const z=((k+ (t*0.6)%1)/14); const y=hz+Math.pow(z,2.2)*(H-hz); bg.globalAlpha=.55*z; bg.beginPath(); bg.moveTo(0,y); bg.lineTo(W,y); bg.stroke(); }
+  bg.restore();
+  // particles
+  for(const p of P){ const y=((p.y - t*p.s)%H+H)%H; bg.fillStyle=`rgba(150,205,255,${p.a})`; bg.beginPath(); bg.arc(p.x+Math.sin(t*.5+p.y)*10,y,p.r,0,7); bg.fill(); }
+  // streaks
+  bg.save(); bg.globalCompositeOperation='lighter';
+  for(let i=0;i<7;i++){ const sp=700+i*130; const y0=((i*311+t*sp*energy)%(H*1.5))-H*.25; const x0=((i*523)%W)-100; const L=300+(i%3)*200;
+    const g=bg.createLinearGradient(x0,y0,x0+L*.92,y0-L*.4); g.addColorStop(0,'rgba(30,107,255,0)'); g.addColorStop(1,`rgba(170,220,255,${.35+.4*energy})`);
+    bg.strokeStyle=g; bg.lineWidth=i%3===0?3:1.6; bg.beginPath(); bg.moveTo(x0,y0); bg.lineTo(x0+L*.92,y0-L*.4); bg.stroke(); }
+  bg.restore();
+}
+function drawFX(t,ph){
+  fx.clearRect(0,0,W,H);
+  const burst=(t0,cx,cy,maxR,n,col)=>{ for(let k=0;k<n;k++){ const tt=t-t0-k*0.09; if(tt<0||tt>1.3) continue; const p=eo(tt/1.3);
+      fx.strokeStyle=`rgba(${col},${(1-p)*0.9})`; fx.lineWidth=6*(1-p)+1; fx.shadowColor='#3FA0FF'; fx.shadowBlur=30; fx.beginPath(); fx.arc(cx,cy,30+p*maxR,0,7); fx.stroke(); } fx.shadowBlur=0; };
+  burst(2.75,ph.x,ph.y,900,4,'120,190,255');
+  burst(S(56.0),ph.x,ph.y,800,3,'120,190,255');
+  burst(S(57.95),540,580,700,3,'150,210,255');
+  // light rays behind logo
+  const lr=ss(t,S(57.8),S(58.6));
+  if(lr>0){ fx.save(); fx.globalCompositeOperation='lighter'; fx.translate(540,580); fx.rotate(t*0.15);
+    for(let i=0;i<14;i++){ fx.rotate(Math.PI*2/14); const g=fx.createLinearGradient(0,0,0,-900); g.addColorStop(0,`rgba(63,160,255,${.28*lr})`); g.addColorStop(1,'rgba(63,160,255,0)'); fx.fillStyle=g; fx.beginPath(); fx.moveTo(-18,0); fx.lineTo(18,0); fx.lineTo(70,-900); fx.lineTo(-70,-900); fx.fill(); }
+    fx.restore(); }
+}
+function reveal(el,t,a,b,o={}){
+  const {dy=30,blur=14,dur=.45,od=.3,sc=.96,dx=0}=o;
+  const i=eo(lin(t,a,a+dur)), x=b==null?0:ss(t,b,b+od), op=i*(1-x);
+  el.style.display=op<=.001?'none':''; el.style.opacity=op.toFixed(3);
+  el.style.transform=`translate(${((1-i)*dx).toFixed(1)}px,${((1-i)*dy-x*20).toFixed(1)}px) scale(${lerp(sc,1,i).toFixed(4)})`;
+  el.style.filter=`blur(${((1-i)*blur+x*8).toFixed(2)}px)`;
+}
+for(let i=0;i<23;i++) $('wave').appendChild(document.createElement('span'));
+for(let i=0;i<9;i++) $('vbars').appendChild(document.createElement('span'));
+const SCREENS=['lock','pass','home','settings','acc','vc','cmd','new','action','gest','off'];
+const sEl=Object.fromEntries(SCREENS.map(s=>[s,$('s-'+s)]));
+
+window.renderAt=function(t){
+  // ---------- screens ----------
+  let i=0; while(i<NAV.length-1 && t>=NAV[i+1][0]) i++;
+  const cur=NAV[i], prev=NAV[i-1];
+  SCREENS.forEach(s=>{ const e=sEl[s]; e.style.display='none'; e.style.transform=''; e.style.opacity=''; e.style.filter=''; e.style.zIndex=1; });
+  const p=eo5(lin(t,cur[0],cur[0]+0.42));
+  const C=sEl[cur[1]], Pv=prev?sEl[prev[1]]:null;
+  C.style.display='block';
+  if(Pv && p<1 && prev[1]!==cur[1]){
+    Pv.style.display='block';
+    switch(cur[2]){
+      case 'push': C.style.zIndex=3; C.style.transform=`translateX(${(1-p)*390}px)`; C.style.boxShadow='-8px 0 24px rgba(0,0,0,.15)'; Pv.style.transform=`translateX(${-p*117}px)`; Pv.style.filter=`brightness(${1-p*.15})`; break;
+      case 'pop': Pv.style.zIndex=3; Pv.style.transform=`translateX(${p*390}px)`; C.style.transform=`translateX(${-(1-p)*117}px)`; break;
+      case 'sheet': C.style.zIndex=3; C.style.transform=`translateY(${(1-p)*844}px)`; Pv.style.transform=`scale(${1-p*.06})`; Pv.style.filter=`brightness(${1-p*.4})`; break;
+      case 'unsheet': Pv.style.zIndex=3; Pv.style.transform=`translateY(${p*844}px)`; C.style.transform=`scale(${.94+p*.06})`; C.style.filter=`brightness(${.6+p*.4})`; break;
+      case 'up': Pv.style.zIndex=3; Pv.style.transform=`translateY(${-p*844}px)`; C.style.opacity=p; break;
+      case 'unlock': C.style.zIndex=3; C.style.transform=`scale(${1.25-.25*p})`; C.style.opacity=p; C.style.filter=`blur(${(1-p)*10}px)`; Pv.style.opacity=1-p; Pv.style.transform=`scale(${1-p*.2})`; break;
+      case 'wake': C.style.opacity=p; C.style.filter=`brightness(${.3+.7*p})`; Pv.style.zIndex=0; break;
+      default: C.style.zIndex=3; C.style.opacity=p; }
+  }
+  // scrolls
+  $('c-settings').style.transform=`translateY(${-scr('settings',t)}px)`;
+  $('c-acc').style.transform=`translateY(${-scr('acc',t)}px)`;
+  $('acc-navt').style.opacity=lin(scr('acc',t),40,90);
+  // keyboard only when typing
+  $('kb').style.transform=`translateY(${(t<S(31.0)?0:291)}px)`;
+  // phrase typing
+  const n=TYPE_T.filter(x=>t>=x).length;
+  $('phr').innerHTML = n>0 ? 'promax'.slice(0,n)+(t<S(31)&&Math.floor(t*2.2)%2===0?'<span class="caret"></span>':'') : (t>=S(26.0)&&t<S(31)&&Math.floor(t*2.2)%2===0?'<span class="caret"></span>':'')+'Enter a speakable phrase';
+  $('phr').style.color = n>0?'#000':'#c4c4c7';
+  'promax'.split('').forEach((c,k)=>{ const on=t>=TYPE_T[k]&&t<TYPE_T[k]+0.16; $('k-'+c).classList.toggle('dn',on); });
+  if(n===0) document.querySelectorAll('.kb .k.dn').forEach(e=>e.classList.remove('dn'));
+  $('actv').innerHTML=(t>=S(40.85)?'Run Custom Gesture':'Not Set')+chev;
+  // toggle + voice-control status dot
+  const vcOn=t>=S(45.85); $('tg-vc').classList.toggle('on',vcOn); $('vcdot').style.display=(vcOn||t<5)?'block':'none';
+  // passcode marks drawn
+  CODE.forEach((d,k)=>{ const pr=eo(lin(t,MARK_T[k],MARK_T[k]+0.5)); const path=$('pm'+k).querySelector('path'); path.style.strokeDashoffset=(1-pr).toFixed(3); $('pm'+k).style.opacity=(t>=MARK_T[k]&&t<S(12.6))?1:0;
+    $('gm'+k).style.opacity=1; });
+  // passcode dots + key presses
+  const pressT=t<5?HOOKP:ENDP;
+  const filled=pressT.filter(x=>t>=x).length;
+  document.querySelectorAll('#s-pass .dots i').forEach((e,k)=>e.classList.toggle('f',k<filled && (t<5 || t>=S(53))));
+  CODE.forEach((d,k)=>$('key-'+d).classList.toggle('dn',t>=pressT[k]&&t<pressT[k]+0.18));
+  // gesture progress & tip
+  $('gprog').style.width=(clamp((t-S(36.8))/(S(40.4)-S(36.8)))*100)+'%';
+  $('gtip').style.opacity=t<S(36.9)?1:0;
+  // highlights
+  HLS.forEach(h=>{ const a=lin(t,h.t0,h.t0+.2)*(1-ss(t,h.t1,h.t1+.25)); h.el.style.opacity=a.toFixed(3); h.el.style.transform=`scale(${(lerp(1.08,1,eo(lin(t,h.t0,h.t0+.35)))*(1+.012*Math.sin((t-h.t0)*7))).toFixed(4)})`; });
+  // taps
+  const tapAnim=(o)=>{ const d=t-o.t; const [a,b]=o.els; const on=d>=-0.12&&d<0.5;
+    a.style.left=b.style.left='50%'; a.style.top=b.style.top='50%';
+    if(!on){ a.style.opacity=0; b.style.opacity=0; return; }
+    const ap = d<0 ? lin(d,-0.12,0) : 1-lin(d,0.15,0.4); a.style.opacity=ap; a.style.transform=`scale(${d<0?1.2-0.2*lin(d,-.12,0):1-.15*lin(d,0,.1)})`;
+    const rp=eo(lin(d,0,0.5)); b.style.opacity=(d>=0?(1-rp):0); b.style.transform=`scale(${1+rp*1.8})`; };
+  TAPS.forEach(tapAnim); GT.forEach(tapAnim); PT.forEach(tapAnim);
+  // side button press
+  $('sideBtn').style.transform=`translateX(${(t>=S(48.1)&&t<S(48.35))?-3:0}px)`;
+
+  // ---------- camera ----------
+  let [z,fxp,fyp,ry,rx,lift]=cam(t); if(t>5) lift+=Math.max(0,z-1)*260;
+  ry+=Math.sin(t*0.7)*1.6; rx+=Math.cos(t*0.55)*0.8;
+  const SC=1.4; const lx=(fxp-195)*SC, ly=(fyp-422)*SC;
+  const ph=$('phone'); ph.style.transform=`translate(${(-lx).toFixed(1)}px,${(-ly+lift).toFixed(1)}px) rotateY(${ry.toFixed(2)}deg) rotateX(${rx.toFixed(2)}deg) scale(${z.toFixed(4)})`;
+  ph.style.transformOrigin=`${285+lx}px ${603+ly}px`;
+  $('sheen').style.backgroundPosition=`${(ry*12)}px 0`;
+  $('sheen').style.opacity=.6+.4*Math.sin(t*.8);
+  const outroK=ss(t,S(57.5),S(58.1));
+  $('phoneWrap').style.opacity=(1-outroK).toFixed(3); $('phoneWrap').style.filter=outroK>0?`blur(${outroK*12}px)`:'';
+  const phC={x:540-lx*z*0+0, y:1065+lift-ly*z*0};
+
+  // ---------- background ----------
+  const energy = t<5 ? 1.2 : (t>S(53.5)&&t<S(58)?1.1:0.45);
+  drawBG(t,energy); drawFX(t,{x:540,y:1065+lift*0.5});
+
+  // ---------- overlays ----------
+  // hook: "promax" word + waveform
+  reveal($('word'),t,0.35,1.65,{dy:40,blur:22,sc:1.15,dur:.4,od:.25});
+  [...$('wave').children].forEach((s,k)=>{ const talk=ss(t,0.8,0.9)*(1-ss(t,1.55,1.75)); const h=8+talk*(20+80*Math.abs(Math.sin(t*15+k*0.9))*(0.4+0.6*Math.abs(Math.sin(k*0.37+t*4)))); s.style.height=h.toFixed(1)+'px'; s.style.opacity=.4+.6*talk; });
+  // hook headline
+  const hk=$('hookTxt'); hk.style.display=(t>2.8&&t<5.3)?'':'none';
+  const kin=(el,a)=>{ const q=eo(lin(t,a,a+.42)); el.style.opacity=lin(t,a,a+.12)*(1-ss(t,4.75,5.05)); el.style.transform=`translateY(${(1-q)*60}px) scale(${lerp(1.35,1,q)})`; el.style.filter=`blur(${(1-q)*20+ss(t,4.75,5.05)*12}px)`; };
+  kin($('ha'),2.85); kin($('hb'),3.05); kin($('hc'),3.3);
+  // tutorial intro title
+  reveal($('intro'),t,S(0.3),S(4.6),{dy:40,blur:18,sc:1.1,dur:.5});
+  // progress bar & step card
+  let si=-1; for(let k=0;k<STEPS.length;k++) if(t>=STEPS[k][0]-0.05 && t<STEPS[k][1]+0.35) si=k;
+  const card=$('card');
+  if(si>=0){ const St=STEPS[si]; $('cnum').textContent=St[2]; $('clbl').textContent='مرحله '+FA[si+1]+' از ۹'; $('cttl').innerHTML=St[3];
+    reveal(card,t,St[0],St[1],{dy:0,dx:-80,blur:16,sc:1,dur:.5,od:.3});
+    const nq=eo(lin(t,St[0],St[0]+.55)); $('cnum').style.transform=`translateY(${(1-nq)*-50}px)`; $('cnum').style.opacity=nq;
+  } else card.style.display='none';
+  $('topfade').style.opacity=(si>=0?parseFloat(card.style.opacity||0):0).toFixed(3);
+  const prog=$('prog'); const pa=lin(t,S(5),S(5.4))*(1-ss(t,S(53.7),S(54.1)));
+  prog.style.display=pa>0?'':'none'; prog.style.opacity=pa;
+  { let f=0; STEPS.forEach((St,k)=>{ if(t>=St[0]) f=(k+lin(t,St[0],St[1]))/9; }); $('progi').style.width=(f*100).toFixed(2)+'%'; }
+  // voice chip at the end
+  reveal($('vchip'),t,S(53.85),S(55.9),{dy:30,blur:14,sc:.8,dur:.35});
+  [...$('vbars').children].forEach((s,k)=>{ const talk=ss(t,S(54.05),S(54.15))*(1-ss(t,S(54.65),S(54.85))); s.style.height=(10+talk*(14+46*Math.abs(Math.sin(t*14+k*1.7)))).toFixed(1)+'px'; });
+  reveal($('done'),t,S(56.05),S(57.5),{dy:50,blur:18,sc:.7,dur:.45});
+  // outro
+  const o=$('outro'); o.style.display=t<S(57.6)?'none':'';
+  { const k=ob(lin(t,S(57.75),S(58.35))); const lt=$('logoTile'); lt.style.opacity=lin(t,S(57.75),S(57.9)); lt.style.transform=`perspective(1200px) rotateY(${(1-eo(lin(t,S(57.75),S(58.5))))*-140}deg) scale(${lerp(.3,1,k)})`;
+    reveal($('wm'),t,S(58.25),null,{dy:40,blur:18,sc:1.1,dur:.5});
+    reveal($('o1'),t,S(58.8),null,{dy:40,blur:14,dur:.5});
+    reveal($('o2'),t,S(59.7),null,{dy:40,blur:14,dur:.5}); }
+  // flash
+  const fl=Math.max(Math.max(0,1-Math.abs(t-2.75)/0.12), Math.max(0,1-Math.abs(t-S(56.0))/0.12), Math.max(0,1-Math.abs(t-S(57.8))/0.15)*0.8);
+  $('flash').style.opacity=(fl*0.85).toFixed(3);
+};
+Promise.all([document.fonts.load('900 60px Vazirmatn'),document.fonts.load('800 40px Inter'),...[...document.images].map(im=>im.decode().catch(()=>{}))]).then(()=>document.fonts.ready).then(()=>{window.READY=true});
+</script>
+</body>
+</html>

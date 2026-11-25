@@ -1,0 +1,556 @@
+{
+ "iphone-16": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-16/black-hero.webp",
+    "size": [
+     1475,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-black-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White": {
+   "hero": {
+    "file": "official/apple/iphone-16/white-hero.webp",
+    "size": [
+     1475,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-white-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Pink": {
+   "hero": {
+    "file": "official/apple/iphone-16/pink-hero.webp",
+    "size": [
+     1475,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pink-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Teal": {
+   "hero": {
+    "file": "official/apple/iphone-16/teal-hero.webp",
+    "size": [
+     1475,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-teal-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Ultramarine": {
+   "hero": {
+    "file": "official/apple/iphone-16/ultramarine-hero.webp",
+    "size": [
+     1475,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-ultramarine-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-16-plus": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-16-plus/black-hero.webp",
+    "size": [
+     1331,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-black-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White": {
+   "hero": {
+    "file": "official/apple/iphone-16-plus/white-hero.webp",
+    "size": [
+     1331,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-white-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Pink": {
+   "hero": {
+    "file": "official/apple/iphone-16-plus/pink-hero.webp",
+    "size": [
+     1331,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-pink-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Teal": {
+   "hero": {
+    "file": "official/apple/iphone-16-plus/teal-hero.webp",
+    "size": [
+     1331,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-teal-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Ultramarine": {
+   "hero": {
+    "file": "official/apple/iphone-16-plus/ultramarine-hero.webp",
+    "size": [
+     1331,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-plus-ultramarine-select-202409",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-16-pro": {
+  "Black Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro/black-titanium-hero.webp",
+    "size": [
+     1275,
+     1586
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-blacktitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro/white-titanium-hero.webp",
+    "size": [
+     1275,
+     1586
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-whitetitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Natural Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro/natural-titanium-hero.webp",
+    "size": [
+     1275,
+     1586
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-naturaltitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Desert Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro/desert-titanium-hero.webp",
+    "size": [
+     1274,
+     1585
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-3inch-deserttitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-16-pro-max": {
+  "Black Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro-max/black-titanium-hero.webp",
+    "size": [
+     1271,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-blacktitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro-max/white-titanium-hero.webp",
+    "size": [
+     1271,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-whitetitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Natural Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro-max/natural-titanium-hero.webp",
+    "size": [
+     1271,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-naturaltitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Desert Titanium": {
+   "hero": {
+    "file": "official/apple/iphone-16-pro-max/desert-titanium-hero.webp",
+    "size": [
+     1272,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16-pro-finish-select-202409-6-9inch-deserttitanium",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-16e": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-16e/black-hero.webp",
+    "size": [
+     1304,
+     1593
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16e-finish-select-202502-black",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White": {
+   "hero": {
+    "file": "official/apple/iphone-16e/white-hero.webp",
+    "size": [
+     1304,
+     1593
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-16e-finish-select-202502-white",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-17": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-17/black-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-black-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White": {
+   "hero": {
+    "file": "official/apple/iphone-17/white-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-white-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Mist Blue": {
+   "hero": {
+    "file": "official/apple/iphone-17/mist-blue-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-mistblue-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Sage": {
+   "hero": {
+    "file": "official/apple/iphone-17/sage-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-sage-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Lavender": {
+   "hero": {
+    "file": "official/apple/iphone-17/lavender-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-finish-select-lavender-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-air": {
+  "Space Black": {
+   "hero": {
+    "file": "official/apple/iphone-air/space-black-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-spaceblack-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Cloud White": {
+   "hero": {
+    "file": "official/apple/iphone-air/cloud-white-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-cloudwhite-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Light Gold": {
+   "hero": {
+    "file": "official/apple/iphone-air/light-gold-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-lightgold-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Sky Blue": {
+   "hero": {
+    "file": "official/apple/iphone-air/sky-blue-hero.webp",
+    "size": [
+     914,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-air-finish-select-skyblue-202509",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-17-pro": {
+  "Silver": {
+   "hero": {
+    "file": "official/apple/iphone-17-pro/silver-hero.webp",
+    "size": [
+     1290,
+     1597
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-3inch-silver",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Cosmic Orange": {
+   "hero": {
+    "file": "official/apple/iphone-17-pro/cosmic-orange-hero.webp",
+    "size": [
+     1290,
+     1597
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-3inch-cosmicorange",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Deep Blue": {
+   "hero": {
+    "file": "official/apple/iphone-17-pro/deep-blue-hero.webp",
+    "size": [
+     1290,
+     1597
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-3inch-deepblue",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-17-pro-max": {
+  "Silver": {
+   "hero": {
+    "file": "official/apple/iphone-17-pro-max/silver-hero.webp",
+    "size": [
+     1244,
+     1597
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-9inch-silver",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Cosmic Orange": {
+   "hero": {
+    "file": "official/apple/iphone-17-pro-max/cosmic-orange-hero.webp",
+    "size": [
+     1244,
+     1597
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-9inch-cosmicorange",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Deep Blue": {
+   "hero": {
+    "file": "official/apple/iphone-17-pro-max/deep-blue-hero.webp",
+    "size": [
+     1244,
+     1597
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17-pro-finish-select-202509-6-9inch-deepblue",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-17e": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-17e/black-hero.webp",
+    "size": [
+     1311,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17e-finish-select-black-202603",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "White": {
+   "hero": {
+    "file": "official/apple/iphone-17e/white-hero.webp",
+    "size": [
+     1311,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17e-finish-select-white-202603",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Soft Pink": {
+   "hero": {
+    "file": "official/apple/iphone-17e/soft-pink-hero.webp",
+    "size": [
+     1311,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-17e-finish-select-softpink-202603",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-18-pro": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro/black-hero.webp",
+    "size": [
+     1326,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-black-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Silver": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro/silver-hero.webp",
+    "size": [
+     1326,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-silver-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Glacier": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro/glacier-hero.webp",
+    "size": [
+     1326,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-glacier-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Burgundy": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro/burgundy-hero.webp",
+    "size": [
+     1326,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-finish-select-burgundy-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-18-pro-max": {
+  "Black": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro-max/black-hero.webp",
+    "size": [
+     1307,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-black-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Silver": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro-max/silver-hero.webp",
+    "size": [
+     1307,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-silver-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Glacier": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro-max/glacier-hero.webp",
+    "size": [
+     1307,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-glacier-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Burgundy": {
+   "hero": {
+    "file": "official/apple/iphone-18-pro-max/burgundy-hero.webp",
+    "size": [
+     1307,
+     1600
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-18-pro-max-finish-select-burgundy-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ },
+ "iphone-duo": {
+  "Night Sky": {
+   "hero": {
+    "file": "official/apple/iphone-duo/night-sky-hero.webp",
+    "size": [
+     1984,
+     1289
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-duo-finish-select-night-sky-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  },
+  "Star White": {
+   "hero": {
+    "file": "official/apple/iphone-duo/star-white-hero.webp",
+    "size": [
+     1985,
+     1290
+    ],
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone-duo-finish-select-star-white-202609",
+    "note": "official Apple store image: back + front pair"
+   }
+  }
+ }
+}

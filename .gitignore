@@ -24,3 +24,16 @@ skills-lock.json
 
 .codesk
 .fireside/
+
+# PROMAX reel: keep the editable scripts + plan, never the media
+promax-reel/work/*
+!promax-reel/work/reel.html
+!promax-reel/work/render.js
+!promax-reel/work/audio.py
+promax-reel/output/*
+!promax-reel/output/brag-plan.md
+!promax-reel/work/v2/
+promax-reel/work/v2/*
+!promax-reel/work/v2/index.html
+!promax-reel/work/render2.js
+!promax-reel/work/audio2.py
