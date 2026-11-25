@@ -62,8 +62,8 @@ export async function dataQC(v: Validated, reels: Reel[], xlsx: string): Promise
   // timing
   for (const r of reels) {
     const sum = r.intro + r.outro + r.groups.reduce((a, g) => a + g.durationInFrames, 0);
-    const ok = sum === r.durationInFrames && r.durationInFrames <= T.MAX_SECONDS * r.fps + 1 && r.groups.every((g) => g.durationInFrames === groupFrames(g.variants.length, r.per));
-    checks.push({ check: `single reel 15–45 s (${(r.durationInFrames / r.fps).toFixed(1)} s, ${(r.per / r.fps).toFixed(2)} s per colour)`, status: ok ? 'pass' : 'fail', details: { seconds: r.durationInFrames / r.fps, per_colour_s: r.per / r.fps } });
+    const ok = sum === r.durationInFrames && r.durationInFrames <= (r.voice ? 60 : T.MAX_SECONDS) * r.fps + 1 && r.groups.every((g) => g.durationInFrames === groupFrames(g.variants.length, g.per ?? r.per));
+    checks.push({ check: `single reel 15–${r.voice ? 60 : 45} s (${(r.durationInFrames / r.fps).toFixed(1)} s, ${(r.per / r.fps).toFixed(2)} s per colour)`, status: ok ? 'pass' : 'fail', details: { seconds: r.durationInFrames / r.fps, per_colour_s: r.per / r.fps } });
   }
   return checks;
 }
@@ -75,7 +75,8 @@ export async function fileQC(reel: Reel, file: string): Promise<Check[]> {
   const v = pr.streams.find((s) => s.codec_type === 'video')!, a = pr.streams.find((s) => s.codec_type === 'audio');
   const dur = parseFloat(pr.format.duration);
   const expected = reel.durationInFrames / reel.fps;
-  c.push({ check: 'duration 15–45 s', status: dur <= 45.05 && dur >= 14.95 ? 'pass' : 'fail', details: { seconds: +dur.toFixed(3), expected } });
+  const max = reel.voice ? 60 : 45;
+  c.push({ check: `duration 15–${max} s`, status: dur <= max + 0.05 && dur >= 14.95 ? 'pass' : 'fail', details: { seconds: +dur.toFixed(3), expected } });
   c.push({ check: 'duration matches timeline', status: Math.abs(dur - expected) < 0.1 ? 'pass' : 'fail' });
   c.push({ check: 'encoding H.264 / yuv420p / 1080×1920 / 30 fps', status: v.codec_name === 'h264' && v.pix_fmt === 'yuv420p' && v.width === 1080 && v.height === 1920 && v.r_frame_rate === '30/1' ? 'pass' : 'fail',
     details: { codec: v.codec_name, profile: v.profile, pix_fmt: v.pix_fmt, size: `${v.width}x${v.height}`, fps: v.r_frame_rate, frames: v.nb_frames, bitrate_kbps: Math.round(+pr.format.bit_rate / 1000) } });

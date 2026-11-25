@@ -4,3 +4,4 @@ data/uploads/
 data/validated.json
 *.log
 assets/library/models/
+data/voice/

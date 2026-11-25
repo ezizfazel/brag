@@ -30,7 +30,10 @@ export function buildGroups(products: Product[]): Omit<Group, 'from'>[] {
  * ONE reel for the whole list (15–45 s). The spotlight time per colour is computed so that
  * every model and colour fits; the full colour list of a model is visible for its whole scene.
  */
-export function planReels(v: Pick<Validated, 'products' | 'settings'>): Reel[] {
+/** seconds of voice per scene (intro, each group, outro); scenes stretch so the narrator is never cut off */
+export type VoiceTiming = { intro: number; groups: number[]; outro: number };
+
+export function planReels(v: Pick<Validated, 'products' | 'settings'>, voice?: VoiceTiming): Reel[] {
   const s: Settings = v.settings;
   const fps = s.fps || 30;
   const maxF = Math.min(T.MAX_SECONDS, Math.max(T.MIN_SECONDS, s.reel_duration || T.MAX_SECONDS)) * fps;
@@ -41,9 +44,22 @@ export function planReels(v: Pick<Validated, 'products' | 'settings'>): Reel[] {
   per = Math.max(T.PER_MIN, Math.min(T.PER_MAX, per));
   // reach the 15 s minimum for very short lists
   while (fixed + nV * per < T.MIN_SECONDS * fps && per < 90) per++;
-  let at = T.INTRO;
-  const gs: Group[] = groups.map((g) => { const d = groupFrames(g.variants.length, per); const r = { ...g, durationInFrames: d, from: at }; at += d; return r; });
-  return [{ part: 1, parts: 1, fps, intro: T.INTRO, outro: T.OUTRO, per, groups: gs, durationInFrames: at + T.OUTRO }];
+  const pad = Math.round(0.35 * fps);
+  const intro = voice ? Math.max(T.INTRO, Math.ceil(voice.intro * fps) + pad) : T.INTRO;
+  const outro = voice ? Math.max(T.OUTRO, Math.ceil(voice.outro * fps) + pad) : T.OUTRO;
+  let at = intro;
+  const gs: Group[] = groups.map((g, i) => {
+    let gp = per;
+    if (voice?.groups[i] != null) {
+      // the scene lasts at least as long as its voice line; spread the extra time over the colours
+      const need = Math.ceil(voice.groups[i] * fps) + pad + T.EXIT;
+      gp = Math.max(T.PER_MIN, Math.ceil((need - T.ENTER - T.EXIT) / g.variants.length), voice ? T.PER_MIN : per);
+      gp = Math.max(gp, Math.min(per, gp));
+    }
+    const d = groupFrames(g.variants.length, gp);
+    const r = { ...g, durationInFrames: d, from: at, per: gp }; at += d; return r;
+  });
+  return [{ part: 1, parts: 1, fps, intro, outro, per, groups: gs, durationInFrames: at + outro }];
 }
 
 /** Sound-design cues (seconds) in sync with the composition. */
@@ -54,7 +70,7 @@ export function cuesFor(reel: Reel): Cue[] {
     c.push({ t: f(g.from - 4), type: 'transition', group: gi });
     c.push({ t: f(g.from + 6), type: 'enter', group: gi });
     g.variants.forEach((_, vi) => {
-      const at = g.from + T.ENTER + vi * reel.per;
+      const at = g.from + T.ENTER + vi * (g.per ?? reel.per);
       if (vi > 0) c.push({ t: f(at - 6), type: 'rotate', group: gi });
       c.push({ t: f(at + 4), type: 'price', group: gi });
     });

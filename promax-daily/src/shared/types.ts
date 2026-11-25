@@ -59,6 +59,7 @@ export type Group = {
   condition: string;
   variants: Product[];
   from: number; // frame offset inside the reel
+  per?: number; // frames per colour spotlight in this scene (voice-over timing); falls back to reel.per
   durationInFrames: number;
 };
 
@@ -71,6 +72,7 @@ export type Reel = {
   outro: number;
   per: number; // frames per colour spotlight
   groups: Group[];
+  voice?: { file: string; segments: { scene: string; start: number; end: number; at: number }[] }; // seconds
 };
 
 export type ReelProps = { reel: Reel; settings: Settings; preview?: boolean };

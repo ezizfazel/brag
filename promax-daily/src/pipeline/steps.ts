@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Reel, Validated } from '../shared/types';
 import { cuesFor } from '../shared/plan';
-import { P } from './paths';
+import { P, ROOT } from './paths';
 
 const run = promisify(execFile);
 const PY = process.env.PYTHON || 'python3';
@@ -71,4 +71,38 @@ export async function loudness(file: string) {
   const I = parseFloat((tail.match(/I:\s+(-?[\d.]+) LUFS/) || [])[1]);
   const TP = parseFloat((tail.match(/Peak:\s+(-?[\d.]+) dBFS/) || [])[1]);
   return { integrated_lufs: I, true_peak_dbtp: TP };
+}
+
+export type VoiceFile = { file: string; tempo: number; segments: { start: number; end: number }[] };
+
+/** voice.json for a date (made by python/promax_voice.py from an ElevenLabs take), if present */
+export function loadVoice(date: string): VoiceFile | null {
+  const j = path.join(ROOT, 'data', 'voice', date, 'voice.json');
+  if (!fs.existsSync(j)) return null;
+  const v: VoiceFile = JSON.parse(fs.readFileSync(j, 'utf8'));
+  if (!path.isAbsolute(v.file)) v.file = path.join(ROOT, v.file);
+  return fs.existsSync(v.file) ? v : null;
+}
+
+/** where each voice segment starts (seconds): intro, each group, outro — a beat after its scene cut */
+export function voiceSchedule(reel: Reel, vf: VoiceFile) {
+  const starts = [0.25, ...reel.groups.map((g) => g.from / reel.fps + 0.2), (reel.durationInFrames - reel.outro) / reel.fps + 0.2];
+  const scenes = ['intro', ...reel.groups.map((_, i) => `g${i}`), 'outro'];
+  return vf.segments.map((s, i) => ({ scene: scenes[i], start: s.start, end: s.end, at: +starts[i].toFixed(3) }));
+}
+
+/**
+ * Lay each narration segment on its scene and mix it over the score; the music ducks
+ * (sidechain) under the voice so every price is clearly heard.
+ */
+export async function mixVoice(reel: Reel, vf: VoiceFile, score: string, out: string) {
+  const sched = voiceSchedule(reel, vf);
+  const parts = sched.map((s, i) => `[1:a]atrim=${s.start}:${s.end},asetpts=PTS-STARTPTS,atempo=${vf.tempo},aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d=0.03,adelay=${Math.round(s.at * 1000)}:all=1[v${i}]`);
+  const fc = [...parts,
+    `${sched.map((_, i) => `[v${i}]`).join('')}amix=inputs=${sched.length}:normalize=0,highpass=f=80,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,volume=2.2,apad,asplit=2[vo][sc]`,
+    `[0:a]aresample=48000,aformat=channel_layouts=stereo,volume=0.55[mu]`,
+    `[mu][sc]sidechaincompress=threshold=0.03:ratio=8:attack=15:release=350[duck]`,
+    `[duck][vo]amix=inputs=2:normalize=0:duration=first[a]`].join(';');
+  await run('ffmpeg', ['-y', '-v', 'error', '-i', score, '-i', vf.file, '-filter_complex', fc, '-map', '[a]', '-ar', '48000', out], { maxBuffer: 1 << 26 });
+  return { wav: out, schedule: sched };
 }

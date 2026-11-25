@@ -132,7 +132,7 @@ const short = (m: string) => m.replace(/^iPhone\s+/i, '').replace(/^Galaxy\s+/i,
 
 export const GroupScene: React.FC<{ group: Group; reel: Reel; settings: Settings }> = ({ group, reel, settings }) => {
   const f = useCurrentFrame();
-  const n = group.variants.length, per = reel.per;
+  const n = group.variants.length, per = group.per ?? reel.per;
   const { idx } = devicePose(f, n, per);
   const visuals = group.variants.map(resolveVisual);
   const hexes = group.variants.map(hexOf);

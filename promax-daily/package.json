@@ -14,7 +14,8 @@
     "library": "node src/library/build-library.cjs",
     "import-text": "python3 python/promax_text.py",
     "studio": "remotion studio src/remotion/index.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "voice": "tsx src/cli/voice.ts"
   },
   "dependencies": {
     "@react-three/fiber": "^9.1.2",

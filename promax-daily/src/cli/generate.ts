@@ -8,7 +8,7 @@ import path from 'node:path';
 import { planReels, T } from '../shared/plan';
 import type { Reel, ReelProps } from '../shared/types';
 import { P } from '../pipeline/paths';
-import { concat, makeAudio, muxFinal, muxPreview, validateExcel } from '../pipeline/steps';
+import { concat, loadVoice, makeAudio, mixVoice, muxFinal, muxPreview, validateExcel, voiceSchedule } from '../pipeline/steps';
 import { renderReelStill, renderReelVideo } from '../pipeline/remotion';
 import { dataQC, fileQC, passed, type Check } from '../pipeline/qc';
 
@@ -28,7 +28,13 @@ const s = v.stats;
 log(`products: ${s.active_valid} active · ${s.rejected} rejected · ${s.inactive} inactive · ${s.missing_images} without image · ${s.errors} errors · ${s.warnings} warnings`);
 if (!v.ok) { console.error('No valid active products — nothing to render. See data/validated.json'); process.exit(2); }
 
-const reels = planReels(v);
+const vf = args.includes('--no-voice') ? null : loadVoice(v.settings.update_date);
+const nScenes = planReels(v)[0].groups.length + 2;
+if (vf && vf.segments.length !== nScenes) { console.error(`voice.json has ${vf.segments.length} segments but the reel has ${nScenes} scenes — regenerate the voice (npm run voice) or pass --no-voice`); process.exit(6); }
+const secs = (i: number) => vf ? (vf.segments[i].end - vf.segments[i].start) / vf.tempo : 0;
+const reels = planReels(v, vf ? { intro: secs(0), groups: vf.segments.slice(1, -1).map((_, i) => secs(i + 1)), outro: secs(nScenes - 1) } : undefined);
+if (vf) for (const r of reels) r.voice = { file: vf.file, segments: voiceSchedule(r, vf) };
+log(vf ? `voice-over: ${path.relative(process.cwd(), vf.file)} (×${vf.tempo})` : 'voice-over: none (music only)');
 log(`plan: ${reels.length} reel(s) — ` + reels.map((r) => `part ${r.part}: ${(r.durationInFrames / r.fps).toFixed(1)}s, ${r.groups.reduce((a, g) => a + g.variants.length, 0)} variants`).join(' | '));
 
 const data = await dataQC(v, reels, input);
@@ -63,7 +69,9 @@ for (const reel of reels) {
     onProgress: (p) => { const k = Math.floor(p * 10); if (k !== last) { last = k; log(`part ${reel.part}: ${Math.round(p * 100)}%`); } },
   });
   log(`part ${reel.part}: sound design…`);
-  const { wav, cues } = await makeAudio(reel, path.join(tmp, `part-${nn}.wav`), v.settings.background_music);
+  const score = await makeAudio(reel, path.join(tmp, `part-${nn}.wav`), v.settings.background_music);
+  const cues = score.cues;
+  const wav = vf ? (await mixVoice(reel, vf, score.wav, path.join(tmp, `part-${nn}.vo.wav`))).wav : score.wav;
   if (PREVIEW) {
     previewParts.push(await muxPreview(silent, wav, path.join(tmp, `preview-${nn}.mp4`)));
     continue;
