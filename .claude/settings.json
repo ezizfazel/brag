@@ -1,0 +1,39 @@
+{
+  "enabledPlugins": {
+    "frontend-design@anthropic-plugin-directory": true,
+    "feature-dev@anthropic-plugin-directory": true,
+    "pr-review-toolkit@anthropic-plugin-directory": true,
+    "commit-commands@anthropic-plugin-directory": true,
+    "security-guidance@anthropic-plugin-directory": true,
+    "plugin-dev@anthropic-plugin-directory": true,
+    "agent-sdk-dev@anthropic-plugin-directory": true,
+    "mcp-server-dev@anthropic-plugin-directory": true,
+    "claude-code-setup@anthropic-plugin-directory": true,
+    "claude-md-management@anthropic-plugin-directory": true,
+    "hookify@anthropic-plugin-directory": true,
+    "playwright@anthropic-plugin-directory": true,
+    "context7@anthropic-plugin-directory": true,
+    "typescript-lsp@anthropic-plugin-directory": true,
+    "pyright-lsp@anthropic-plugin-directory": true,
+    "expo@anthropic-plugin-directory": true,
+    "unity@anthropic-plugin-directory": true,
+    "redis-development@anthropic-plugin-directory": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "building-react-native-apps@callstack-agent-skills": true,
+    "testing-react-native-apps@callstack-agent-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    },
+    "callstack-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "callstackincubator/agent-skills"
+      }
+    }
+  }
+}
