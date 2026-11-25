@@ -111,18 +111,14 @@ def header_info(text):
 
 def dedupe_paste(text):
     """A list pasted/sent twice: cut at the first place where the opening lines repeat."""
-    lines = [l for l in text.splitlines()]
-    core = [l.strip() for l in lines if l.strip()]
+    lines = text.splitlines()
+    core_idx = [i for i, l in enumerate(lines) if l.strip()]
+    core = [lines[i].strip() for i in core_idx]
     if len(core) < 6: return text
-    head = core[:3]
-    for k in range(3, len(core) - 2):
-        if core[k:k + 3] == head:
-            # map back to original line index of core[k]
-            cnt, cut = -1, len(lines)
-            for i, l in enumerate(lines):
-                if l.strip(): cnt += 1
-                if cnt == k: cut = i; break
-            return '\n'.join(lines[:cut])
+    for st in range(0, 3):  # the repeat may start at the 1st, 2nd or 3rd line (e.g. a header added on top)
+        head = core[st:st + 3]
+        k = next((j for j in range(st + 3, len(core) - 2) if core[j:j + 3] == head), None)
+        if k is not None: return '\n'.join(lines[:core_idx[k]])
     return text
 
 
