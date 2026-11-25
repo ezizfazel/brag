@@ -64,53 +64,127 @@ def color_for(model, emoji):
     return None
 
 
-LINE = re.compile(r'^\s*(?P<emo>\S*?)\s*(?P<model>(?:iphone\s+)?(?:duo|air|\d{2}\s*(?:pro\s*max|promax|pro|plus|e)?|s\d{2}\s*(?:ultra|plus|\+|fe)?))\s+(?P<rest>.*)$', re.I)
+# colour words → official names to try (only the model's own colours count; >1 match = ambiguous, reported)
+WORDS = {
+    'black': ['Black', 'Space Black', 'Black Titanium', 'Graphite'],
+    'white': ['White', 'Star White', 'Cloud White', 'White Titanium'],
+    'silver': ['Silver', 'Silver Shadow'],
+    'blue': ['Deep Blue', 'Glacier', 'Night Sky', 'Sky Blue', 'Mist Blue', 'Ultramarine', 'Blueberry'],
+    'lightblue': ['Glacier', 'Sky Blue', 'Mist Blue'], 'darkblue': ['Deep Blue', 'Night Sky', 'Blueberry'], 'navy': ['Deep Blue', 'Night Sky', 'Blueberry'],
+    'green': ['Sage', 'Teal', 'Pistachio'], 'purple': ['Lavender', 'Cobalt Violet'], 'violet': ['Cobalt Violet', 'Lavender'],
+    'pink': ['Pink', 'Soft Pink', 'Pink Gold'], 'gold': ['Light Gold', 'Desert Titanium', 'Pink Gold'], 'orange': ['Cosmic Orange'],
+    'red': ['Burgundy'], 'burgundy': ['Burgundy'], 'gray': ['Silver Shadow', 'Graphite', 'Natural Titanium'], 'grey': ['Silver Shadow', 'Graphite', 'Natural Titanium'],
+}
+WHITE_FALLBACK = ['Silver']  # e.g. iPhone 18 Pro has no "White": the shop's 🤍/White = Silver
+
+
+def color_word(model, word):
+    names = {c['name'].lower(): c for c in model['colors']}
+    w = word.strip().lower()
+    if w in names: return names[w], None
+    key = re.sub(r'[^a-z]', '', w)
+    cands = [n for n in WORDS.get(key, []) if n.lower() in names]
+    if not cands and key == 'white': cands = [n for n in WHITE_FALLBACK if n.lower() in names]
+    if len(cands) == 1: return names[cands[0].lower()], None
+    if len(cands) > 1: return None, f'colour «{word}» is ambiguous for {model["name"]} ({", ".join(cands)})'
+    return None, f'colour «{word}» is not an official {model["name"]} colour'
+
+
+def cond_of(text):
+    t = text.lower().replace('-', ' ')
+    if re.search(r'not\s*active|\bnot\b|\bnat\b', t): return 'not'
+    if re.search(r'\bact(ive)?\b', t): return 'act'
+    return ''
+
+
+def header_info(text):
+    """storage / part / condition / eSIM / model found in a header-ish line"""
+    t = re.sub(r'[()\[\]:,]', ' ', text)
+    toks = t.split()
+    st = next((storage(x) for x in toks if storage(x)), None)
+    part = next((PART[x.lower()] for x in toks if x.lower() in PART), '')
+    esim = any(x.lower() == 'esim' for x in toks)
+    rest = ' '.join(x for x in toks if not storage(x) and x.lower() not in PART and x.lower() not in ('esim', 'nat', 'not', 'act', 'active', '-', '—'))
+    model = model_name(rest) if rest.strip() else None
+    return {'storage': st, 'part': part, 'cond': cond_of(text), 'esim': esim, 'model': model, 'rest': rest}
+
+
+def dedupe_paste(text):
+    """A list pasted/sent twice: cut at the first place where the opening lines repeat."""
+    lines = [l for l in text.splitlines()]
+    core = [l.strip() for l in lines if l.strip()]
+    if len(core) < 6: return text
+    head = core[:3]
+    for k in range(3, len(core) - 2):
+        if core[k:k + 3] == head:
+            # map back to original line index of core[k]
+            cnt, cut = -1, len(lines)
+            for i, l in enumerate(lines):
+                if l.strip(): cnt += 1
+                if cnt == k: cut = i; break
+            return '\n'.join(lines[:cut])
+    return text
 
 
 def parse(text):
-    rows, problems, header = [], [], None
-    for ln, raw in enumerate(text.splitlines(), 1):
-        line = raw.translate(FA).replace('‌', ' ').replace('️', '').strip()
-        if not line or set(line) <= set('-_=*•. '): continue
-        emo = next((e for e in EMOJI if line.startswith(e)), '')
-        body = line[len(emo):].strip()
-        m = re.match(r'^(?P<head>.*?)\s*/\s*(?P<price>[\d.,]+)\s*(?P<cond>[a-z]+)?\s*$', body, re.I)
-        price_only = re.fullmatch(r'(?P<price>[\d.,]+)\s*(?P<cond>[a-z]+)?(\s*--\s*(?P<extra>.*))?', body, re.I)
-        if m:
-            head, price, cond = m.group('head'), m.group('price'), (m.group('cond') or '').lower()
-        elif price_only and header and emo:
-            head, price, cond = header['text'], price_only.group('price'), (price_only.group('cond') or header.get('cond', ''))
-            if price_only.group('extra'):  # a per-line note like "--ch nat" overrides the header
-                ex = price_only.group('extra').split()
-                exparts = [t for t in ex if t.lower() in PART]
-                if exparts: head = ' '.join(t for t in head.split() if t.lower() not in PART)
-                head = ' '.join(ex) + ' ' + head
-                cm2 = re.search(r'\b(act|active|not|nat)\b', price_only.group('extra'), re.I)
-                if cm2: cond = cm2.group(1).lower()
-        else:
-            # maybe a header line like "18 pro max ch 256g (Nat)"
-            hm = re.sub(r'[()]', ' ', body)
-            if any(storage(t) for t in hm.split()):
-                cm = re.search(r'\b(act|active|not|nat)\b', hm, re.I)
-                header = {'text': re.sub(r'\b(act|active|not|nat)\b', '', hm, flags=re.I), 'cond': cm.group(1).lower() if cm else ''}
-            elif not re.fullmatch(r'[A-Za-z\s]*', body):
-                problems.append({'line': ln, 'text': raw.strip(), 'reason': 'not a price line'})
-            continue
-        toks = re.sub(r'[()]', ' ', head).split()
-        st = next((storage(t) for t in toks if storage(t)), None)
-        part = next((PART[t.lower()] for t in toks if t.lower() in PART), '')
-        esim = any(t.lower() == 'esim' for t in toks)
-        mtxt = ' '.join(t for t in toks if not storage(t) and t.lower() not in PART and t.lower() not in ('esim', 'nat', 'not', 'act', 'active'))
-        model = model_name(mtxt)
-        if not model: problems.append({'line': ln, 'text': raw.strip(), 'reason': f'unknown model «{mtxt}»'}); continue
-        if not st: problems.append({'line': ln, 'text': raw.strip(), 'reason': 'storage missing'}); continue
-        col = color_for(model, emo) if emo else None
-        if not col: problems.append({'line': ln, 'text': raw.strip(), 'reason': f'colour emoji «{emo or "-"}» does not match an official {model["name"]} colour'}); continue
+    text = dedupe_paste(text)
+    rows, problems = [], []
+    ctx = {'model': None, 'storage': None, 'part': '', 'cond': '', 'esim': False}
+    seen = {}
+    def emit(ln, raw, model, st, part, cond, esim, col, price):
         p = price.replace(',', '').replace('٬', '')
         if re.fullmatch(r'\d{1,3}(\.\d{3})+', p): p = p.replace('.', '')
-        if not re.fullmatch(r'\d+', p): problems.append({'line': ln, 'text': raw.strip(), 'reason': f'price «{price}» unreadable'}); continue
+        if not re.fullmatch(r'\d+', p): problems.append({'line': ln, 'text': raw, 'reason': f'price «{price}» unreadable'}); return
+        key = (model['name'], st, part, cond, col['name'])
+        if key in seen:
+            if seen[key] != int(p): problems.append({'line': ln, 'text': raw, 'reason': f'same item listed twice with different prices ({seen[key]:,} / {int(p):,})'})
+            return  # exact repeat (pasted twice) → ignored
+        seen[key] = int(p)
         rows.append({'line': ln, 'brand': model['brand'], 'series': ('iPhone Duo' if model['id'] == 'iphone-duo' else model['series']), 'model': model['name'],
-                     'storage': st, 'color': col['name'], 'hex': col['hex'], 'part': part, 'price': int(p), 'cond': COND.get(cond, ''), 'esim': esim, 'emoji': emo, 'raw': raw.strip()})
+                     'storage': st, 'color': col['name'], 'hex': col['hex'], 'part': part, 'price': int(p), 'cond': COND.get(cond, ''), 'esim': esim, 'raw': raw})
+    for ln, raw0 in enumerate(text.splitlines(), 1):
+        raw = raw0.strip()
+        line = raw.translate(FA).replace('‌', ' ').replace('️', '').strip().lstrip('-•*').strip()
+        if not line: continue
+        if set(line) <= set('-_=*•. —'):  # separator: the next block starts fresh
+            ctx = {'model': None, 'storage': None, 'part': '', 'cond': '', 'esim': False}; continue
+        emo = next((e for e in EMOJI if line.startswith(e)), '')
+        body = line[len(emo):].strip()
+        # A) one-line format: "💙iphone Duo 512g zaa Esim/714200 act"
+        m = re.match(r'^(?P<head>.*?\S)\s*/\s*(?P<price>[\d.,]+)\s*(?P<cond>[a-z ]+)?$', body, re.I)
+        if m and emo:
+            h = header_info(m.group('head') + ' ' + (m.group('cond') or ''))
+            model = h['model'] or ctx['model']
+            if not model: problems.append({'line': ln, 'text': raw, 'reason': 'model not recognised'}); continue
+            if not h['storage']: problems.append({'line': ln, 'text': raw, 'reason': 'storage missing'}); continue
+            col = color_for(model, emo)
+            if not col: problems.append({'line': ln, 'text': raw, 'reason': f'emoji «{emo}» is not an official {model["name"]} colour'}); continue
+            emit(ln, raw, model, h['storage'], h['part'], h['cond'], h['esim'], col, m.group('price')); continue
+        # B) price line under a header: "🩵485,500", "⚪️404,000--ch nat", "Black: 470,000"
+        pe = re.fullmatch(r'(?P<price>[\d.,]+)\s*(?:--\s*(?P<extra>.*))?', body, re.I) if emo else None
+        pw = None if emo else re.fullmatch(r'(?P<word>[A-Za-z][A-Za-z \-]*?)\s*[:：]\s*(?P<price>[\d.,]+)\s*(?:--\s*(?P<extra>.*))?', body)
+        if pe or pw:
+            pm = pe or pw
+            if not ctx['model']: problems.append({'line': ln, 'text': raw, 'reason': 'price line before any model name — which model is this?'}); continue
+            if not ctx['storage']: problems.append({'line': ln, 'text': raw, 'reason': 'no storage given for this block'}); continue
+            part, cond = ctx['part'], ctx['cond']
+            if pm.group('extra'):
+                ex = header_info(pm.group('extra'))
+                part = ex['part'] or part; cond = ex['cond'] or cond
+            if pe: col, err = color_for(ctx['model'], emo), None; err = None if col else f'emoji «{emo}» is not an official {ctx["model"]["name"]} colour'
+            else: col, err = color_word(ctx['model'], pw.group('word'))
+            if err: problems.append({'line': ln, 'text': raw, 'reason': err}); continue
+            emit(ln, raw, ctx['model'], ctx['storage'], part, cond, ctx['esim'], col, pm.group('price')); continue
+        # C) header lines: model only ("iPhone 17 Pro Max"), block ("256GB ZAA (Not Active)") or both ("iPhone Duo 256GB ZAA Active eSIM")
+        h = header_info(body)
+        if h['model'] and not h['storage']:
+            ctx = {'model': h['model'], 'storage': None, 'part': '', 'cond': '', 'esim': False}; continue
+        if h['storage']:
+            if h['model']: ctx['model'] = h['model']
+            elif h['rest'].strip():
+                problems.append({'line': ln, 'text': raw, 'reason': f'unknown model «{h["rest"].strip()}»'}); ctx['model'] = None
+            ctx.update({'storage': h['storage'], 'part': h['part'], 'cond': h['cond'], 'esim': h['esim']}); continue
+        problems.append({'line': ln, 'text': raw, 'reason': 'not understood'})
     return rows, problems
 
 
