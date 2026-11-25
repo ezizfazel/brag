@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { Reel, Validated } from '../shared/types';
 import { cuesFor } from '../shared/plan';
+import { modelRuns } from '../shared/voice';
 import { P, ROOT } from './paths';
 
 const run = promisify(execFile);
@@ -86,8 +87,9 @@ export function loadVoice(date: string): VoiceFile | null {
 
 /** where each voice segment starts (seconds): intro, each group, outro — a beat after its scene cut */
 export function voiceSchedule(reel: Reel, vf: VoiceFile) {
-  const starts = [0.25, ...reel.groups.map((g) => g.from / reel.fps + 0.2), (reel.durationInFrames - reel.outro) / reel.fps + 0.2];
-  const scenes = ['intro', ...reel.groups.map((_, i) => `g${i}`), 'outro'];
+  const runs = modelRuns(reel.groups);
+  const starts = [0.25, ...runs.map(([i]) => reel.groups[i].from / reel.fps + 0.2), (reel.durationInFrames - reel.outro) / reel.fps + 0.2];
+  const scenes = ['intro', ...runs.map((_, k) => `m${k}`), 'outro'];
   return vf.segments.map((s, i) => ({ scene: scenes[i], start: s.start, end: s.end, at: +starts[i].toFixed(3) }));
 }
 
@@ -97,7 +99,7 @@ export function voiceSchedule(reel: Reel, vf: VoiceFile) {
  */
 export async function mixVoice(reel: Reel, vf: VoiceFile, score: string, out: string) {
   const sched = voiceSchedule(reel, vf);
-  const parts = sched.map((s, i) => `[1:a]atrim=${s.start}:${s.end},asetpts=PTS-STARTPTS,atempo=${vf.tempo},aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d=0.03,adelay=${Math.round(s.at * 1000)}:all=1[v${i}]`);
+  const parts = sched.map((s, i) => `[1:a]atrim=${s.start}:${s.end},asetpts=PTS-STARTPTS,${vf.tempo !== 1 ? `atempo=${vf.tempo},` : ''}aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d=0.03,adelay=${Math.round(s.at * 1000)}:all=1[v${i}]`);
   const fc = [...parts,
     `${sched.map((_, i) => `[v${i}]`).join('')}amix=inputs=${sched.length}:normalize=0,highpass=f=80,acompressor=threshold=-20dB:ratio=3:attack=5:release=120,volume=2.2,apad,asplit=2[vo][sc]`,
     `[0:a]aresample=48000,aformat=channel_layouts=stereo,volume=0.55[mu]`,

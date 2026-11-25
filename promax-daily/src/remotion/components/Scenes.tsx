@@ -65,6 +65,24 @@ export const Hud: React.FC<{ reel: Reel; settings: Settings }> = ({ reel, settin
 };
 
 // ---------------------------------------------------------------- INTRO
+/** one phone per family in today's list (Samsung, each iPhone generation, foldable Duo), varied colours */
+function introLineup(reel: Reel) {
+  const fam = (g: Reel['groups'][number]) => g.brand === 'Samsung' ? 'samsung' : /duo|fold|flip/i.test(g.model) ? 'fold' : (g.model.match(/\d+/)?.[0] ?? g.model);
+  const seen = new Map<string, Reel['groups'][number][]>();
+  for (const g of reel.groups) { const k = fam(g); if (!seen.has(k)) seen.set(k, []); seen.get(k)!.push(g); }
+  const used = new Set<string>();
+  const picks = [...seen.values()].slice(0, 4).map((gs) => {
+    const vs = gs.flatMap((g) => g.variants).map((p) => ({ p, v: resolveVisual(p) })).filter((x) => x.v.hero || x.v.back);
+    const pick = vs.find((x) => !/black/i.test(x.p.color) && !used.has(x.p.color)) ?? vs.find((x) => !used.has(x.p.color)) ?? vs[0];
+    if (pick) used.add(pick.p.color);
+    return pick?.v;
+  }).filter((v): v is NonNullable<typeof v> => !!v);
+  // newest flagship in the middle
+  if (picks.length === 4) return [picks[1], picks[0], picks[2], picks[3]];
+  if (picks.length === 3) return [picks[1], picks[0], picks[2]];
+  return picks;
+}
+
 export const Intro: React.FC<{ reel: Reel; settings: Settings }> = ({ reel, settings }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -75,7 +93,7 @@ export const Intro: React.FC<{ reel: Reel; settings: Settings }> = ({ reel, sett
   const exit = interpolate(f, [reel.intro - 10, reel.intro], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
   const d = faDate(settings.update_date);
   // fan of real devices from today's list
-  const firsts = reel.groups.slice(0, 3).map((g) => resolveVisual(g.variants[0])).filter((v) => v.hero || v.back);
+  const firsts = introLineup(reel);
   return (
     <AbsoluteFill style={{ opacity: 1 - exit, transform: `translateY(${-exit * 80}px)`, filter: `blur(${exit * 10}px)` }}>
       <div style={{ position: 'absolute', left: 540 - 260, top: 520 - 260 + 20, width: 520, height: 520, borderRadius: '50%', border: `3px solid ${C.blue}`, opacity: (1 - ring) * 0.8, transform: `scale(${0.4 + ring * 1.4})` }} />
@@ -90,9 +108,10 @@ export const Intro: React.FC<{ reel: Reel; settings: Settings }> = ({ reel, sett
       </div>
       {firsts.map((v, i) => {
         const k = interpolate(f, [18 + i * 5, 40 + i * 5], [0, 1], { ...clamp, easing: out });
-        const x = [-300, 0, 300][i] ?? 0, r = [-12, 0, 12][i] ?? 0;
+        const n = firsts.length, step = n > 3 ? 230 : 300;
+        const x = (i - (n - 1) / 2) * step, r = (i - (n - 1) / 2) * (n > 3 ? 9 : 12);
         return <Img key={i} src={staticFile((v.hero || v.back)!)} style={{ position: 'absolute', left: 540 - 170 + x, top: 1120 + (1 - k) * 260 + Math.abs(x) * 0.12, height: 400, width: 340, objectFit: 'contain', opacity: k,
-          transform: `rotate(${r}deg)`, filter: 'drop-shadow(0 30px 30px rgba(6,20,38,.18))', zIndex: i === 1 ? 2 : 1 }} />;
+          transform: `rotate(${r}deg)`, filter: 'drop-shadow(0 30px 30px rgba(6,20,38,.18))', zIndex: 10 - Math.round(Math.abs(i - (firsts.length - 1) / 2) * 2) }} />;
       })}
     </AbsoluteFill>
   );

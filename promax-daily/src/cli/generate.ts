@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { planReels, T } from '../shared/plan';
+import { modelRuns } from '../shared/voice';
 import type { Reel, ReelProps } from '../shared/types';
 import { P } from '../pipeline/paths';
 import { concat, loadVoice, makeAudio, mixVoice, muxFinal, muxPreview, validateExcel, voiceSchedule } from '../pipeline/steps';
@@ -29,10 +30,18 @@ log(`products: ${s.active_valid} active · ${s.rejected} rejected · ${s.inactiv
 if (!v.ok) { console.error('No valid active products — nothing to render. See data/validated.json'); process.exit(2); }
 
 const vf = args.includes('--no-voice') ? null : loadVoice(v.settings.update_date);
-const nScenes = planReels(v)[0].groups.length + 2;
-if (vf && vf.segments.length !== nScenes) { console.error(`voice.json has ${vf.segments.length} segments but the reel has ${nScenes} scenes — regenerate the voice (npm run voice) or pass --no-voice`); process.exit(6); }
-const secs = (i: number) => vf ? (vf.segments[i].end - vf.segments[i].start) / vf.tempo : 0;
-const reels = planReels(v, vf ? { intro: secs(0), groups: vf.segments.slice(1, -1).map((_, i) => secs(i + 1)), outro: secs(nScenes - 1) } : undefined);
+const base = planReels(v)[0];
+const runs = modelRuns(base.groups);
+const nScenes = runs.length + 2;
+if (vf && vf.segments.length !== nScenes) { console.error(`voice.json has ${vf.segments.length} lines but the reel has ${nScenes} (intro + ${runs.length} models + outro) — regenerate the voice (npm run voice) or pass --no-voice`); process.exit(6); }
+const secs = (i: number) => vf ? (vf.segments[i].end - vf.segments[i].start) / vf.tempo + 0.25 : 0;
+// a model line spans that model's scenes: share its seconds by colour count
+const perGroup = vf ? base.groups.map((g, gi) => {
+  const k = runs.findIndex(([a, b]) => gi >= a && gi <= b); const [a, b] = runs[k];
+  const tot = base.groups.slice(a, b + 1).reduce((n, x) => n + x.variants.length, 0);
+  return (secs(k + 1) * g.variants.length) / tot;
+}) : [];
+const reels = planReels(v, vf ? { intro: secs(0), groups: perGroup, outro: secs(nScenes - 1) } : undefined);
 if (vf) for (const r of reels) r.voice = { file: vf.file, segments: voiceSchedule(r, vf) };
 log(vf ? `voice-over: ${path.relative(process.cwd(), vf.file)} (×${vf.tempo})` : 'voice-over: none (music only)');
 log(`plan: ${reels.length} reel(s) — ` + reels.map((r) => `part ${r.part}: ${(r.durationInFrames / r.fps).toFixed(1)}s, ${r.groups.reduce((a, g) => a + g.variants.length, 0)} variants`).join(' | '));

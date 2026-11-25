@@ -158,7 +158,7 @@ def parse(text):
             emit(ln, raw, model, h['storage'], h['part'], h['cond'], h['esim'], col, m.group('price')); continue
         # B) price line under a header: "🩵485,500", "⚪️404,000--ch nat", "Black: 470,000"
         pe = re.fullmatch(r'(?P<price>[\d.,]+)\s*(?:--\s*(?P<extra>.*))?', body, re.I) if emo else None
-        pw = None if emo else re.fullmatch(r'(?P<word>[A-Za-z][A-Za-z \-]*?)\s*[:：]\s*(?P<price>[\d.,]+)\s*(?:--\s*(?P<extra>.*))?', body)
+        pw = None if emo else re.fullmatch(r'(?P<word>[A-Za-z][A-Za-z \-]*?)\s*[^\w\s:：.,]*\s*[:：]\s*(?P<price>[\d.,]+)\s*(?:--\s*(?P<extra>.*))?', body)
         if pe or pw:
             pm = pe or pw
             if not ctx['model']: problems.append({'line': ln, 'text': raw, 'reason': 'price line before any model name — which model is this?'}); continue

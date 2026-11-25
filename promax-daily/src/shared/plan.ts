@@ -52,9 +52,8 @@ export function planReels(v: Pick<Validated, 'products' | 'settings'>, voice?: V
     let gp = per;
     if (voice?.groups[i] != null) {
       // the scene lasts at least as long as its voice line; spread the extra time over the colours
-      const need = Math.ceil(voice.groups[i] * fps) + pad + T.EXIT;
-      gp = Math.max(T.PER_MIN, Math.ceil((need - T.ENTER - T.EXIT) / g.variants.length), voice ? T.PER_MIN : per);
-      gp = Math.max(gp, Math.min(per, gp));
+      const need = Math.ceil(voice.groups[i] * fps) + T.EXIT;
+      gp = Math.max(per, Math.ceil((need - T.ENTER - T.EXIT) / g.variants.length));
     }
     const d = groupFrames(g.variants.length, gp);
     const r = { ...g, durationInFrames: d, from: at, per: gp }; at += d; return r;
